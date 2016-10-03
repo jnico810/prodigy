@@ -12,6 +12,7 @@
       * TrackLyrics
       * TracksCommentForm
     * AnnotationContainer
+      * AnnotationVoteForm
       * AnnotationForm
       * AnnotationContent
       * AnnotationCommentForm
