@@ -21,7 +21,10 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
+description | sting     | not null
+album_art   | string    | not null
 lyrics      | text      | not null
+locked      | boolean   | not null, default: false
 author_id   | integer   | not null, foreign key (references users), indexed
 artist_id   | integer   | not null, foreign key (references artists), indexed
 
@@ -31,6 +34,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 track_id    | integer   | not null, foreign key (references tracks), indexed
+startIndex  | integer   | not null
+endIndex    | integer   | not null
 body        | string    | not null
 score       | interger  | not null
 
@@ -51,7 +56,7 @@ track_id    | integer   | not null, foreign key (references tracks), indexed, un
 author_id   | integer   | not null, foreign key (references users), indexed
 
 
-## annotation_upvotes
+## annotation_votes
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
