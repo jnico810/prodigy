@@ -19,19 +19,13 @@ Prodigy is a web application inspired by Genius built using Ruby on Rails and Re
 ## Design Docs
 
 
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api_endpoints]
-* [DB schema][schema]
-* [Redux Structure][redux_structure]
-* [Sample State][sample_state]
+* [View Wireframes](wireframes)
+* [React Components](react_components.md)
+* [API Endpoints](api_endpoints.md)
+* [DB Schema](schema.md)
+* [Redux Structure](redux_structure.md)
+* [Sample State](sample_state.md)
 
-[wireframes]: docs/wireframes
-[components]: docs/react_components.md
-[redux_structure]: docs/redux_structure.md
-[sample_state]: docs/sample_state.md
-[api_endpoints]: docs/api_endpoints.md
-[schema]: docs/schema.md
 
 
 ##Implementation Timeline
