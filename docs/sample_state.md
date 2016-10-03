@@ -1,3 +1,4 @@
+```js
 {
   currentUser: {
     id: 1,
@@ -41,7 +42,7 @@
         3 : { "i miss you elliott <3" },
       }, lyrics: {
 
-        text: "
+        text: `
         Drink up, baby, stay up all night
         With the things you could do, you won't but you might
         The potential you'll be, that you'll never see
@@ -72,7 +73,8 @@
         People you've been before that you
         Don't want around anymore
         That push and shove and won't bend to your will
-        I'll keep them still"
+        I'll keep them still`
     }
   }
 }
+```
