@@ -84,7 +84,8 @@ Prodigy is a web application inspired by Genius built using Ruby on Rails and Re
     - [ ] Create Comment `onSubmit`
     - [ ] Style form and comments for lyrics
     - [ ] `AnnotationVote` model/migration
-    - [ ] Add
+    - [ ] Add upvote/downvotes to `AnnotationVote`
+    - [ ] Style buttons
     - [ ] Review phase 5
 
   ### Phase 6: Search and Final Styling (1 day)
