@@ -15,15 +15,15 @@ export const login = (user) => ({
 });
 
 export const logout = () => ({
-  type: SIGNUP
+  type: LOGOUT
 });
 
 export const receiveCurrentUser = (currentUser) => ({
-  type: SIGNUP,
+  type: RECEIVE_CURRENT_USER,
   currentUser
 });
 
 export const receiveErrors = (errors) => ({
-  type: SIGNUP,
+  type: RECEIVE_ERRORS,
   errors
 });

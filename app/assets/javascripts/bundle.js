@@ -58,6 +58,10 @@
 	
 	var SESSION_UTILS = _interopRequireWildcard(_session_api_util);
 	
+	var _session_actions = __webpack_require__(190);
+	
+	var ACTIONS = _interopRequireWildcard(_session_actions);
+	
 	var _store = __webpack_require__(173);
 	
 	var _store2 = _interopRequireDefault(_store);
@@ -73,13 +77,13 @@
 	        null,
 	        'Welcome to Prodigyds'
 	    ), root);
-	    window.login = SESSION_UTILS.login;
-	    window.signup = SESSION_UTILS.signup;
-	    window.logout = SESSION_UTILS.logout;
+	    window.login = ACTIONS.login;
+	    window.signup = ACTIONS.signup;
+	    window.logout = ACTIONS.logout;
 	    window.success = function (data) {
 	        return console.log(data);
 	    };
-	    window.user1 = { user: { username: 'john2', email: 'john2', score: 100, password: 'starwars' } };
+	    window.user1 = { user: { username: 'john3', email: 'john3', score: 100, password: 'starwars' } };
 	    window.store = (0, _store2.default)();
 	});
 
@@ -21504,12 +21508,16 @@
 	
 	var _root_reducer2 = _interopRequireDefault(_root_reducer);
 	
+	var _root_middleware = __webpack_require__(275);
+	
+	var _root_middleware2 = _interopRequireDefault(_root_middleware);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var configureStore = function configureStore() {
 	  var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
-	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState);
+	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState, _root_middleware2.default);
 	};
 	
 	exports.default = configureStore;
@@ -22431,6 +22439,8 @@
 	      return { currentUser: action.currentUser, errors: [] };
 	    case _session_actions.RECEIVE_ERRORS:
 	      return { currentUser: null, errors: action.errors };
+	    case _session_actions.LOGOUT:
+	      return { currentUser: null, errors: [] };
 	    default:
 	      return state;
 	  }
@@ -22469,20 +22479,20 @@
 	
 	var logout = exports.logout = function logout() {
 	  return {
-	    type: SIGNUP
+	    type: LOGOUT
 	  };
 	};
 	
 	var receiveCurrentUser = exports.receiveCurrentUser = function receiveCurrentUser(currentUser) {
 	  return {
-	    type: SIGNUP,
+	    type: RECEIVE_CURRENT_USER,
 	    currentUser: currentUser
 	  };
 	};
 	
 	var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
 	  return {
-	    type: SIGNUP,
+	    type: RECEIVE_ERRORS,
 	    errors: errors
 	  };
 	};
@@ -25052,6 +25062,74 @@
 	
 	module.exports = isIterateeCall;
 
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _session_actions = __webpack_require__(190);
+	
+	var _session_api_util = __webpack_require__(172);
+	
+	var sessionMiddleware = function sessionMiddleware(_ref) {
+	  var getState = _ref.getState;
+	  var dispatch = _ref.dispatch;
+	  return function (next) {
+	    return function (action) {
+	      var success = function success(user) {
+	        return dispatch((0, _session_actions.receiveCurrentUser)(user));
+	      };
+	      var error = function error(_error) {
+	        return dispatch((0, _session_actions.receiveErrors)(_error.responseJSON));
+	      };
+	      switch (action.type) {
+	        case _session_actions.LOGIN:
+	          (0, _session_api_util.login)(action.user, success, error);
+	          return next(action);
+	        case _session_actions.LOGOUT:
+	          (0, _session_api_util.logout)(function () {
+	            return next(action);
+	          });
+	          break;
+	        case _session_actions.SIGNUP:
+	          (0, _session_api_util.signup)(action.user, success, error);
+	          return next(action);
+	        default:
+	          return next(action);
+	      }
+	    };
+	  };
+	};
+	
+	exports.default = sessionMiddleware;
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(174);
+	
+	var _session_middleware = __webpack_require__(274);
+	
+	var _session_middleware2 = _interopRequireDefault(_session_middleware);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var RootMiddleware = (0, _redux.applyMiddleware)(_session_middleware2.default);
+	
+	exports.default = RootMiddleware;
 
 /***/ }
 /******/ ]);

@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    # debugger
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       login(@user)
@@ -15,7 +14,6 @@ class Api::SessionsController < ApplicationController
     current_user.reset_session_token!
     session[:session_token] = nil
     current_user = nil
-    debugger
     render json: {}
   end
 end
