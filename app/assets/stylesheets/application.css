@@ -45,27 +45,27 @@ body {
  }
  .header-search {
    float:left;
-   display:block;
+   position: relative;
+   display:inline-block;
    padding: 10px 20px;
  }
 
  .header a {
-   display: block;
+   display:inline-block;
    padding: 10px 20px;
  }
 
  .header-logo {
-   font-size:20px;
+   font-size:16px;
    font-family: sans-serif;
-   display: table-cell;
-    vertical-align: middle;;
-   left: -50%; /* or right 50% */
-   text-align: left;
+   width:200px;
+   margin: 0 auto;
+   text-align: center;
  }
 
  .header-list{
    float: right;
-   display:block;
+   display:inline-block;
  }
 
  .header-list li {

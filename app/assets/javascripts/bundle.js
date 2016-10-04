@@ -31759,7 +31759,7 @@
 	          'search_bar'
 	        ),
 	        _react2.default.createElement(
-	          'h1',
+	          'a',
 	          { className: 'header-logo' },
 	          'PRODIGY'
 	        ),
@@ -31786,7 +31786,7 @@
 	          'search_bar'
 	        ),
 	        _react2.default.createElement(
-	          'h1',
+	          'a',
 	          { className: 'header-logo' },
 	          'PRODIGY'
 	        ),
