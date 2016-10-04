@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
@@ -30,8 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'newrelic_rpm'
-gem 'rails_12factor'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
