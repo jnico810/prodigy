@@ -7,7 +7,7 @@ export const requestAllTracks = (success, error) => {
   });
 };
 
-export const requestOneTrack = (track, success, error) => {
+export const requestTrack = (track, success, error) => {
   $.ajax({
     method: "GET",
     url: `/api/tracks/${track.id}`,

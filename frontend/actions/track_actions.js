@@ -23,7 +23,7 @@ export const receiveTrack = (track) => ({
   track
 });
 
-export const creatTrack = (track) => ({
+export const createTrack = (track) => ({
   type: CREATE_TRACK,
   track
 });

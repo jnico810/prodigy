@@ -9,6 +9,12 @@ const defaultState = {
 
 const tracks = (state = defaultState, action) => {
   switch (action.type){
+    case RECEIVE_ALL_TRACKS:
+      return {tracks: action.tracks, error: []};
+    case RECEIVE_TRACK:
+      return {tracks: action.track, errors:[]};
+    case RECEIVE_ERRORS:
+      return {tracks: {}, errors:action.errors};
     default:
       return state;
   }

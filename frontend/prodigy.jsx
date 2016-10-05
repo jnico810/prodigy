@@ -19,8 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       store = configureStore();
     }
-
-    window.requestAllTracks = TRACK_ACTIONS.requestAllTracks;
+    window.newTrack = { track:{title: "NEW",
+    description:"DECRIPTION",
+    lyrics:"LYRICS",
+    artist_id: 5,
+    author_id: 4}};
+    window.createTrack = TRACK_ACTIONS.createTrack;
     window.store = store;
     Modal.setAppElement(document.body);
     ReactDOM.render(<Root store={ store }></Root>, root);
