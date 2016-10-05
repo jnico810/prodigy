@@ -5,19 +5,19 @@ const ModalStyle = {
     left            : 0,
     right           : 0,
     bottom          : 0,
-    backgroundColor : '#000',
-    // opacity         : 0.5
+    backgroundColor : 'rgba(0, 0, 0, 0.50)',
+    zIndex          : 10
   },
   content : {
     margin: '0 auto',
     width           : '480px',
-    height          : '400px',
+    padding         :0,
+    height          : '350px',
     top             : '100px',
-    padding         : '20px',
-    borderRadius    : '2px',
-    border          : '1px solid #444',
+    borderRadius    : '4px',
+    border          : '2px solid #444',
     backgroundColor : '#292929',
-    opacity         : 1
+    zIndex          : 11
   }
 };
 

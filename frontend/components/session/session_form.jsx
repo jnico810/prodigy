@@ -29,11 +29,11 @@ class SessionForm extends React.Component {
   render(){
     let header, link, errors;
     if (this.props.formType === '/login'){
-      header = 'Login';
-      link = (<p>If you don't have an account, please <a onClick={ this.props.openModal.bind(this, "/signup")}>sign up</a> here!</p>);
+      header = 'LOGIN';
+      link = (<p >Don't have an account? <a onClick={ this.props.openModal.bind(this, "/signup")}>Sign up here.</a></p>);
     } else if (this.props.formType === '/signup'){
       header = 'SIGN UP';
-      link = (<p>If you already have an account, please <a onClick={ this.props.openModal.bind(this, "/login")}>sign up</a> here!</p>);
+      link = (<p>Already have an account?  <a onClick={ this.props.openModal.bind(this, "/login")}>Sign in here.</a></p>);
     }
     if (this.props.errors.length > 0){
 
@@ -44,16 +44,15 @@ class SessionForm extends React.Component {
     }
 
     return(
-      <div >
-        <h1> { header } </h1>
+      <div className= "modal-content" >
+        <button className= "modal-close" onClick={ this.props.closeModal }>X</button>
+        <h1 className="modal-header"> { header } </h1>
         { errors }
-        <form onSubmit={ this.handleSubmit }>
-          <label> Username:
-            <input type="text" onChange={ this.handleUpdate("username") }/>
-          </label>
-          <label> Password:
-            <input type="text" onChange={ this.handleUpdate("password") }/>
-          </label>
+        <form className="modal-form" onSubmit={ this.handleSubmit }>
+          <label> Username</label>
+          <input type="text" onChange={ this.handleUpdate("username") }/>
+          <label> Password</label>
+          <input type="text" onChange={ this.handleUpdate("password") }/>
           <input type='submit' />
         </form>
         { link }

@@ -62,6 +62,7 @@ class Header extends React.Component {
             <SessionFormContainer
               location={ { pathname:this.state.formType} }
               openModal={ this.openModal }
+              closeModal={ this.closeModal }
               />
             <button onClick= {this.closeModal}></button>
           </Modal>

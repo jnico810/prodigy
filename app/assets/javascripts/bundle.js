@@ -31606,30 +31606,28 @@
 	          link = void 0,
 	          errors = void 0;
 	      if (this.props.formType === '/login') {
-	        header = 'Login';
+	        header = 'LOGIN';
 	        link = _react2.default.createElement(
 	          'p',
 	          null,
-	          'If you don\'t have an account, please ',
+	          'Don\'t have an account? ',
 	          _react2.default.createElement(
 	            'a',
 	            { onClick: this.props.openModal.bind(this, "/signup") },
-	            'sign up'
-	          ),
-	          ' here!'
+	            'Sign up here.'
+	          )
 	        );
 	      } else if (this.props.formType === '/signup') {
 	        header = 'SIGN UP';
 	        link = _react2.default.createElement(
 	          'p',
 	          null,
-	          'If you already have an account, please ',
+	          'Already have an account?  ',
 	          _react2.default.createElement(
 	            'a',
 	            { onClick: this.props.openModal.bind(this, "/login") },
-	            'sign up'
-	          ),
-	          ' here!'
+	            'Sign in here.'
+	          )
 	        );
 	      }
 	      if (this.props.errors.length > 0) {
@@ -31652,10 +31650,15 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'modal-content' },
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'modal-close', onClick: this.props.closeModal },
+	          'X'
+	        ),
 	        _react2.default.createElement(
 	          'h1',
-	          null,
+	          { className: 'modal-header' },
 	          ' ',
 	          header,
 	          ' '
@@ -31663,19 +31666,19 @@
 	        errors,
 	        _react2.default.createElement(
 	          'form',
-	          { onSubmit: this.handleSubmit },
+	          { className: 'modal-form', onSubmit: this.handleSubmit },
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            ' Username:',
-	            _react2.default.createElement('input', { type: 'text', onChange: this.handleUpdate("username") })
+	            ' Username'
 	          ),
+	          _react2.default.createElement('input', { type: 'text', onChange: this.handleUpdate("username") }),
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            ' Password:',
-	            _react2.default.createElement('input', { type: 'text', onChange: this.handleUpdate("password") })
+	            ' Password'
 	          ),
+	          _react2.default.createElement('input', { type: 'text', onChange: this.handleUpdate("password") }),
 	          _react2.default.createElement('input', { type: 'submit' })
 	        ),
 	        link
@@ -31878,7 +31881,8 @@
 	            { isOpen: this.state.modalOpen, onRequestClose: this.closeModal, style: _modal_style2.default },
 	            _react2.default.createElement(_session_form_container2.default, {
 	              location: { pathname: this.state.formType },
-	              openModal: this.openModal
+	              openModal: this.openModal,
+	              closeModal: this.closeModal
 	            }),
 	            _react2.default.createElement('button', { onClick: this.closeModal })
 	          )
@@ -33852,18 +33856,19 @@
 	    left: 0,
 	    right: 0,
 	    bottom: 0,
-	    backgroundColor: '#000'
+	    backgroundColor: 'rgba(0, 0, 0, 0.50)',
+	    zIndex: 10
 	  },
 	  content: {
 	    margin: '0 auto',
 	    width: '480px',
-	    height: '400px',
+	    padding: 0,
+	    height: '350px',
 	    top: '100px',
-	    padding: '20px',
-	    borderRadius: '2px',
-	    border: '1px solid #444',
+	    borderRadius: '4px',
+	    border: '2px solid #444',
 	    backgroundColor: '#292929',
-	    opacity: 1
+	    zIndex: 11
 	  }
 	};
 	
