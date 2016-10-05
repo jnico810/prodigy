@@ -4,8 +4,8 @@ import { login, signup } from '../../actions/session_actions';
 
 const mapStateToProps = ({ session }) => {
   const loggedIn = session.currentUser ? true : false;
-  return {loggedIn: loggedIn, errors: session.errors}
-}
+  return {loggedIn: loggedIn, errors: session.errors};
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(signup(user));
       }
     }
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

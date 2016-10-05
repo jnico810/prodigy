@@ -14,9 +14,10 @@
  *= require_self
  */
 
- html, body, header, nav, h1, a, ul, li,
+/*CLEAR FIX*/
+html, body, header, nav, h1, a, ul, li,
 strong, main, section, img, div, h2, p,
-form, fieldset, label, input, textarea,
+form, fieldset, label, textarea,
 button, article, footer, small {
   margin: 0;
   padding: 0;
@@ -33,52 +34,80 @@ button, article, footer, small {
 
 body {
   box-sizing: content-box;
-  font-family: sans-serif;
-  font-size: 16px;
   line-height: 1.1666666666;
   background-color: #ffff64;
   color: black;
+  font: 13px/1.7 helvetica, sans-serif;
 }
 
- .header {
-   background-color: lightgreen;
- }
- .header-search {
-   float:left;
-   position: relative;
-   display:inline-block;
-   padding: 10px 20px;
- }
+input,
+{
+	margin:0;
+	border:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
 
- .header a {
-   display:inline-block;
-   padding: 10px 20px;
- }
+	/* Browsers have different default form fonts */
+	font-size:13px;
+	font-family:Arial;
+}
 
- .header-logo {
-   font-size:16px;
-   font-family: sans-serif;
-   width:200px;
-   margin: 0 auto;
-   text-align: center;
- }
+.header {
+  border: 1px solid red;
+}
 
- .header-list{
-   float: right;
-   display:inline-block;
- }
+.header-list a {
+  display:block;
+  padding: 5px;
+  font: 13px/1.7 helvetica, sans-serif;
+}
 
- .header-list li {
-   display:block;
-   float:left;
- }
- .header-nav {
-   margin: auto;
-   width: 100%;
- }
+.header-search {
+  float: left;
+  display: block;
+  width: 200px;
+  padding: 2px;
+  margin: 5px
+}
 
- .cf:after {
-   content:"";
-   clear:both;
-   display:block;
- }
+.header-logo-container {
+  position: fixed;
+  left: 50%;
+}
+.header-logo {
+  font: 23px/1.7 helvetica, sans-serif;
+  font-weight: bold;
+  color: #ffff64;
+  text-shadow: -2px 2px black;
+  position: relative;
+  right: 50%;
+  letter-spacing: 3px;
+  text-align: center;
+
+}
+
+.header-list{
+  float: right;
+  display:block;
+}
+
+.header-list li {
+  display:block;
+  float:left;
+}
+
+.header-welcome {
+  display:block;
+  padding: 5px;
+  font: 13px/1.7 helvetica, sans-serif;
+}
+
+.cf:after {
+  content:"";
+  clear:both;
+  display:block;
+}

@@ -26,16 +26,14 @@ class SessionForm extends React.Component {
     }
 	}
 
-
   render(){
     let header, link, errors;
-
     if (this.props.formType === '/login'){
       header = 'Login';
-      link = (<p>If you don't have an account, please <Link to="/signup">signup</Link> here!</p>);
+      link = (<p>If you don't have an account, please <a onClick={ this.props.openModal.bind(this, "/signup")}>sign up</a> here!</p>);
     } else if (this.props.formType === '/signup'){
-      header = 'Signup';
-      link = (<p>If you already have an account, please <Link to="/login">login</Link> here!</p>);
+      header = 'SIGN UP';
+      link = (<p>If you already have an account, please <a onClick={ this.props.openModal.bind(this, "/login")}>sign up</a> here!</p>);
     }
     if (this.props.errors.length > 0){
 
@@ -46,7 +44,7 @@ class SessionForm extends React.Component {
     }
 
     return(
-      <div>
+      <div >
         <h1> { header } </h1>
         { errors }
         <form onSubmit={ this.handleSubmit }>

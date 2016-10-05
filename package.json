@@ -30,6 +30,7 @@
     "lodash": "^4.16.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
@@ -39,7 +40,7 @@
     "esversion": 6
   },
   "engines": {
-  "node": "6.2.1",
-  "npm": "3.9.3"
-}
+    "node": "6.2.1",
+    "npm": "3.9.3"
+  }
 }

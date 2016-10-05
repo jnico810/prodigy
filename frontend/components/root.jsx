@@ -5,6 +5,7 @@ import App from './app';
 import SessionFormContainer from './session/session_form_container'
 import HeaderContainer from './header/header_container';
 
+
 const Root = ({ store }) => {
 
   const _redirectIfLogginIn = (nextState, replace) => {
