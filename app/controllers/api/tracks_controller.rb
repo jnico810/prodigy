@@ -5,13 +5,12 @@ class Api::TracksController < ApplicationController
   end
 
   def show
-    @track = Track.find_by(title: title)
+    @track = Track.find(params[:id])
   end
 
   def create
     @track = Track.new(track_params)
     if @track.save
-      login(@track)
       render :show
     else
       render json: @track.errors.full_messages, status: 422
@@ -21,6 +20,7 @@ class Api::TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :description, :lyrics, :artist_id, :author_id)
+    params.require(:track).permit(
+    :title, :description, :lyrics, :artist_id, :author_id)
   end
 end

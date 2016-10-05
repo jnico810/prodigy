@@ -1,30 +1,27 @@
-export const receiveAllTracks = (user, success, error) => {
+export const requestAllTracks = (success, error) => {
   $.ajax({
-    method: "POST",
-    data: user,
-    url: "/api/users",
+    method: "GET",
+    url: "/api/tracks",
     success,
     error
   });
 };
 
-export const receiveOneTrack = (success, error) => {
+export const requestTrack = (track, success, error) => {
   $.ajax({
-    method: "DELETE",
-    url: "/api/session",
-    success,
-    error
-  });
-
-export const createTrack = (user, success, error) => {
-  $.ajax({
-    method: "POST",
-    data: user,
-    url: "/api/session",
+    method: "GET",
+    url: `/api/tracks/${track.id}`,
     success,
     error
   });
 };
 
-
+export const createTrack = (track, success, error) => {
+  $.ajax({
+    method: "POST",
+    data: track,
+    url: "/api/tracks",
+    success,
+    error
+  });
 };
