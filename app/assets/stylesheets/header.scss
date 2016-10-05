@@ -1,6 +1,5 @@
 .header {
   height:40px;
-  // border: 1px solid red;
 }
 
 .header-list a {
@@ -19,7 +18,7 @@
 }
 
 .header-logo-container {
-  position: fixed;
+  position: absolute;
   left: 50%;
 }
 .header-logo {

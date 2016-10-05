@@ -24,3 +24,4 @@ class Api::TracksController < ApplicationController
     params.require(:track).permit(
     :title, :description, :lyrics, :artist_id, :author_id)
   end
+end
