@@ -18,7 +18,6 @@ export const login = (user, success, error) => {
   });
 };
 
-
 export const logout = (success, error) => {
   $.ajax({
     method: "DELETE",

@@ -91,11 +91,8 @@
 	  } else {
 	    store = (0, _store2.default)();
 	  }
-	
 	  _reactModal2.default.setAppElement(document.body);
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
-	
-	  window.user1 = { user: { username: 'john3', email: 'john3', score: 100, password: 'starwars' } };
 	});
 
 /***/ },
@@ -25189,23 +25186,22 @@
 	    _react2.default.createElement(
 	      _reactRouter.Router,
 	      { history: _reactRouter.hashHistory },
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: '/', component: _app2.default },
-	        _react2.default.createElement(_reactRouter.Route, {
-	          path: 'login',
-	          component: _session_form_container2.default,
-	          onEnter: _redirectIfLogginIn
-	        }),
-	        _react2.default.createElement(_reactRouter.Route, {
-	          path: 'signup',
-	          component: _session_form_container2.default,
-	          onEnter: _redirectIfLogginIn
-	        })
-	      )
+	      _react2.default.createElement(_reactRouter.Route, { path: '/', component: _app2.default })
 	    )
 	  );
 	};
+	
+	// <Route
+	//   path="login"
+	//   component={SessionFormContainer}
+	//   onEnter= { _redirectIfLogginIn }
+	//   />
+	// <Route
+	//   path="signup"
+	//   component={SessionFormContainer}
+	//   onEnter= { _redirectIfLogginIn }
+	//   />
+	
 	
 	exports.default = Root;
 
@@ -31477,6 +31473,10 @@
 	
 	var _header_container2 = _interopRequireDefault(_header_container);
 	
+	var _nav = __webpack_require__(373);
+	
+	var _nav2 = _interopRequireDefault(_nav);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = function App(_ref) {
@@ -31486,6 +31486,7 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(_header_container2.default, null),
+	    _react2.default.createElement(_nav2.default, null),
 	    children
 	  );
 	};
@@ -33873,6 +33874,42 @@
 	};
 	
 	exports.default = ModalStyle;
+
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(286);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Nav = function Nav() {
+	  return _react2.default.createElement(
+	    'nav',
+	    { className: 'main-nav' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'main-nav-newsong' },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/new_track' },
+	        'ADD SONG'
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = Nav;
 
 /***/ }
 /******/ ]);

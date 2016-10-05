@@ -1,0 +1,50 @@
+.header {
+  height:40px;
+  // border: 1px solid red;
+}
+
+.header-list a {
+  display:block;
+  padding: 9px;
+  font: 13px/1.7 helvetica, sans-serif;
+}
+
+.header-search {
+  float: left;
+  display: block;
+  width: 200px;
+  padding: 2px;
+  margin: 11px
+}
+
+.header-logo-container {
+  position: fixed;
+  left: 50%;
+}
+.header-logo {
+  font: 23px/1.7 helvetica, sans-serif;
+  font-weight: bold;
+  color: #ffff64;
+  text-shadow: -2px 2px black;
+  position: relative;
+  right: 50%;
+  letter-spacing: 3px;
+  text-align: center;
+
+}
+
+.header-list{
+  float: right;
+  display:block;
+}
+
+.header-list li {
+  display:block;
+  float:left;
+}
+
+.header-welcome {
+  display:block;
+  padding: 5px;
+  font: 13px/1.7 helvetica, sans-serif;
+}

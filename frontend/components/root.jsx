@@ -17,22 +17,22 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history= { hashHistory }>
         <Route path="/" component={ App }>
-          <Route
-            path="login"
-            component={SessionFormContainer}
-            onEnter= { _redirectIfLogginIn }
-            />
-          <Route
-            path="signup"
-            component={SessionFormContainer}
-            onEnter= { _redirectIfLogginIn }
-            />
       </Route>
     </Router>
   </Provider>
   )
 };
 
+// <Route
+//   path="login"
+//   component={SessionFormContainer}
+//   onEnter= { _redirectIfLogginIn }
+//   />
+// <Route
+//   path="signup"
+//   component={SessionFormContainer}
+//   onEnter= { _redirectIfLogginIn }
+//   />
 
 
 export default Root;

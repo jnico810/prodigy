@@ -6,5 +6,4 @@ const configureStore = (preloadedState = {}) => {
   return createStore(RootReducer, preloadedState, RootMiddleware);
 };
 
-
 export default configureStore;

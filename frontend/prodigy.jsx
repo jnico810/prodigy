@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       store = configureStore();
     }
-
     Modal.setAppElement(document.body);
     ReactDOM.render(<Root store={ store }></Root>, root);
-
-    window.user1 = {user:{ username:'john3', email:'john3', score:100, password:'starwars'}};
-
 });
