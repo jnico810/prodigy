@@ -4,9 +4,9 @@
 #
 #  id              :integer          not null, primary key
 #  username        :string           not null
-#  email           :string           not null
+#  email           :string
 #  password_digest :string           not null
-#  score           :integer          not null
+#  score           :integer          default(0), not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :tracks
 
   after_initialize :ensure_sessiontoken
 

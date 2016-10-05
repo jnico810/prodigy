@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 10.times do |num|
   User.create!(
   username: "u#{num}",
@@ -14,6 +13,18 @@
   email: Faker::Internet.email,
   score: Faker::Number.between(1, 10))
 end
-
-
 User.create(username:'john', email:'john', score:100, password:'starwars')
+
+10.times do |num|
+  Artist.create!(name: "a#{num}")
+end
+
+
+10.times do |num|
+  Track.create!(
+  title: "t#{num}",
+  description:"d#{num}",
+  lyrics:"l#{num}",
+  artist_id: num + 1,
+  author_id: num + 1)
+end

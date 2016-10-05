@@ -25191,18 +25191,6 @@
 	  );
 	};
 	
-	// <Route
-	//   path="login"
-	//   component={SessionFormContainer}
-	//   onEnter= { _redirectIfLogginIn }
-	//   />
-	// <Route
-	//   path="signup"
-	//   component={SessionFormContainer}
-	//   onEnter= { _redirectIfLogginIn }
-	//   />
-	
-	
 	exports.default = Root;
 
 /***/ },
