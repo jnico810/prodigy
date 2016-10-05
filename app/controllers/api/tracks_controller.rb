@@ -1,5 +1,13 @@
 class Api::TracksController < ApplicationController
 
+  def index
+    @tracks = Track.all
+  end
+
+  def show
+    @track = Track.find_by(title: title)
+  end
+
   def create
     @track = Track.new(track_params)
     if @track.save

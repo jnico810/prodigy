@@ -31815,15 +31815,19 @@
 	              'li',
 	              { className: 'header-welcome' },
 	              'Welcome ',
-	              this.props.currentUser.username,
-	              ' to Prodigy!'
+	              _react2.default.createElement(
+	                'strong',
+	                null,
+	                this.props.currentUser.username
+	              ),
+	              '!'
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              null,
 	              _react2.default.createElement(
 	                'a',
-	                { onClick: this.handleLogOut },
+	                { className: 'header-logout', onClick: this.handleLogOut },
 	                'Log out'
 	              )
 	            )

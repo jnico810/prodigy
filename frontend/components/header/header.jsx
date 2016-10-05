@@ -42,8 +42,8 @@ class Header extends React.Component {
           </div>
 
           <ul className="header-list cf">
-            <li className="header-welcome">Welcome {this.props.currentUser.username} to Prodigy!</li>
-            <li><a onClick={ this.handleLogOut }>Log out</a></li>
+            <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}</strong>!</li>
+            <li><a className="header-logout" onClick={ this.handleLogOut }>Log out</a></li>
           </ul>
         </header>
       );

@@ -14,7 +14,8 @@
   display: block;
   width: 200px;
   padding: 2px;
-  margin: 11px
+  margin: 11px;
+  cursor:pointer;
 }
 
 .header-logo-container {
@@ -45,6 +46,14 @@
 
 .header-welcome {
   display:block;
-  padding: 5px;
+  padding: 9px;
   font: 13px/1.7 helvetica, sans-serif;
+}
+
+.header-welcome strong {
+  font-weight: bold;
+}
+
+.header a {
+  cursor: pointer;
 }
