@@ -36,10 +36,6 @@ class SessionForm extends React.Component {
       link = (<p>Already have an account?  <a onClick={ this.props.openModal.bind(this, "/login")}>Sign in here.</a></p>);
     }
     if (this.props.errors.length > 0){
-
-      // const errorLi = this.props.errors.map((e) => {
-      //   return <li>{ e }</li>;
-      // });
       errors = <ul className="modal-errors"> { this.props.errors[0] } </ul>;
     }
 

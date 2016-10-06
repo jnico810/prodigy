@@ -7,7 +7,7 @@ const mapStateToProps = ({ session, tracks }) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createTrack: (track) => dispatch(createTrack(track))
+  createTrack: (track, callback) => dispatch(createTrack(track, callback))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackForm);

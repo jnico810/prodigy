@@ -12,7 +12,7 @@ const ModalStyle = {
     top             : '100px',
     left            : 0,
     right           : 0,
-    bottom          : '300px',
+    bottom          : '250px',
     margin          : 'auto',
     width           : '480px',
     padding         : 0,

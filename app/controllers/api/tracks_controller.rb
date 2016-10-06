@@ -13,7 +13,6 @@ class Api::TracksController < ApplicationController
     if !artist
       artist = Artist.create(name: track_params[:artist])
     end
-
     @track = Track.new(
       title: track_params[:title],
       album: track_params[:album],

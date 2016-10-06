@@ -24,12 +24,13 @@ export const receiveTrack = (track) => ({
   track
 });
 
-export const createTrack = (track) => ({
+export const createTrack = (track, callback) => ({
   type: CREATE_TRACK,
-  track
+  track,
+  callback
 });
 
-export const receiveTrackErrors = (track) => ({
+export const receiveTrackErrors = (errors) => ({
   type: RECEIVE_TRACK_ERRORS,
-  track
+  errors
 });

@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_TRACKS, RECEIVE_TRACK } from '../actions/track_actions';
-import { RECEIVE_TRACK_ERRORS } from '../actions/session_actions';
+import { RECEIVE_TRACK_ERRORS } from '../actions/track_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {

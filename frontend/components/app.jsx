@@ -4,11 +4,12 @@ import Nav from './nav/nav';
 
 
 const App = ({ children }) => {
-  return (<div>
-    <HeaderContainer/>
-    <Nav/>
-    { children }
-  </div>);
+  return (
+    <main>
+      <HeaderContainer/>
+      <Nav/>
+      { children }
+    </main>);
 }
 
 

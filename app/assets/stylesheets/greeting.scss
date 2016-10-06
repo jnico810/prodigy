@@ -1,0 +1,21 @@
+.greeting {
+  margin:20px 0 0 0;
+  padding-bottom: 40px;
+  border-bottom: 5px solid #ff1464;
+}
+
+.greeting-content{
+  width:80%;
+  margin: auto;
+  text-align: center;
+}
+
+.greeting h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 35px;
+}
+
+.greeting strong {
+  color: #ff1464;
+  cursor: pointer;
+}

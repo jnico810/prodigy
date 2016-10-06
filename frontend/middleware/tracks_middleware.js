@@ -15,7 +15,10 @@ const tracksMiddleware = ({ getState, dispatch}) => next => action => {
       API.requestTrack(action.track, success, error);
       return next(action);
     case CREATE_TRACK:
-      success = (track) => dispatch(receiveTrack(track));
+      success = (track) => {
+        dispatch(receiveTrack(track));
+        action.callback();
+      };
       API.createTrack(action.track, success, error);
       return next(action);
     default:
