@@ -6,11 +6,18 @@ import TrackFormContainer from './tracks/track_form_container'
 
 const Root = ({ store }) => {
 
+  const _redirectIfNotLogginIn = (nextState, replace) => {
+  // debugger
+  if (!store.getState().session.currentUser){
+    replace('/');
+  }
+};
+
   return (
     <Provider store={store}>
       <Router history= { hashHistory }>
         <Route path="/" component={ App }>
-          <Route path="/new_track" component={ TrackFormContainer }/>
+          <Route path="/new_track" component={ TrackFormContainer } onEnter= {_redirectIfNotLogginIn}/>
         </Route>
     </Router>
   </Provider>

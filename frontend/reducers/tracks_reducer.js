@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_TRACKS, RECEIVE_TRACK } from '../actions/track_actions';
-import { RECEIVE_ERRORS } from '../actions/session_actions';
+import { RECEIVE_TRACK_ERRORS } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -13,7 +13,7 @@ const tracks = (state = defaultState, action) => {
       return {tracks: action.tracks, error: []};
     case RECEIVE_TRACK:
       return {tracks: action.track, errors:[]};
-    case RECEIVE_ERRORS:
+    case RECEIVE_TRACK_ERRORS:
       return {tracks: {}, errors:action.errors};
     default:
       return state;

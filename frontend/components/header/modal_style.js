@@ -9,15 +9,18 @@ const ModalStyle = {
     zIndex          : 10
   },
   content : {
-    margin: '0 auto',
-    width           : '480px',
-    padding         :0,
-    height          : '350px',
     top             : '100px',
+    left            : 0,
+    right           : 0,
+    bottom          : '100px',
+    margin          : 'auto',
+    width           : '480px',
+    padding         : 0,
     borderRadius    : '4px',
     border          : '2px solid #444',
     backgroundColor : '#292929',
-    zIndex          : 11
+    zIndex          : 11,
+    overflow: 'hidden'
   }
 };
 

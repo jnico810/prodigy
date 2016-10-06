@@ -8,18 +8,19 @@ class TrackForm extends React.Component {
     this.state = {artist: '', title: '', lyrics: '', description: '', album: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    window.tracks= this;
   }
 
   handleSubmit(e){
     e.preventDefault();
-    debugger
     const track = this.state;
     this.props.createTrack({ track });
   }
 
   handleUpdate(prop) {
-
-    return (e) => (this.setState({[prop]: e.currentTarget.value}));
+    return (e) => {
+      this.setState({[prop]: e.currentTarget.value});
+    };
   }
 
   componentDidUpdate() {
@@ -29,7 +30,6 @@ class TrackForm extends React.Component {
 	}
 
   render(){
-
     let errors;
     if (this.props.errors.length > 0){
       const errorLi = this.props.errors.map((e) => {
@@ -51,7 +51,7 @@ class TrackForm extends React.Component {
             <label>TITLE*</label>
             <input type="text" onChange={ this.handleUpdate("title") }/>
             <label>LYRICS*</label>
-            <textarea onChange={ this.handleUpdate("lryics") }></textarea>
+            <textarea onChange={ this.handleUpdate("lyrics") }></textarea>
             <label>DESCRIPTION</label>
             <input type="text" onChange={ this.handleUpdate("description") }/>
             <label>ALBUM</label>

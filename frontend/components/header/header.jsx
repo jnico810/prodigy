@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session/session_form_container';
 import ModalStyle from './modal_style';
@@ -13,6 +13,7 @@ class Header extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
+    this.handleLogoClick = this.handleLogoClick.bind(this);
   }
 
   closeModal(){
@@ -27,6 +28,10 @@ class Header extends React.Component {
     this.setState({ modalOpen: false, formType: "" });
   }
 
+  handleLogoClick() {
+    hashHistory.push("/");
+  }
+
   clearSearch(e) {
     e.preventDefault();
     e.currentTarget.value = "";
@@ -38,7 +43,7 @@ class Header extends React.Component {
         <header className="header cf">
           <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
           <div className="header-logo-container">
-            <a className="header-logo">PRODIGY</a>
+            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
           </div>
 
           <ul className="header-list cf">
@@ -52,7 +57,7 @@ class Header extends React.Component {
         <header className="header cf">
           <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
           <div className="header-logo-container">
-            <a className="header-logo">PRODIGY</a>
+            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
           </div>
           <ul className="header-list cf">
             <li><a onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>

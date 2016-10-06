@@ -1,4 +1,5 @@
 export const RECEIVE_ALL_TRACKS = 'RECEIVE_ALL_TRACKS';
+export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const REQUEST_ALL_TRACKS = 'REQUEST_ALL_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const REQUEST_TRACK = 'REQUEST_TRACK';
@@ -25,5 +26,10 @@ export const receiveTrack = (track) => ({
 
 export const createTrack = (track) => ({
   type: CREATE_TRACK,
+  track
+});
+
+export const receiveTrackErrors = (track) => ({
+  type: RECEIVE_TRACK_ERRORS,
   track
 });
