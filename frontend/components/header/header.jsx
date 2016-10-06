@@ -17,7 +17,6 @@ class Header extends React.Component {
   }
 
   closeModal(){
-    debugger
     this.setState({ modalOpen: false, formType: "" });
   }
   openModal(type){

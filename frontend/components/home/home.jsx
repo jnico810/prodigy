@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Greeting from './greeting';
+import TracksIndexContainer from '../tracks/tracks_index_container.js';
 
 class Home extends React.Component {
 
@@ -12,10 +13,10 @@ class Home extends React.Component {
     return(
       <section>
         <Greeting/>
+        <TracksIndexContainer/>
       </section>
     );
   }
 }
 
-// <TrackIndexContainer/>
 export default Home;

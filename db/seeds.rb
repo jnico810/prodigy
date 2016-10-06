@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-10.times do |num|
+100.times do |num|
   User.create!(
   username: "u#{num}",
   password: 'starwars',
@@ -15,12 +15,12 @@
 end
 User.create(username:'john', email:'john', score:100, password:'starwars')
 
-10.times do |num|
+1000.times do |num|
   Artist.create!(name: "a#{num}")
 end
 
 
-10.times do |num|
+100.times do |num|
   Track.create!(
   title: "t#{num}",
   description:"d#{num}",

@@ -35,7 +35,7 @@ button, article, footer, small {
 body {
   box-sizing: content-box;
   line-height: 1.1666666666;
-  background-color: #ffff64;
+  background-color: white;
   color: black;
   font: 13px/1.7 helvetica, sans-serif;
 }
