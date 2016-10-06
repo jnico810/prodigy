@@ -15,9 +15,9 @@
  */
 
 /*CLEAR FIX*/
-html, body, header, nav, h1, a, ul, li,
+html, body, header, nav, h1, h3, a, ul, li,
 strong, main, section, img, div, h2, p,
-form, fieldset, label, textarea,
+form, fieldset, label,
 button, article, footer, small {
   margin: 0;
   padding: 0;

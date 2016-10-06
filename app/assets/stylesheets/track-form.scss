@@ -1,0 +1,63 @@
+.track-form-content-wrapper {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: black;
+  font-size: 16px;
+}
+
+
+.track-form-content {
+  width: 70%;
+  margin: auto;
+}
+
+.track-form-content h1 {
+  margin: 10px 0px;
+  font-size: 34px;
+  text-align: left;
+}
+
+.track-form-content h3 {
+  font-size: 18px;
+
+}
+
+.track-form-content small {
+  padding-top: 2px;
+  color: rgb(204, 204, 204);
+  float:right;
+}
+
+.track-form {
+  border-top: 1px solid rgba(204, 204, 204, 0.5);
+  padding-bottom: 50px;
+}
+
+
+.track-form label {
+  display:block;
+  margin: 10px 0px 0px 10px;
+  color: rgba(204, 204, 204, 0.5);
+}
+
+.track-form textarea {
+  margin-left: 10px;
+  width: 400px;
+  height: 400px;
+  padding: 3px;
+  font-size: 16px;
+  resize: none;
+}
+
+.track-form input[type="text"] {
+  margin-left: 10px;
+  width: 400px;
+  font-size: 16px;
+  padding: 3px;
+}
+
+.track-form input[type="submit"] {
+  display: block;
+  margin: 10px 0px 0px 10px;
+  padding: 3px;
+}
