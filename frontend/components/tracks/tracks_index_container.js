@@ -5,8 +5,4 @@ const mapStateToProps = ({ tracks }) => ({
   tracks
 });
 
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   requestAllTracks: () => dispatch(requestAllTracks())
-// });
-
 export default connect(mapStateToProps)(TrackIndex);

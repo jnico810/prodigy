@@ -1,3 +1,39 @@
 .track-index-content {
   background-color: white;
+  text-align: center;
+  width: 1400;
+  margin: auto;
+}
+
+.track-index-list{
+  display: inline;
+}
+
+.track-list-item{
+  border: 1px solid red;
+  width: 350px;
+  background-color: black;
+
+  float:left;
+  display:inline-block;
+  height:600px;
+  margin: 0px 5px 20px 5px
+}
+
+.track-list-item-album-art {
+  position:relative;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+.track-list-item-album-art img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+
 }
