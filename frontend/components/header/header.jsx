@@ -17,6 +17,7 @@ class Header extends React.Component {
   }
 
   closeModal(){
+    debugger
     this.setState({ modalOpen: false, formType: "" });
   }
   openModal(type){
@@ -69,7 +70,6 @@ class Header extends React.Component {
               openModal={ this.openModal }
               closeModal={ this.closeModal }
               />
-            <button onClick= {this.closeModal}></button>
           </Modal>
         </header>
       );

@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 
   componentDidUpdate() {
 		if (this.props.loggedIn){
-      hashHistory.push("/");
+      // hashHistory.push("/");
     }
 	}
 
@@ -37,10 +37,10 @@ class SessionForm extends React.Component {
     }
     if (this.props.errors.length > 0){
 
-      const errorLi = this.props.errors.map((e) => {
-        return <li>{ e }</li>;
-      });
-      errors = <ul> { errorLi } </ul>;
+      // const errorLi = this.props.errors.map((e) => {
+      //   return <li>{ e }</li>;
+      // });
+      errors = <ul className="modal-errors"> { this.props.errors[0] } </ul>;
     }
 
     return(
@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
           <input type="text" onChange={ this.handleUpdate("username") }/>
           <label> Password</label>
           <input type="text" onChange={ this.handleUpdate("password") }/>
-          <input type='submit' />
+          <input type='submit'/>
         </form>
         { link }
       </div>
