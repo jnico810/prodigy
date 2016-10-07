@@ -17,7 +17,7 @@ class TrackIndex extends React.Component {
       for (let track in tracks) {
         const url = `/tracks/${track}`;
         trackLis.push(
-        <TrackIndexItem track={tracks[track]} url={url}/>
+        <TrackIndexItem key={track} track={tracks[track]} url={url}/>
         );
       }
 
@@ -27,7 +27,7 @@ class TrackIndex extends React.Component {
         </section>
       );
     } else{
-      return(<section> NOPE </section>);
+      return(<section> </section>);
     }
   }
 

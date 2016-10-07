@@ -3,6 +3,8 @@ import { Link, hashHistory } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session/session_form_container';
 import ModalStyle from './modal_style';
+import Nav from '../nav/nav';
+
 
 class Header extends React.Component {
 
@@ -38,31 +40,18 @@ class Header extends React.Component {
   }
 
   render() {
+    let rightOfHeader;
     if (this.props.currentUser){
-      return(
-        <header className="header cf">
-          <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
-          <div className="header-logo-container">
-            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
-          </div>
-
-          <ul className="header-list cf">
-            <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}</strong>!</li>
-            <li><a className="header-logout" onClick={ this.handleLogOut }>Log out</a></li>
-          </ul>
-        </header>
-      );
+      rightOfHeader = (
+        <ul className="header-list cf">
+          <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}</strong>!</li>
+          <li><a className="header-logout" onClick={ this.handleLogOut }>Log out</a></li>
+        </ul>);
     } else {
-      return(
-        <header className="header cf">
-          <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
-          <div className="header-logo-container">
-            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
-          </div>
-          <ul className="header-list cf">
-            <li><a onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
-            <li><a onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
-          </ul>
+      rightOfHeader= (
+        <ul className="header-list cf">
+          <li><a onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
+          <li><a onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
           <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={ ModalStyle }>
             <SessionFormContainer
               location={ { pathname:this.state.formType} }
@@ -70,9 +59,21 @@ class Header extends React.Component {
               closeModal={ this.closeModal }
               />
           </Modal>
-        </header>
+        </ul>
       );
     }
+    return(
+      <header>
+        <div className="header cf">
+          <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
+          <div className="header-logo-container">
+            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
+          </div>
+          { rightOfHeader }
+        </div>
+        <Nav openModal={ this.openModal.bind(this, "/login") } currentUser= { this.props.currentUser }/>
+      </header>
+    );
   }
 }
 
