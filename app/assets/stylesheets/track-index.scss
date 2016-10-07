@@ -20,27 +20,26 @@
 }
 
 .track-list-item-album-art {
-  position:relative;
   width: 350px;
   height: 350px;
-  overflow: hidden;
 }
 .track-list-item-album-art img{
-  z-index: 4;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  width: 100%;
   height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  object-fit: cover;
 }
 
 .track-list-item-content {
 
   color:white;
   padding:20px;
+}
+
+.track-list-item-fade {
+
+  background: linear-gradient(180deg, transparent, #000 75%);
+  width: 100%;
+  height: 100%;
 }
 
 .track-list-item-content h2 {
