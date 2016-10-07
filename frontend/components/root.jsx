@@ -4,7 +4,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Home from './home/home';
 import TrackFormContainer from './tracks/track_form_container'
-import { requestAllTracks } from '../actions/track_actions'
+import TrackShowContainer from './tracks/track_show_container'
+import { requestAllTracks, requestTrack } from '../actions/track_actions'
 
 const Root = ({ store }) => {
 
@@ -19,12 +20,18 @@ const Root = ({ store }) => {
     store.dispatch(requestAllTracks());
   };
 
+  const _requestTrack = (nextState, replace) => {
+    store.dispatch(requestTrack(nextState.params.track_id))
+  };
+
+
   return (
     <Provider store={store}>
       <Router history= { hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ Home } onEnter= { _requestAllTracks }/>
           <Route path="/new_track" component={ TrackFormContainer } onEnter= {_redirectIfNotLogginIn}/>
+          <Route path="/tracks/:track_id" component={ TrackShowContainer } onEnter= {_requestTrack}/>
         </Route>
     </Router>
   </Provider>

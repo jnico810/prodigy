@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import TrackIndexItem from './track_index_item';
 
 class TrackIndex extends React.Component {
 
@@ -14,13 +15,10 @@ class TrackIndex extends React.Component {
       const tracks = this.props.tracks.tracks;
       let trackLis = [];
       for (let track in tracks) {
+        const url = `/tracks/${track}`;
         trackLis.push(
-        <li className="track-list-item">
-          <div className="track-list-item-album-art">
-            <img src='/assets/bon_iver.jpg'></img>
-          </div>
-        { tracks[track].title }
-        </li>);
+        <TrackIndexItem track={tracks[track]} url={url}/>
+        );
       }
 
       return (

@@ -7,10 +7,10 @@ export const requestAllTracks = (success, error) => {
   });
 };
 
-export const requestTrack = (track, success, error) => {
+export const requestTrack = (track_id, success, error) => {
   $.ajax({
     method: "GET",
-    url: `/api/tracks/${track.id}`,
+    url: `/api/tracks/${track_id}`,
     success,
     error
   });

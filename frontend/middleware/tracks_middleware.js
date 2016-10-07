@@ -12,7 +12,7 @@ const tracksMiddleware = ({ getState, dispatch}) => next => action => {
       return next(action);
     case REQUEST_TRACK:
       success = (track) => dispatch(receiveTrack(track));
-      API.requestTrack(action.track, success, error);
+      API.requestTrack(action.track_id, success, error);
       return next(action);
     case CREATE_TRACK:
       success = (track) => {

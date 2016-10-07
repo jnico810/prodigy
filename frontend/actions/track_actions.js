@@ -9,9 +9,9 @@ export const requestAllTracks = () => ({
   type: REQUEST_ALL_TRACKS
 });
 
-export const requestTrack = (track) => ({
+export const requestTrack = (track_id) => ({
   type: REQUEST_TRACK,
-  track
+  track_id
 });
 
 export const receiveAllTracks = (tracks) => ({

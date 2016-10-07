@@ -11,12 +11,12 @@
 .track-list-item{
   border: 1px solid red;
   width: 350px;
-  background-color: black;
-
   float:left;
   display:block;
   height:600px;
-  margin: 0px 5px 20px 5px
+  margin: 0px 5px 20px 5px;
+  background: black;
+
 }
 
 .track-list-item-album-art {
@@ -26,6 +26,7 @@
   overflow: hidden;
 }
 .track-list-item-album-art img{
+  z-index: 4;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -34,5 +35,19 @@
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
+}
 
+.track-list-item-content {
+
+  color:white;
+  padding:20px;
+}
+
+.track-list-item-content h2 {
+  margin: 5px 0;
+  font-size: 30px;
+}
+.track-list-item-content h4 {
+  margin: 5px 0;
+  font-size: 16px;
 }
