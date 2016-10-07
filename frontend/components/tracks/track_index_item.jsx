@@ -6,7 +6,7 @@ const TrackIndexItem = ({track, url}) => (
 <li className="track-list-item">
   <Link to={url}>
     <div className="track-list-item-album-art">
-      <img src='/assets/bon_iver.jpg'></img>
+      <img src={ window.prodigyAssets.defaultImage }></img>
     </div>
     <div className="track-list-item-content">
       <h2>{ track.title }</h2>

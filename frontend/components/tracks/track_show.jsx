@@ -12,12 +12,12 @@ class TrackShow extends React.Component{
       return(
         <section>
           <header className="track-show-header">
-            <img src='/assets/bon_iver.jpg' className="track-show-bg track-show-gradient"></img>
+            <img src= { window.prodigyAssets.defaultImage } className="track-show-bg track-show-gradient"></img>
             <div className="track-show-header-content">
               <h1>{this.props.track.title}</h1>
               <h2>{this.props.track.artist}</h2>
             </div>
-            <img src='/assets/bon_iver.jpg' className="track-show-header-album"></img>
+            <img src={ window.prodigyAssets.defaultImage } className="track-show-header-album"></img>
           </header>
           <main className="track-show-wrapper">
             <section className="track-show-content cf">
