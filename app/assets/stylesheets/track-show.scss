@@ -3,7 +3,6 @@
   width: 100%;
   background: linear-gradient(180deg, transparent, #000 90%);
   position: relative;
-  display:inline-block;
 }
 
 .track-show-bg{
@@ -30,31 +29,53 @@
 
 .track-show-header-content h2{
   color:white;
-  font-size: 26px;
+  font-size: 25px;
   line-height: 100%;
   padding: 10px 0px;
 }
 
-.track-show-header-album {
-  position:absolute;
-  width:340px;
-  height:340px;
-  top: 10%;
-  object-fit: cover;
-  border: 2px solid white;
-  left:55%;
-}
 
 
 .track-show-wrapper {
   width:100%;
+  position: absolute;
+  height:auto;
   background-color: #e9e9e9;
 }
 
 
 .track-show-content {
-  width:80%;
+  width:65%;
   margin: auto;
   background-color: white;
   height:100%;
+  padding: 20px 20px;
+  position: absolute;
+  left: 0;
+}
+
+.track-show-lyrics {
+  font-size: 18px;
+  width:50%;
+  position: absolute;
+}
+
+.track-show-header-album {
+  width:340px;
+  height:340px;
+  bottom: 250px;
+  margin: auto;
+  object-fit: cover;
+  display: block;
+  border: 2px solid white;
+}
+
+.track-show-description {
+  margin: 20px;
+  font-size: 18px;
+  width:45%;
+  position: absolute;
+  right: 0;
+  top: -250px;
+  display:block;
 }
