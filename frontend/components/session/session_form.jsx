@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
           <label> Username</label>
           <input type="text" onChange={ this.handleUpdate("username") }/>
           <label> Password</label>
-          <input type="text" onChange={ this.handleUpdate("password") } password/>
+          <input type="password" onChange={ this.handleUpdate("password") }/>
           <input type='submit'/>
         </form>
         { link }
