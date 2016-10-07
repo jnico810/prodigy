@@ -9,7 +9,7 @@ import { requestAllTracks } from '../actions/track_actions'
 const Root = ({ store }) => {
 
   const _redirectIfNotLogginIn = (nextState, replace) => {
-  // debugger
+
   if (!store.getState().session.currentUser){
     replace('/');
   }
