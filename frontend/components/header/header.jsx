@@ -49,17 +49,19 @@ class Header extends React.Component {
         </ul>);
     } else {
       rightOfHeader= (
+        <div>
         <ul className="header-list cf">
           <li><a onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
           <li><a onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
-          <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={ ModalStyle }>
-            <SessionFormContainer
-              location={ { pathname:this.state.formType} }
-              openModal={ this.openModal }
-              closeModal={ this.closeModal }
-              />
-          </Modal>
         </ul>
+        <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={ ModalStyle }>
+          <SessionFormContainer
+            location={ { pathname:this.state.formType} }
+            openModal={ this.openModal }
+            closeModal={ this.closeModal }
+            />
+        </Modal>
+        </div>
       );
     }
     return(

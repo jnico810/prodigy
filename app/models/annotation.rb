@@ -12,7 +12,7 @@
 #
 
 class Annotation < ActiveRecord::Base
-  validates :author_id, :track_id, :start_idx, :end_idx, presence:true
+  validates :author_id, :track_id, :start_idx, :end_idx, :body, presence:true
 
   belongs_to :track
 end

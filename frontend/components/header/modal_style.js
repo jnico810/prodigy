@@ -10,11 +10,10 @@ const ModalStyle = {
   },
   content : {
     position        : 'absolute',
-    left            : '50%',
-    transform       : 'translateX(-50%) translateY(0)',
     width           : '480px',
-    height          : '480px',
     borderRadius    : '4px',
+    left: '50%',
+    
     border          : '2px solid #444',
     backgroundColor : '#292929',
     zIndex          : 11,
