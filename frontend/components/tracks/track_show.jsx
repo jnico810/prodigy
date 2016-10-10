@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AnnotationFormContainer from './annotation/annotation_form_container';
+import AnnotationItem from './annotation/annotation_item';
 
 class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[], body:""};
+    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null};
     this.handleSelection = this.handleSelection.bind(this);
     this.generateLyricsAnnotations = this.generateLyricsAnnotations.bind(this);
+    this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
   }
 
 
@@ -18,11 +20,15 @@ class TrackShow extends React.Component{
     if (selection.length > 0 && this.props.currentUser){
       console.log(selection);
       const startIdx = this.props.track.lyrics.indexOf(selection);
-      const endIdx = startIdx + selection.length - 1;
+      const endIdx = startIdx + selection.length;
       this.setState({annotating:true, annotationIndices:[startIdx, endIdx]});
     } else {
       this.setState({annotating:false, annotationIndices:[]});
     }
+  }
+
+  handleAnnotationClick(annotation){
+    this.setState({selectedAnnotation:annotation});
   }
 
   generateLyricsAnnotations() {
@@ -38,18 +44,16 @@ class TrackShow extends React.Component{
       lyricsDiv.push(<span className="non-annotated-lyric">
         { this.props.track.lyrics.slice(startIdx, annotation.start_idx) }
       </span>);
-      lyricsDiv.push(<span className="annotated-lyric">
-        { this.props.track.lyrics.slice(annotation.start_idx, annotation.end_idx) }
-      </span>);
+      lyricsDiv.push(
+        <span className="annotated-lyric" onClick={ this.handleAnnotationClick.bind(null, annotation) }>
+          {this.props.track.lyrics.slice(annotation.start_idx, annotation.end_idx) }
+        </span>);
       startIdx = annotation.end_idx;
     });
 
     lyricsDiv.push(<span className="non-annotated-lyric">
       { this.props.track.lyrics.slice(startIdx, this.props.track.lyrics.length) }
     </span>);
-//
-    // debugger
-
     return lyricsDiv;
   }
 
@@ -77,6 +81,9 @@ class TrackShow extends React.Component{
                 <span>{this.props.track.description}</span>
                 { this.state.annotating ?
                   <AnnotationFormContainer indices={this.state.annotationIndices}/> : <p></p>}
+                { this.state.selectedAnnotation ?
+                  <h1> {this.state.selectedAnnotation.body }</h1> : <p></p>
+                }
               </div>
             </section>
           </main>

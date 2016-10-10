@@ -34,13 +34,13 @@
   padding: 10px 0px;
 }
 
-
-
 .track-show-wrapper {
   width:100%;
   background-color: #e9e9e9;
 }
 
+
+// CONTENT
 
 .track-show-content {
   width:1000px;
@@ -52,11 +52,13 @@
 }
 
 .track-show-lyrics {
-  font-size: 18px;
   width:50%;
   float: left;
   display:block;
+  color: #1f1f1f;
   white-space: pre-wrap;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 18px;
 }
 
 .track-show-header-album {
@@ -75,43 +77,4 @@
   float:right;
   display:block;
   margin-top:80px;
-}
-
-.annotation-button {
-  border: 3px solid black;
-  padding: 3px 5px;
-  display:block;
-  font-size: 16px;
-  font-weight: bold;
-  cursor:pointer;
-
-}
-
-.annotation-container {
-  margin-top: 40px;
-  border-left: 5px solid #99a7ee;
-  padding-left: 15px;
-}
-
-.annotation-form textarea{
-  display:block;
-  width: 100%;
-  height:200px;
-  resize:none;
-  font-size: 14px;
-}
-
-.annotation-form input {
-  padding: 5px;
-  color: #0ecb27;
-  border: 2px solid #0ecb27;
-  background-color: white;
-  font-size: 16px;
-  margin-top: 15px;
-  font-weight: bold;
-  cursor:pointer;
-}
-
-.annotation-form input:hover {
-  background-color: rgba(14,203,39,.2);
 }
