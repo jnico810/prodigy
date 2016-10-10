@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005192614) do
+ActiveRecord::Schema.define(version: 20161010161619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annotations", force: :cascade do |t|
+    t.integer  "author_id",  null: false
+    t.integer  "track_id",   null: false
+    t.integer  "start_idx",  null: false
+    t.integer  "end_idx",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false

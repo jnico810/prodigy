@@ -24,6 +24,8 @@ const Root = ({ store }) => {
     store.dispatch(requestTrack(nextState.params.track_id))
   };
 
+  window.store = store;
+
 
   return (
     <Provider store={store}>

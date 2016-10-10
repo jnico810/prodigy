@@ -23,4 +23,6 @@ class Track < ActiveRecord::Base
     primary_key: :id
 
   belongs_to :artist
+
+  has_many :annotations
 end

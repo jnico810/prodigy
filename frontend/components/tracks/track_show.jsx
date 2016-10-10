@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
-import AnnotationContainer from './annotation/annotation_container';
+import AnnotationFormContainer from './annotation/annotation_form_container';
 
 class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[[]]};
+    this.state = {annotating: false, annotationIndices:[], body:""};
     this.handleSelection = this.handleSelection.bind(this);
   }
 
@@ -18,9 +18,9 @@ class TrackShow extends React.Component{
       console.log(selection);
       const startIdx = this.props.track.lyrics.indexOf(selection);
       const endIdx = startIdx + selection.length - 1;
-      this.setState({annotating:true, annotationIndices:[[startIdx, endIdx]]});
+      this.setState({annotating:true, annotationIndices:[startIdx, endIdx]});
     } else {
-      this.setState({annotating:false, annotationIndices:[[]]});
+      this.setState({annotating:false, annotationIndices:[]});
     }
   }
 
@@ -50,7 +50,7 @@ class TrackShow extends React.Component{
               <div className="track-show-description">
                 <span>{this.props.track.description}</span>
                 { this.state.annotating ?
-                  <AnnotationContainer/> : <p></p>}
+                  <AnnotationFormContainer indices={this.state.annotationIndices}/> : <p></p>}
               </div>
             </section>
           </main>
