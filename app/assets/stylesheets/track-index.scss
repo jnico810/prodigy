@@ -16,13 +16,31 @@
   margin: 0px 5px 20px 5px;
   position: relative;
   cursor:pointer;
+  overflow: hidden;
 }
+.track-list-item-num-bg{
+  position: absolute;
+
+  background: black;
+  color: white;
+  width: 60px;
+  display: block;
+  top:20px;
+  left:20px;
+
+  // transform: translateX(-20px) translateY(-5px) rotate(-45deg) ;
+  // transform: rotate(-45deg) ;
+}
+
 .track-list-item-num{
   position: absolute;
-  top: 5px;
-  left: 5px;
   color: white;
+  width: 60px;
+  left:2px;
+  top:2px;
 }
+
+
 
 .track-list-item:before{
   background: linear-gradient(to bottom,transparent 20%,#000 50%);

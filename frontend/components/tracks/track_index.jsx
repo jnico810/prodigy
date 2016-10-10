@@ -9,17 +9,23 @@ class TrackIndex extends React.Component {
   }
 
   render(){
-
-    if (Object.keys(this.props.tracks.tracks).length > 0) {
+    if (this.props.tracks.tracks.length > 0) {
 
       const tracks = this.props.tracks.tracks;
       let trackLis = [];
-      for (let track in tracks) {
-        const url = `/tracks/${track}`;
+      tracks.forEach((track, idx) => {
+        const url = `/tracks/${track.id}`;
         trackLis.push(
-        <TrackIndexItem key={track} track={tracks[track]} url={url}/>
+        <TrackIndexItem key={track.id} track={track} url={url} num={idx + 1}/>
         );
-      }
+      });
+      // for (let track in tracks) {
+      //   debugger
+      //   const url = `/tracks/${track}`;
+      //   trackLis.push(
+      //   <TrackIndexItem key={track} track={tracks[track]} url={url}/>
+      //   );
+      // }
 
       return (
         <section className="track-index-content">

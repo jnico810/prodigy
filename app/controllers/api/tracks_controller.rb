@@ -1,7 +1,7 @@
 class Api::TracksController < ApplicationController
 
   def index
-    @tracks = Track.all.limit(15)
+    @tracks = Track.all.order("created_at DESC").limit(15)
   end
 
   def show

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const TrackIndexItem = ({track, url}) => (
+const TrackIndexItem = ({track, url, num}) => (
 <Link to={url}>
   <li className="track-list-item">
-    <div className="track-list-item-num">
-      <span>num</span>
+    <div className="track-list-item-num-bg">
     </div>
+    <span className="track-list-item-num">{ num }</span>
 
       <div className="track-list-item-album-art">
         <img src={ window.prodigyAssets.defaultImage }></img>
