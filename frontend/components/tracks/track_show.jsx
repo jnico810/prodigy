@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AnnotationContainer from './annotation/annotation_container';
 
 class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[]};
+    this.state = {annotating: false, annotationIndices:[[]]};
     this.handleSelection = this.handleSelection.bind(this);
   }
 
@@ -18,9 +19,17 @@ class TrackShow extends React.Component{
       const startIdx = this.props.track.lyrics.indexOf(selection);
       const endIdx = startIdx + selection.length - 1;
       this.setState({annotating:true, annotationIndices:[[startIdx, endIdx]]});
+    } else {
+      this.setState({annotating:false, annotationIndices:[[]]});
     }
   }
+
+  handleAnnotation(e){
+
+
+  }
   render(){
+
     if (this.props.track.title){
       const header = (<header className="track-show-header">
         <img src= { window.prodigyAssets.defaultImage } className="track-show-bg track-show-gradient"></img>
@@ -40,6 +49,8 @@ class TrackShow extends React.Component{
               </div>
               <div className="track-show-description">
                 <span>{this.props.track.description}</span>
+                { this.state.annotating ?
+                  <AnnotationContainer/> : <p></p>}
               </div>
             </section>
           </main>
