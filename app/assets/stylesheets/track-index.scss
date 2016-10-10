@@ -12,7 +12,7 @@
 .track-list-item{
   width: 320px;
   display: inline-block;
-  height:600px;
+  height:540px;
   margin: 0px 5px 20px 5px;
   position: relative;
   cursor:pointer;
@@ -48,16 +48,36 @@
 .track-list-item-content {
   color:white;
   padding:20px;
+  margin-top: 40px;
   z-index: 10;
+  text-align: left;
   position: absolute;
+  bottom: 0px;
 }
 
 .track-list-item-content h2 {
-  margin: 5px 0;
+  margin: 10px 0;
   color:white;
   font-size: 30px;
+  line-height: 100%;
 }
 .track-list-item-content h4 {
-  margin: 5px 0;
+  margin: 10px 0;
   font-size: 16px;
+  line-height: 100%;
+}
+
+.description-wrapper {
+  max-height: 400px;
+  margin-top: .7em;
+  margin-bottom: 1em;
+}
+
+.track-list-item-content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 4.5em;
+  overflow: hidden;
+  line-height: 140%;
 }

@@ -15,7 +15,7 @@
  */
 
 /*CLEAR FIX*/
-html, body, header, nav, h1, h3, h4, a, ul, li,
+html, body, header, nav, h1, h2, h3, h4, a, ul, li,
 strong, main, section, img, div, h2, p,
 form, fieldset, label,
 button, article, footer, small {
@@ -30,7 +30,9 @@ button, article, footer, small {
   vertical-align: inherit;
   color: inherit;
   background: transparent;
+  line-height: inherit;
 }
+
 
 body {
   box-sizing: content-box;

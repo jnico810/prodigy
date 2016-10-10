@@ -14,7 +14,9 @@ const TrackIndexItem = ({track, url}) => (
       <div className="track-list-item-content">
         <h2>{ track.title }</h2>
         <h4>{ track.artist }</h4>
-        <p>{ track.description}</p>
+        <div className= "description-wrapper">
+          <p>{ track.description}</p>
+        </div>
       </div>
   </li>
 </Link>
