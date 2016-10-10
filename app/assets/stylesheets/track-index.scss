@@ -3,16 +3,15 @@
 }
 
 .track-index-list{
-  width:1100px;
+  width:80%;
   margin:auto;
+  text-align: center;
   margin-top: 20px;
 }
 
 .track-list-item{
-  border: 1px solid red;
   width: 350px;
-  float:left;
-  display:block;
+  display: inline-block;
   height:600px;
   margin: 0px 5px 20px 5px;
   background: black;
