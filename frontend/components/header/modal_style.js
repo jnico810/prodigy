@@ -13,7 +13,9 @@ const ModalStyle = {
     width           : '480px',
     borderRadius    : '4px',
     left: '50%',
-    
+    top: '50%',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
     border          : '2px solid #444',
     backgroundColor : '#292929',
     zIndex          : 11,
