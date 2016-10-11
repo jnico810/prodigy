@@ -30,24 +30,36 @@ class AnnotationForm extends React.Component {
 
   }
   render(){
+
+    const location = this.props.location - 400;
+
+    let style =
+    { position: 'absolute',
+      borderLeft: '5px solid #99a7ee',
+      paddingLeft: '15px',
+      width: '100%',
+      top: location,
+      marginRight: '20px'
+    };
+    window.location2 = this.props.location;
     if (this.state.showAnnotationForm){
-      return (
-        <div className="annotation-container" onSubmit={ this.handleAnnotationSubmit }>
+      const form = (
+        <div style = { style } className="annotation-container" onSubmit={ this.handleAnnotationSubmit }>
           <form className="annotation-form">
             <textarea placeholder="Start annotating here!" onChange= {this.handleUpdateForm}></textarea>
             <input type="submit" value= "Save"/>
           </form>
         </div>
       );
+      return form;
     } else{
-      return (
-        <div className="annotation-container">
+        const button = (
+        <div style = { style } className="annotation-container">
           <button className="annotation-button" onClick= { this.handleAnnotation }>
             Start the Genius Annotation
           </button>
-
-        </div>
-      );
+        </div>);
+      return button;
     }
 
   }

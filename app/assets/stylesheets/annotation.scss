@@ -10,14 +10,13 @@
 
 .annotation-container {
   position: relative;
-  margin-top: 40px;
   border-left: 5px solid #99a7ee;
   padding-left: 15px;
 }
 
 .annotation-form textarea{
   display:block;
-  width: 100%;
+  width: 95%;
   height:200px;
   resize:none;
   font-size: 14px;
@@ -49,7 +48,7 @@
 }
 
 .annotation-show-container {
-  margin-top: 40px;
+  position: absolute;
   border-left: 5px solid #99a7ee;
   padding-left: 15px;
   font-size: 16px;

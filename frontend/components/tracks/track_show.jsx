@@ -74,18 +74,18 @@ class TrackShow extends React.Component{
 
     if (this.state.annotating){
       rightCol = (
-        <div className="track-show-description">
+        <div className="track-show-right-col">
           <AnnotationFormContainer indices={this.state.annotationIndices} callback={ this.closeShowForm } location= {this.state.location}/>
         </div> );
     }
     else if (this.state.selectedAnnotation){
       rightCol = (
-        <div className="track-show-description">
+        <div className="track-show-right-col">
           <AnnotationShow annotation={this.state.selectedAnnotation} location= {this.state.location}/>
         </div> );
     } else {
-      rightCol = (<div className="track-show-description">
-        <span>{this.props.track.description}</span>
+      rightCol = (<div className="track-show-right-col">
+        <span className="track-show-description">{this.props.track.description}</span>
         { this.state.annotating ?
           <AnnotationFormContainer indices={this.state.annotationIndices} location= {this.state.location}/> : <p></p>}
         </div>);

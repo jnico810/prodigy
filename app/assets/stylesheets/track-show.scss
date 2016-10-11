@@ -71,9 +71,14 @@
   border: 2px solid white;
 }
 
-.track-show-description {
+.track-show-right-col {
   width:45%;
   float:right;
   display:block;
-  margin-top:80px;
+  position: relative;
+}
+
+.track-show-description {
+  margin-top: 80px;
+  display: block;
 }
