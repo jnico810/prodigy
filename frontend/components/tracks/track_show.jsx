@@ -14,16 +14,28 @@ class TrackShow extends React.Component{
     this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
     this.closeShowForm = this.closeShowForm.bind(this);
   }
-
-
+  
   handleSelection(e){
     e.preventDefault();
     const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
-      console.log(selection);
+
+      if (
+      document.getSelection().anchorNode !==
+      document.getSelection().focusNode ||
+      document.getSelection().anchorNode.parentElement.className === 'annotated-lyric'){
+        return;
+      }
+
       let startIdx = document.getSelection().anchorOffset;
       let endIdx = document.getSelection().focusOffset;
       let span = document.getSelection().anchorNode.parentElement;
+
+      if (startIdx > endIdx) {
+        const temp = startIdx;
+        startIdx = endIdx;
+        endIdx = temp;
+      }
       while (span.previousSibling) {
         startIdx += span.previousSibling.innerText.length;
         endIdx += span.previousSibling.innerText.length;
