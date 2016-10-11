@@ -39,7 +39,7 @@ class AnnotationShow extends React.Component {
       fontSize: '16px'
     };
     let deleteButton;
-    if (this.props.annotation.author_id === this.props.currentUser.id){
+    if (this.props.currentUser && this.props.annotation.author_id === this.props.currentUser.id){
       deleteButton = <button
         className="annotation-delete-button"
         onClick={this.props.deleteAnnotation.bind(null, this.props.annotation.id)}>Delete</button>;
@@ -55,14 +55,20 @@ class AnnotationShow extends React.Component {
         </li>);
 
     });
+
+    let form;
+
+    if (this.props.currentUser){
+      form = (<form className="comment-form" onSubmit={this.handleCommentForm}>
+        <input type="text" placeholder="Suggest an improvement" onChange={this.updateComment}></input>
+      </form>);
+    }
     return(
     <div style= { style } className="annotation-show-container">
       <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
       <p> {this.props.annotation.body}</p>
       { deleteButton }
-      <form className="comment-form" onSubmit={this.handleCommentForm}>
-        <input type="text" placeholder="Suggest an improvement" onChange={this.updateComment}></input>
-      </form>
+      { form }
       <ul>
         { commentList }
       </ul>

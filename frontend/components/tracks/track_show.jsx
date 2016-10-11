@@ -8,13 +8,18 @@ class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null};
+    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
     this.handleSelection = this.handleSelection.bind(this);
     this.generateLyricsAnnotations = this.generateLyricsAnnotations.bind(this);
     this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
     this.closeShowForm = this.closeShowForm.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
-  
+
+  handleMouseDown(e){
+    this.setState({startLoc:e.pageY});
+  }
+
   handleSelection(e){
     e.preventDefault();
     const selection = document.getSelection().toString();
@@ -41,14 +46,14 @@ class TrackShow extends React.Component{
         endIdx += span.previousSibling.innerText.length;
         span = span.previousSibling;
       }
-      this.setState({annotating:true, annotationIndices:[startIdx, endIdx], location: e.pageY});
+      this.setState({annotating:true, annotationIndices:[startIdx, endIdx], endLoc: e.pageY});
     } else {
-      this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, location: null});
+      this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null});
     }
   }
 
   closeShowForm(e){
-    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, location: null});
+    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null});
   }
 
   handleAnnotationClick(annotation, e){
@@ -86,7 +91,8 @@ class TrackShow extends React.Component{
     if (this.state.annotating){
       rightCol = (
         <div className="track-show-right-col">
-          <AnnotationFormContainer indices={this.state.annotationIndices} callback={ this.closeShowForm } location= {this.state.location}/>
+          <AnnotationFormContainer indices={this.state.annotationIndices} callback={ this.closeShowForm }
+            location= {(this.state.startLoc + this.state.endLoc)/2 }/>
         </div> );
     }
     else if (this.state.selectedAnnotation){
@@ -98,7 +104,8 @@ class TrackShow extends React.Component{
       rightCol = (<div className="track-show-right-col">
         <span className="track-show-description">{this.props.track.description}</span>
         { this.state.annotating ?
-          <AnnotationFormContainer indices={this.state.annotationIndices} location= {this.state.location}/> : <p></p>}
+          <AnnotationFormContainer indices={this.state.annotationIndices}
+            location= {(this.state.startLoc + this.state.endLoc)/2 }/> : <p></p>}
         </div>);
     }
 
@@ -121,7 +128,7 @@ class TrackShow extends React.Component{
           { header }
           <main className="track-show-wrapper">
             <section className="track-show-content cf">
-              <div className="track-show-lyrics" onMouseUp={this.handleSelection}>
+              <div className="track-show-lyrics" onMouseUp={this.handleSelection} onMouseDown={this.handleMouseDown}>
                 { this.generateLyricsAnnotations() }
               </div>
               { rightCol }
