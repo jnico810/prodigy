@@ -20,13 +20,30 @@ class AnnotationShow extends React.Component {
     let deleteButton;
 
     if (this.props.annotation.author_id === this.props.currentUser.id){
-      deleteButton = <button className="annoation-delete-button">Delete</button>;
+      deleteButton = <button className="annotation-delete-button" onClick={this.props.deleteAnnotation}>Delete</button>;
     }
+
+    let commentList = [];
+
+    this.props.annotation.comments.forEach((comment)=> {
+      commentList.push(
+        <li>
+          <h3>comment.author</h3>
+          <p>comment.body</p>
+        </li>);
+
+    });
     return(
     <div style= { style } className="annotation-show-container">
       <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
       <p> {this.props.annotation.body}</p>
       { deleteButton }
+      <form className="comment-form">
+        <input type="text" placeholder="Suggest an improvement"></input>
+      </form>
+      <ul>
+        {commentList }
+      </ul>
     </div>
   );
   }

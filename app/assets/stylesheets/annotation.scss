@@ -55,6 +55,7 @@
   border-left: 5px solid #99a7ee;
   padding-left: 15px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .annotation-show-container h3 {
@@ -62,12 +63,14 @@
   font-size: 18px
 }
 
-.annoation-delete-button {
+.annotation-delete-button{
   color: gray;
-  padding: 10px;
+  padding: 5px;
+  font-weight: bold;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.annoation-delete-button:hover {
-  background-color: green;
+.annotation-delete-button:hover {
+  background-color: rgba(154,154,154,.2);
 }

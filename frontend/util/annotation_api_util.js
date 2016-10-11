@@ -7,3 +7,14 @@ export const createAnnotation = (annotation, success, error) => {
     error
   });
 };
+
+
+export const destroyAnnotation = (id, success, error) => {
+  $.ajax({
+    method: "DELETE",
+    data: annotation,
+    url: `/api/annotations/${id}`,
+    success,
+    error
+  });
+};
