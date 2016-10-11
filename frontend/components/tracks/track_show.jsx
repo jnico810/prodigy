@@ -39,8 +39,8 @@ class TrackShow extends React.Component{
     this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, location: null});
   }
 
-  handleAnnotationClick(annotation){
-    this.setState({selectedAnnotation:annotation, location: null});
+  handleAnnotationClick(annotation, e){
+    this.setState({selectedAnnotation:annotation, location: e.pageY});
   }
 
   generateLyricsAnnotations() {

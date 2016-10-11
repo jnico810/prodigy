@@ -12,11 +12,14 @@
   position: relative;
   border-left: 5px solid #99a7ee;
   padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .annotation-form textarea{
+  padding: 5px;
   display:block;
-  width: 95%;
+  box-sizing: border-box;
+  width: 100%;
   height:200px;
   resize:none;
   font-size: 14px;
