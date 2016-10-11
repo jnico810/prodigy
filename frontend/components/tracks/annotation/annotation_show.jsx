@@ -17,10 +17,16 @@ class AnnotationShow extends React.Component {
       marginRight: '20px',
       fontSize: '16px'
     };
+    let deleteButton;
+
+    if (this.props.annotation.author_id === this.props.currentUser.id){
+      deleteButton = <button className="annoation-delete-button">Delete</button>;
+    }
     return(
     <div style= { style } className="annotation-show-container">
       <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
       <p> {this.props.annotation.body}</p>
+      { deleteButton }
     </div>
   );
   }

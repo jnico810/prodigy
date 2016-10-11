@@ -9,6 +9,7 @@
 #  end_idx    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  body       :text
 #
 
 class Annotation < ActiveRecord::Base
@@ -19,4 +20,6 @@ class Annotation < ActiveRecord::Base
     class_name: 'User',
     foreign_key: :author_id,
     primary_key: :id
+
+  has_many :comments
 end

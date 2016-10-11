@@ -24,6 +24,12 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: 'Track'
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'Comment'
+
+
   after_initialize :ensure_sessiontoken
 
   def self.find_by_credentials(username, password)

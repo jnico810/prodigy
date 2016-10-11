@@ -61,3 +61,13 @@
   font-weight:bold;
   font-size: 18px
 }
+
+.annoation-delete-button {
+  color: gray;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.annoation-delete-button:hover {
+  background-color: green;
+}

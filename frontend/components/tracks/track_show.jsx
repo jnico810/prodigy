@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import AnnotationFormContainer from './annotation/annotation_form_container';
 import AnnotationItem from './annotation/annotation_item';
-import AnnotationShow from './annotation/annotation_show.jsx';
+import AnnotationShowContainer from './annotation/annotation_show_container';
 
 class TrackShow extends React.Component{
 
@@ -81,7 +81,7 @@ class TrackShow extends React.Component{
     else if (this.state.selectedAnnotation){
       rightCol = (
         <div className="track-show-right-col">
-          <AnnotationShow annotation={this.state.selectedAnnotation} location= {this.state.location}/>
+          <AnnotationShowContainer annotation={this.state.selectedAnnotation} location= {this.state.location}/>
         </div> );
     } else {
       rightCol = (<div className="track-show-right-col">
