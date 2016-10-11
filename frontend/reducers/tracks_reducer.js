@@ -13,7 +13,7 @@ const tracks = (state = defaultState, action) => {
     case RECEIVE_ALL_TRACKS:
       return {tracks: action.tracks, errors: [], currTrack: merge({}, state.currTrack)};
     case RECEIVE_TRACK:
-      return {tracks: merge({}, state.tracks), errors:[], currTrack: action.track};
+      return {tracks: merge({}, state.tracks), errors:[], currTrack: merge({}, action.track)};
     case RECEIVE_TRACK_ERRORS:
       return {tracks: merge({}, state.tracks), errors:action.errors, currTrack: merge({}, state.currTrack)};
     default:

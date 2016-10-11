@@ -10,19 +10,25 @@ class Api::AnnotationsController < ApplicationController
   #
 
   def create
+
+    @annotation = Annotation.new(author_id: current_user.id,
+    start_idx: annotation_params[:start_idx],
+    end_idx: annotation_params[:end_idx],
+    body: annotation_params[:body],
+    track_id: annotation_params[:track_id])
     @track = Track.find(annotation_params[:track_id])
-    @track.annotations.create(
-     author_id: current_user.id,
-     start_idx: annotation_params[:start_idx],
-     end_idx: annotation_params[:end_idx],
-     body: annotation_params[:body]
-     )
-    render 'api/tracks/show'
+    if @annotation.save
+      render 'api/tracks/show'
+    else
+      render 'no'
+    end
   end
 
   def destroy
     @annotation = Annotation.find(params[:id])
+    @track = @annotation.track
     @annotation.destroy
+    render 'api/tracks/show'
   end
 
   private

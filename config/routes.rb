@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       resources :annotations, only: [:create]
     end
     resources :annotations, only: [:destroy]
+    resources :comments, only: [:destroy, :create]
   end
 end

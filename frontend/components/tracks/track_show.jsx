@@ -71,7 +71,6 @@ class TrackShow extends React.Component{
   render(){
 
     let rightCol;
-
     if (this.state.annotating){
       rightCol = (
         <div className="track-show-right-col">
@@ -91,6 +90,8 @@ class TrackShow extends React.Component{
         </div>);
     }
 
+
+
     if (this.props.track.title){
       const header = (<header className="track-show-header">
         <img src= { window.prodigyAssets.defaultImage } className="track-show-bg track-show-gradient"></img>
@@ -101,6 +102,8 @@ class TrackShow extends React.Component{
         { !this.state.selectedAnnotation && !this.state.annotating ?
           <img src={ window.prodigyAssets.defaultImage } className="track-show-header-album"></img> : <p></p>}
       </header>);
+
+
       return(
         <section>
           { header }

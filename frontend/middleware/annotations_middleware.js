@@ -1,4 +1,4 @@
-import { CREATE_ANNOTATION } from '../actions/annotation_actions';
+import { CREATE_ANNOTATION, DELETE_ANNOTATION} from '../actions/annotation_actions';
 import { receiveTrack } from '../actions/track_actions';
 import * as API from '../util/annotation_api_util';
 
@@ -12,6 +12,13 @@ const annotationMiddleware = ({ getState, dispatch}) => next => action => {
         action.callback();
       };
       API.createAnnotation(action.annotation, success, error);
+      return next(action);
+    case DELETE_ANNOTATION:
+      success = (track) => {
+        dispatch(receiveTrack(track));
+        action.callback();
+      };
+      API.deleteAnnotation(action.id, success, error);
       return next(action);
     default:
       return next(action);

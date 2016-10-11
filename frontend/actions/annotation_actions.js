@@ -8,7 +8,7 @@ export const createAnnotation = (annotation, callback) => ({
 });
 
 export const deleteAnnotation = (id, errors) => ({
-  type: RECEIVE_TRACK_ERRORS,
+  type: DELETE_ANNOTATION,
   id,
   errors
 });

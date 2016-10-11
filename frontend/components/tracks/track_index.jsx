@@ -19,14 +19,6 @@ class TrackIndex extends React.Component {
         <TrackIndexItem key={track.id} track={track} url={url} num={idx + 1}/>
         );
       });
-      // for (let track in tracks) {
-      //   debugger
-      //   const url = `/tracks/${track}`;
-      //   trackLis.push(
-      //   <TrackIndexItem key={track} track={tracks[track]} url={url}/>
-      //   );
-      // }
-
       return (
         <section className="track-index-content">
           <ul className="track-index-list cf">{ trackLis }</ul>

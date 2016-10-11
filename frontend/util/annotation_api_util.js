@@ -9,10 +9,10 @@ export const createAnnotation = (annotation, success, error) => {
 };
 
 
-export const destroyAnnotation = (id, success, error) => {
+export const deleteAnnotation = (id, success, error) => {
   $.ajax({
     method: "DELETE",
-    data: annotation,
+    data: id,
     url: `/api/annotations/${id}`,
     success,
     error
