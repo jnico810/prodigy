@@ -26,11 +26,10 @@ class AnnotationForm extends React.Component {
       track_id:this.props.track.id,
       body: this.state.body
     };
-    this.props.createAnnotation({ annotation }, ()=>(console.log('created!')));
+    this.props.createAnnotation({ annotation }, this.props.callback);
 
   }
   render(){
-
     if (this.state.showAnnotationForm){
       return (
         <div className="annotation-container" onSubmit={ this.handleAnnotationSubmit }>
@@ -46,6 +45,7 @@ class AnnotationForm extends React.Component {
           <button className="annotation-button" onClick= { this.handleAnnotation }>
             Start the Genius Annotation
           </button>
+
         </div>
       );
     }

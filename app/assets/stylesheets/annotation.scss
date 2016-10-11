@@ -9,6 +9,7 @@
 }
 
 .annotation-container {
+  position: relative;
   margin-top: 40px;
   border-left: 5px solid #99a7ee;
   padding-left: 15px;
@@ -45,4 +46,16 @@
 
 .annotated-lyric:hover {
   background-color: #ffff64;
+}
+
+.annotation-show-container {
+  margin-top: 40px;
+  border-left: 5px solid #99a7ee;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.annotation-show-container h3 {
+  font-weight:bold;
+  font-size: 18px
 }

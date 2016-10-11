@@ -2,33 +2,45 @@ import React from 'react';
 import { Link } from 'react-router';
 import AnnotationFormContainer from './annotation/annotation_form_container';
 import AnnotationItem from './annotation/annotation_item';
+import AnnotationShow from './annotation/annotation_show.jsx';
 
 class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null};
+    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null};
     this.handleSelection = this.handleSelection.bind(this);
     this.generateLyricsAnnotations = this.generateLyricsAnnotations.bind(this);
     this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
+    this.closeShowForm = this.closeShowForm.bind(this);
   }
 
 
   handleSelection(e){
     e.preventDefault();
-    const selection = window.getSelection().toString();
+    const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
       console.log(selection);
-      const startIdx = this.props.track.lyrics.indexOf(selection);
-      const endIdx = startIdx + selection.length;
-      this.setState({annotating:true, annotationIndices:[startIdx, endIdx]});
+      let startIdx = document.getSelection().anchorOffset;
+      let endIdx = document.getSelection().focusOffset;
+      let span = document.getSelection().anchorNode.parentElement;
+      while (span.previousSibling) {
+        startIdx += span.previousSibling.innerText.length;
+        endIdx += span.previousSibling.innerText.length;
+        span = span.previousSibling;
+      }
+      this.setState({annotating:true, annotationIndices:[startIdx, endIdx], location: e.pageY});
     } else {
-      this.setState({annotating:false, annotationIndices:[]});
+      this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, location: null});
     }
   }
 
+  closeShowForm(e){
+    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, location: null});
+  }
+
   handleAnnotationClick(annotation){
-    this.setState({selectedAnnotation:annotation});
+    this.setState({selectedAnnotation:annotation, location: null});
   }
 
   generateLyricsAnnotations() {
@@ -37,10 +49,8 @@ class TrackShow extends React.Component{
 
     let lyricsDiv = [];
     let startIdx = 0;
-    // debugger
     let endIdx = 0;
     this.props.track.annotations.forEach((annotation) => {
-
       lyricsDiv.push(<span className="non-annotated-lyric">
         { this.props.track.lyrics.slice(startIdx, annotation.start_idx) }
       </span>);
@@ -60,6 +70,27 @@ class TrackShow extends React.Component{
 
   render(){
 
+    let rightCol;
+
+    if (this.state.annotating){
+      rightCol = (
+        <div className="track-show-description">
+          <AnnotationFormContainer indices={this.state.annotationIndices} callback={ this.closeShowForm } location= {this.state.location}/>
+        </div> );
+    }
+    else if (this.state.selectedAnnotation){
+      rightCol = (
+        <div className="track-show-description">
+          <AnnotationShow annotation={this.state.selectedAnnotation} location= {this.state.location}/>
+        </div> );
+    } else {
+      rightCol = (<div className="track-show-description">
+        <span>{this.props.track.description}</span>
+        { this.state.annotating ?
+          <AnnotationFormContainer indices={this.state.annotationIndices} location= {this.state.location}/> : <p></p>}
+        </div>);
+    }
+
     if (this.props.track.title){
       const header = (<header className="track-show-header">
         <img src= { window.prodigyAssets.defaultImage } className="track-show-bg track-show-gradient"></img>
@@ -67,7 +98,8 @@ class TrackShow extends React.Component{
           <h1>{this.props.track.title}</h1>
           <h2>{this.props.track.artist}</h2>
         </div>
-        <img src={ window.prodigyAssets.defaultImage } className="track-show-header-album"></img>
+        { !this.state.selectedAnnotation && !this.state.annotating ?
+          <img src={ window.prodigyAssets.defaultImage } className="track-show-header-album"></img> : <p></p>}
       </header>);
       return(
         <section>
@@ -77,14 +109,7 @@ class TrackShow extends React.Component{
               <div className="track-show-lyrics" onMouseUp={this.handleSelection}>
                 { this.generateLyricsAnnotations() }
               </div>
-              <div className="track-show-description">
-                <span>{this.props.track.description}</span>
-                { this.state.annotating ?
-                  <AnnotationFormContainer indices={this.state.annotationIndices}/> : <p></p>}
-                { this.state.selectedAnnotation ?
-                  <h1> {this.state.selectedAnnotation.body }</h1> : <p></p>
-                }
-              </div>
+              { rightCol }
             </section>
           </main>
         </section>

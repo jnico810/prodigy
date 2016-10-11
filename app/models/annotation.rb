@@ -15,4 +15,8 @@ class Annotation < ActiveRecord::Base
   validates :author_id, :track_id, :start_idx, :end_idx, :body, presence:true
 
   belongs_to :track
+  belongs_to :author,
+    class_name: 'User',
+    foreign_key: :author_id,
+    primary_key: :id
 end
