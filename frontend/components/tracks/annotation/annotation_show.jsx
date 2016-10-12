@@ -11,12 +11,18 @@ class AnnotationShow extends React.Component {
 
   handleCommentForm(e){
     e.preventDefault();
-    const comment = {
-      body: this.state.body,
-      annotation_id: this.props.annotation.id,
-      author_id: this.props.currentUser.id
-    };
-    this.props.createComment({ comment }, this.updateForm);
+
+    if (this.state.body.length > 0){
+      const comment = {
+        body: this.state.body,
+        annotation_id: this.props.annotation.id,
+        author_id: this.props.currentUser.id
+      };
+      this.props.createComment({ comment }, ()=>{
+        this.setState({body:''});
+        this.props.callback();
+      });
+    }
   }
 
   updateForm() {
@@ -60,7 +66,7 @@ class AnnotationShow extends React.Component {
 
     if (this.props.currentUser){
       form = (<form className="comment-form" onSubmit={this.handleCommentForm}>
-        <textarea placeholder="Suggest an improvement" onChange={this.updateComment}></textarea>
+        <textarea placeholder="Suggest an improvement" onChange={this.updateComment} value={this.state.body}></textarea>
           <button className="comment-button" onClick= { this.handleCommentForm }>
             Submit
           </button>
@@ -72,9 +78,11 @@ class AnnotationShow extends React.Component {
       <p> {this.props.annotation.body}</p>
       { deleteButton }
       { form }
-      <ul>
-        { commentList }
-      </ul>
+      <div className="annotation-comments-section">
+        <ul>
+          { commentList }
+        </ul>
+      </div>
     </div>
   );
   }

@@ -28,3 +28,17 @@
 .comment-button:hover {
   background-color: rgba(14,203,39,.2);
 }
+
+.annotation-comments-section {
+  width: 100%;
+  background-color: rgba(204,204,204,.2);
+  padding:10px;
+  box-sizing: border-box;
+}
+
+.annotation-comments-section ul {
+  width: 100%;
+  background-color: rgba(204,204,204,.2);
+  border-top: 1px solid #99a7ee;
+  box-sizing: border-box;
+}
