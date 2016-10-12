@@ -58,6 +58,17 @@ class TrackShow extends React.Component{
     this.setState({selectedAnnotation:annotation, location: e.pageY});
   }
 
+  componentWillReceiveProps(nextProps){
+    if (this.state.selectedAnnotation){
+      nextProps.track.annotations.forEach((annotation) => {
+        if (annotation.id === this.state.selectedAnnotation.id){
+          this.setState({selectedAnnotation:annotation});
+          return;
+        }
+      });
+    }
+  }
+
   generateLyricsAnnotations() {
 
     let lyrics =(<span>{this.props.track.lyrics}</span>);
