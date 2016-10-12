@@ -99,15 +99,11 @@ class TrackShow extends React.Component{
           <AnnotationShowContainer annotation={this.state.selectedAnnotation} location= {this.state.location}/>
         </div> );
     } else {
-      rightCol = (<div className="track-show-right-col">
-        <span className="track-show-description">{this.props.track.description}</span>
-        { this.state.annotating ?
-          <AnnotationFormContainer indices={this.state.annotationIndices}
-            location= {(this.state.startLoc + this.state.endLoc)/2 }/> : <p></p>}
+      rightCol = (
+        <div className="track-show-right-col">
+          <span className="track-show-description">{this.props.track.description}</span>
         </div>);
     }
-
-
 
     if (this.props.track.title){
       const header = (<header className="track-show-header">

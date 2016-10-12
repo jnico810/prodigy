@@ -9,6 +9,7 @@ const annotationMiddleware = ({ getState, dispatch}) => next => action => {
     case CREATE_ANNOTATION:
       success = (annotations) => {
         dispatch(receiveAnnotations(annotations));
+        action.callback();
       };
       API.createAnnotation(action.annotation, success, error);
       return next(action);

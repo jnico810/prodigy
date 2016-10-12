@@ -3,7 +3,7 @@ import AnnotationShow from './annotation_show.jsx';
 import { deleteAnnotation } from '../../../actions/annotation_actions.js';
 import { createComment } from '../../../actions/comment_actions.js';
 const mapStateToProps = ({ session, tracks }) => {
-    return {currentUser: session.currentUser, annotations: tracks.currTrack.annotations };
+    return {currentUser: session.currentUser, track: tracks.currTrack };
 };
 
 const mapDispatchToProps = (dispatch) => ({
