@@ -15,7 +15,6 @@ class TrackShow extends React.Component{
     this.closeShowForm = this.closeShowForm.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
   }
-
   handleMouseDown(e){
     this.setState({startLoc:e.pageY});
   }
@@ -113,13 +112,13 @@ class TrackShow extends React.Component{
 
     if (this.props.track.title){
       const header = (<header className="track-show-header">
-        <img src= { window.prodigyAssets.defaultImage } className="track-show-bg track-show-gradient"></img>
+        <img src= { this.props.track.album_art_url } className="track-show-bg track-show-gradient"></img>
         <div className="track-show-header-content">
           <h1>{this.props.track.title}</h1>
           <h2>{this.props.track.artist}</h2>
         </div>
         { !this.state.selectedAnnotation && !this.state.annotating ?
-          <img src={ window.prodigyAssets.defaultImage } className="track-show-header-album"></img> : <p></p>}
+          <img src={ this.props.track.album_art_url } className="track-show-header-album"></img> : <p></p>}
       </header>);
 
 
