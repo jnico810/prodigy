@@ -23,7 +23,6 @@ class TrackShow extends React.Component{
     e.preventDefault();
     const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
-
       if (
       document.getSelection().anchorNode !==
       document.getSelection().focusNode ||
@@ -66,18 +65,18 @@ class TrackShow extends React.Component{
     let lyricsDiv = [];
     let startIdx = 0;
     let endIdx = 0;
-    this.props.track.annotations.forEach((annotation) => {
-      lyricsDiv.push(<span className="non-annotated-lyric">
+    this.props.track.annotations.forEach((annotation, idx) => {
+      lyricsDiv.push(<span key={idx}className="non-annotated-lyric">
         { this.props.track.lyrics.slice(startIdx, annotation.start_idx) }
       </span>);
       lyricsDiv.push(
-        <span className="annotated-lyric" onClick={ this.handleAnnotationClick.bind(null, annotation) }>
+        <span key={idx + 1000}className="annotated-lyric" onClick={ this.handleAnnotationClick.bind(null, annotation) }>
           {this.props.track.lyrics.slice(annotation.start_idx, annotation.end_idx) }
         </span>);
       startIdx = annotation.end_idx;
     });
 
-    lyricsDiv.push(<span className="non-annotated-lyric">
+    lyricsDiv.push(<span key={100000} className="non-annotated-lyric">
       { this.props.track.lyrics.slice(startIdx, this.props.track.lyrics.length) }
     </span>);
     return lyricsDiv;
@@ -141,14 +140,4 @@ class TrackShow extends React.Component{
 
   }
 }
-
-
 export default TrackShow;
-
-
-
-// <form id= "annotation-form" className="annotation-form-hidden">
-//   <label>Annotation</label>
-//   <textarea></textarea>
-//   <input type="submit"></input>
-// </form>

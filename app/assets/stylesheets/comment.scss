@@ -7,10 +7,24 @@
 }
 
 
-.comment-form input {
+.comment-form textarea {
   width: 100%;
   padding: 5px;
   font-size: 16px;
   box-sizing: border-box;
+  line-height: 120%;
+  resize: none;
+}
 
+.comment-button {
+  border: 2px solid #0ecb27;
+  padding: 1px 3px;
+  display:block;
+  font-size: 16px;
+  cursor:pointer;
+  color: #0ecb27;
+}
+
+.comment-button:hover {
+  background-color: rgba(14,203,39,.2);
 }

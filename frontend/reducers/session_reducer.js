@@ -9,11 +9,11 @@ const defaultState = {
 const session = (state = defaultState, action) => {
   switch (action.type){
     case RECEIVE_CURRENT_USER:
-      return { currentUser: action.currentUser, errors: []};
+      return merge({}, state, {currentUser: action.currentUser});
     case RECEIVE_ERRORS:
-      return { currentUser: null, errors: action.errors};
+      return merge({}, state, {errors: action.errors});
     case LOGOUT:
-      return { currentUser: null, errors: []};
+      return defaultState;
     default:
       return state;
   }

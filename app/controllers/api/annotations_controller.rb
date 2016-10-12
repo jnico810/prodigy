@@ -16,9 +16,9 @@ class Api::AnnotationsController < ApplicationController
     end_idx: annotation_params[:end_idx],
     body: annotation_params[:body],
     track_id: annotation_params[:track_id])
-    @track = Track.find(annotation_params[:track_id])
+    @annotations = @annotation.track.annotations
     if @annotation.save
-      render 'api/tracks/show'
+      render :index
     else
       render 'no'
     end

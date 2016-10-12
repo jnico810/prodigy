@@ -60,7 +60,10 @@ class AnnotationShow extends React.Component {
 
     if (this.props.currentUser){
       form = (<form className="comment-form" onSubmit={this.handleCommentForm}>
-        <input type="text" placeholder="Suggest an improvement" onChange={this.updateComment}></input>
+        <textarea placeholder="Suggest an improvement" onChange={this.updateComment}></textarea>
+          <button className="comment-button" onClick= { this.handleCommentForm }>
+            Submit
+          </button>
       </form>);
     }
     return(

@@ -46,7 +46,7 @@ class AnnotationForm extends React.Component {
       const form = (
         <div style = { style } className="annotation-container" onSubmit={ this.handleAnnotationSubmit }>
           <form className="annotation-form">
-            <textarea placeholder="Start annotating here!" onChange= {this.handleUpdateForm}></textarea>
+            <textarea className = "annotation-form-text-area" placeholder="Start annotating here!" onChange= {this.handleUpdateForm}></textarea>
             <input type="submit" value= "Save"/>
           </form>
         </div>
@@ -61,9 +61,6 @@ class AnnotationForm extends React.Component {
         </div>);
       return button;
     }
-
   }
-
 }
-
 export default AnnotationForm;
