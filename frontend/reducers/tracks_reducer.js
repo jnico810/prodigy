@@ -14,10 +14,11 @@ const tracks = (state = defaultState, action) => {
     case RECEIVE_ALL_TRACKS:
       return merge({}, state, { tracks:action.tracks });
     case RECEIVE_TRACK:
-      return merge({}, state, { currTrack:action.track });
+      const newState = Object.assign({}, state, {currTrack:action.track });
+      return newState;
     case RECEIVE_ANNOTATIONS:
       const newCurrentTrack = merge({}, state.currTrack, action.annotations);
-      return merge({}, state, {currTrack: newCurrentTrack} );
+      return Object.assign({}, state, {currTrack: newCurrentTrack} );
     case RECEIVE_TRACK_ERRORS:
       return merge({}, state, { errors: action.errors});
     default:

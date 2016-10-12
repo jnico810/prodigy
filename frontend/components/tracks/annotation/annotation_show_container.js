@@ -7,7 +7,7 @@ const mapStateToProps = ({ session, tracks }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteAnnotation: (id) => dispatch(deleteAnnotation(id)),
+  deleteAnnotation: (id, callback) => dispatch(deleteAnnotation(id, callback)),
   createComment: (comment, callback) => dispatch(createComment(comment, callback))
 });
 

@@ -30,15 +30,25 @@
 }
 
 .annotation-comments-section {
+  font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
   background-color: rgba(204,204,204,.2);
-  padding:10px;
+  padding:10px 20px;
   box-sizing: border-box;
 }
 
 .annotation-comments-section ul {
   width: 100%;
-  background-color: rgba(204,204,204,.2);
-  border-top: 1px solid #99a7ee;
   box-sizing: border-box;
+}
+
+.annotation-comments-section h4{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+
+}
+
+.annotation-comments-section li{
+  border-top: 1px solid #99a7ee;
+  padding: 10px 0;
 }

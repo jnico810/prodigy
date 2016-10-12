@@ -1,5 +1,6 @@
 import { CREATE_ANNOTATION, DELETE_ANNOTATION} from '../actions/annotation_actions';
 import { receiveAnnotations } from '../actions/annotation_actions';
+import { receiveTrack  } from '../actions/track_actions';
 import * as API from '../util/annotation_api_util';
 
 const annotationMiddleware = ({ getState, dispatch}) => next => action => {

@@ -20,7 +20,6 @@ class AnnotationShow extends React.Component {
       };
       this.props.createComment({ comment }, ()=>{
         this.setState({body:''});
-        this.props.callback();
       });
     }
   }
@@ -48,7 +47,7 @@ class AnnotationShow extends React.Component {
     if (this.props.currentUser && this.props.annotation.author_id === this.props.currentUser.id){
       deleteButton = <button
         className="annotation-delete-button"
-        onClick={this.props.deleteAnnotation.bind(null, this.props.annotation.id)}>Delete</button>;
+        onClick={this.props.deleteAnnotation.bind(null, this.props.annotation.id, this.props.deleteCallback)}>Delete</button>;
     }
 
     let commentList = [];
@@ -56,7 +55,7 @@ class AnnotationShow extends React.Component {
     this.props.annotation.comments.forEach((comment)=> {
       commentList.push(
         <li>
-          <h3>{comment.author}</h3>
+          <h4>{comment.author}</h4>
           <p>{comment.body}</p>
         </li>);
 

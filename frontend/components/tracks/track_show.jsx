@@ -95,36 +95,44 @@ class TrackShow extends React.Component{
 
 
   render(){
-
     let rightCol;
     if (this.state.annotating){
       rightCol = (
         <div className="track-show-right-col">
-          <AnnotationFormContainer indices={this.state.annotationIndices} callback={ this.closeShowForm }
+          <AnnotationFormContainer
+            indices={this.state.annotationIndices}
+            callback={ this.closeShowForm }
             location= {(this.state.startLoc + this.state.endLoc)/2 }/>
         </div> );
     }
     else if (this.state.selectedAnnotation){
       rightCol = (
         <div className="track-show-right-col">
-          <AnnotationShowContainer annotation={this.state.selectedAnnotation} location= {this.state.location}/>
+          <AnnotationShowContainer
+            annotation={this.state.selectedAnnotation}
+            location= {this.state.location}
+            deleteCallback={this.closeShowForm}/>
         </div> );
     } else {
       rightCol = (
         <div className="track-show-right-col">
-          <span className="track-show-description">{this.props.track.description}</span>
+          <span className="track-show-description">
+            {this.props.track.description}
+          </span>
         </div>);
     }
 
     if (this.props.track.title){
       const header = (<header className="track-show-header">
-        <img src= { this.props.track.album_art_url } className="track-show-bg track-show-gradient"></img>
+        <img src= { this.props.track.album_art_url }
+          className="track-show-bg track-show-gradient"/>
         <div className="track-show-header-content">
           <h1>{this.props.track.title}</h1>
           <h2>{this.props.track.artist}</h2>
         </div>
         { !this.state.selectedAnnotation && !this.state.annotating ?
-          <img src={ this.props.track.album_art_url } className="track-show-header-album"></img> : <p></p>}
+          <img src={ this.props.track.album_art_url }
+            className="track-show-header-album"/> : <p></p>}
       </header>);
 
 

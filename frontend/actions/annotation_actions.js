@@ -8,9 +8,10 @@ export const createAnnotation = (annotation, callback) => ({
   callback
 });
 
-export const deleteAnnotation = (id) => ({
+export const deleteAnnotation = (id, callback) => ({
   type: DELETE_ANNOTATION,
-  id
+  id,
+  callback
 });
 
 
