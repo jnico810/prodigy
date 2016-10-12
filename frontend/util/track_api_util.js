@@ -20,6 +20,8 @@ export const createTrack = (track, success, error) => {
   $.ajax({
     method: "POST",
     data: track,
+    processData: false,
+    contentType: false,
     url: "/api/tracks",
     success,
     error

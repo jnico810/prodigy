@@ -9,6 +9,7 @@ class Api::TracksController < ApplicationController
   end
 
   def create
+    debugger
     artist = Artist.find_by(name: track_params[:artist])
     if !artist
       artist = Artist.create(name: track_params[:artist])
@@ -19,7 +20,8 @@ class Api::TracksController < ApplicationController
       description: track_params[:description],
       lyrics: track_params[:lyrics],
       author_id: current_user.id,
-      artist_id: artist.id)
+      artist_id: artist.id,
+      album_art: track_params[:album_art])
     if @track.save
       render :show
     else
@@ -30,6 +32,6 @@ class Api::TracksController < ApplicationController
 
   def track_params
     params.require(:track).permit(
-    :title, :description, :lyrics, :artist, :artist_id, :author_id, :album)
+    :title, :description, :lyrics, :artist, :artist_id, :author_id, :album, :album_art)
   end
 end
