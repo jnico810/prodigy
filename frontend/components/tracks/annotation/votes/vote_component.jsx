@@ -6,15 +6,17 @@ class VoteComponent extends React.Component {
     super(props);
     this.handleUpdateVote = this.handleUpdateVote.bind(this);
     this.handleCreateVote = this.handleCreateVote.bind(this);
-    this.state = {voted:false, value:0};
+    this.state = {voted:false, value:0, id:null};
   }
 
   handleUpdateVote(value, e){
+
     e.preventDefault();
     const vote = {
       value: value,
       author_id: this.props.currentUser.id,
-      annotation_id: this.props.annotation.id
+      annotation_id: this.props.annotation.id,
+      id: this.state.id
     };
     this.props.updateVote({vote}, ()=>console.log('updated'));
   }
@@ -29,14 +31,36 @@ class VoteComponent extends React.Component {
     this.props.createVote({vote}, ()=>console.log('created'));
   }
 
-  componentDidMount(){
+  componentWillMount(){
+    let voted = false;
+    // debugger
     this.props.annotation.votes.forEach((vote) => {
       if (vote.author_id === this.props.currentUser.id){
-
-        this.setState({voted:true, value:vote.value});
+        this.setState({voted:true, value:vote.value, id:vote.id});
+        voted = true;
         return;
       }
     });
+    if (!voted){
+      this.setState({voted:false, value:0, id:null});
+    }
+
+  }
+
+  componentWillReceiveProps(nextProps){
+    let voted = false;
+    // debugger
+    nextProps.annotation.votes.forEach((vote) => {
+      if (vote.author_id === this.props.currentUser.id){
+        this.setState({voted:true, value:vote.value, id:vote.id});
+        voted = true;
+        return;
+      }
+    });
+    if (!voted){
+      // debugger
+      this.setState({voted:false, value:0, id:null});
+    }
   }
 
   render(){
@@ -51,9 +75,9 @@ class VoteComponent extends React.Component {
       }
       return(
         <div className="vote-section">
-          <div className="upvote" onClick={this.handleUpdateVote.bind(null, 1)}>
+          <div className="upvote-section" onClick={this.handleUpdateVote.bind(null, 1)}>
             <i className= { thumbup } >thumb_up</i>
-            <span>Upvote {this.annotation.score} </span>
+            <span>Upvote {this.props.annotation.score} </span>
           </div>
           <i className={ thumbdown } onClick={this.handleUpdateVote.bind(null, -1)}>thumb_down</i>
         </div>
@@ -61,9 +85,9 @@ class VoteComponent extends React.Component {
     } else{
       return(
         <div className="vote-section">
-          <div className="upvote">
-            <i className= "material-icons thumb-up-icon" onClick={this.handleCreateVote.bind(null, 1)}>thumb_up</i>
-            <span>Upvote {this.annotation.score}</span>
+          <div className="upvote-section" onClick={this.handleCreateVote.bind(null, 1)}>
+            <i className= "material-icons thumb-up-icon">thumb_up</i>
+            <span>Upvote {this.props.annotation.score}</span>
           </div>
 
           <i className="material-icons thumb-down-icon" onClick={this.handleCreateVote.bind(null, -1)}>thumb_down</i>

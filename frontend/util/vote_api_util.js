@@ -13,7 +13,7 @@ export const updateVote = (vote, success, error) => {
   $.ajax({
     method: "PATCH",
     data: vote,
-    url: `/api/votes/${id}`,
+    url: `/api/votes/${vote.id}`,
     success,
     error
   });

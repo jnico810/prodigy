@@ -4,21 +4,21 @@
 
 .material-icons {
   cursor: pointer;
-}
-
-.upvote:hover {
-  color: #0ecb27;
-  cursor: pointer;
-}
-
-.upvote {
   display: inline-block;
 }
 
-.thumbup {
+.thumb-up-icon:hover {
   color: #0ecb27;
 }
 
-.thumbdown {
+.upvote-section {
+  display: inline-block;
+  cursor: pointer;
+}
+.upvote {
+  color: #0ecb27;
+}
+
+.downvote {
   color: #ff1414
 }
