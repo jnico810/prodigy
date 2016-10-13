@@ -1,7 +1,6 @@
 class Api::CommentsController < ApplicationController
 
   def create
-    debugger
     @comment = Comment.new(comment_params)
     @track = Annotation.find(comment_params[:annotation_id]).track
     if @comment.save
