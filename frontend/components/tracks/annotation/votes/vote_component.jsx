@@ -34,13 +34,15 @@ class VoteComponent extends React.Component {
 
   componentWillMount(){
     let voted = false;
-    this.props.annotation.votes.forEach((vote) => {
-      if (vote.author_id === this.props.currentUser.id){
-        this.setState({voted:true, value:vote.value, id:vote.id});
-        voted = true;
-        return;
-      }
-    });
+    if (this.props.annotation.votes) {
+      this.props.annotation.votes.forEach((vote) => {
+        if (vote.author_id === this.props.currentUser.id){
+          this.setState({voted:true, value:vote.value, id:vote.id});
+          voted = true;
+          return;
+        }
+      });
+    }
     if (!voted){
       this.setState({voted:false, value:0, id:null});
     }
@@ -50,13 +52,15 @@ class VoteComponent extends React.Component {
   componentWillReceiveProps(nextProps){
 
     let voted = false;
-    nextProps.annotation.votes.forEach((vote) => {
-      if (vote.author_id === this.props.currentUser.id){
-        this.setState({voted:true, value:vote.value, id:vote.id});
-        voted = true;
-        return;
-      }
-    });
+    if (nextProps.annotation.votes) {
+      nextProps.annotation.votes.forEach((vote) => {
+        if (vote.author_id === this.props.currentUser.id){
+          this.setState({voted:true, value:vote.value, id:vote.id});
+          voted = true;
+          return;
+        }
+      });
+    }
     if (!voted){
 
       this.setState({voted:false, value:0, id:null});
