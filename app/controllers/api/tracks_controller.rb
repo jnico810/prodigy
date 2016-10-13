@@ -19,11 +19,9 @@ class Api::TracksController < ApplicationController
       description: track_params[:description],
       lyrics: track_params[:lyrics],
       author_id: current_user.id,
-      artist_id: artist.id)
-
-    if !track_params[:album_art]
-        @track.album_art = track_params[:album_art]
-    end
+      artist_id: artist.id,
+      album_art: track_params[:album_art])
+    debugger
     if @track.save
       render :show
     else

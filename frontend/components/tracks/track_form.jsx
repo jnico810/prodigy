@@ -21,7 +21,9 @@ class TrackForm extends React.Component {
     formData.append("track[lyrics]", this.state.lyrics);
     formData.append("track[description]", this.state.description);
     formData.append("track[album]", this.state.album);
-    formData.append("track[album_art]", this.state.imageFile);
+    if (this.state.imageFile){
+      formData.append("track[album_art]", this.state.imageFile);
+    }
     this.props.createTrack(formData, this.pushToHome);
   }
 
