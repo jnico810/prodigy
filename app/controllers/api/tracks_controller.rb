@@ -21,7 +21,6 @@ class Api::TracksController < ApplicationController
       author_id: current_user.id,
       artist_id: artist.id,
       album_art: track_params[:album_art])
-    debugger
     if @track.save
       render :show
     else
