@@ -1,4 +1,5 @@
 import React from 'react';
+import VoteComponentContainer from './votes/vote_component_container';
 class AnnotationShow extends React.Component {
 
   constructor(props){
@@ -54,7 +55,7 @@ class AnnotationShow extends React.Component {
 
     this.props.annotation.comments.forEach((comment)=> {
       commentList.push(
-        <li>
+        <li key={comment.id}>
           <h4>{comment.author}</h4>
           <p>{comment.body}</p>
         </li>);
@@ -69,6 +70,7 @@ class AnnotationShow extends React.Component {
           <button className="comment-button" onClick= { this.handleCommentForm }>
             Submit
           </button>
+          <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/>
       </form>);
     }
     return(
@@ -77,6 +79,7 @@ class AnnotationShow extends React.Component {
       <p> {this.props.annotation.body}</p>
       { deleteButton }
       { form }
+
       <div className="annotation-comments-section">
         <ul>
           { commentList }

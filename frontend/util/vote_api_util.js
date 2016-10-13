@@ -8,20 +8,10 @@ export const createVote = (vote, success, error) => {
   });
 };
 
-
-export const deleteVote = (id, success, error) => {
-  $.ajax({
-    method: "DELETE",
-    data: id,
-    url: `/api/votes/${id}`,
-    success,
-    error
-  });
-};
-
 export const updateVote = (vote, success, error) => {
+
   $.ajax({
-    method: "DELETE",
+    method: "PATCH",
     data: vote,
     url: `/api/votes/${id}`,
     success,
