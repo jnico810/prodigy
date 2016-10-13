@@ -6,7 +6,9 @@
   box-sizing: border-box;
 }
 
-
+.empty-comments {
+  display: none;
+}
 .comment-form textarea {
   width: 100%;
   padding: 5px;

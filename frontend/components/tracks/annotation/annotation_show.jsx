@@ -63,6 +63,7 @@ class AnnotationShow extends React.Component {
     });
 
     let form;
+    let comments = (<div className="empty-comments"></div>);
 
     if (this.props.currentUser){
       form = (<form className="comment-form" onSubmit={this.handleCommentForm}>
@@ -71,20 +72,23 @@ class AnnotationShow extends React.Component {
             Submit
           </button>
       </form>);
+
+      comments = (
+        <div className="annotation-comments-section">
+          <ul>
+            { commentList }
+          </ul>
+        </div>
+      );
     }
     return(
     <div style= { style } className="annotation-show-container">
       <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
       <p> {this.props.annotation.body}</p>
       { deleteButton }
-      <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/>
+      {this.props.currentUser ? <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/> : <div></div>}
       { form }
-
-      <div className="annotation-comments-section">
-        <ul>
-          { commentList }
-        </ul>
-      </div>
+      { comments }
     </div>
   );
   }
