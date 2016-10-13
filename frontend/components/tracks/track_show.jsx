@@ -20,7 +20,7 @@ class TrackShow extends React.Component{
   }
 
   handleSelection(e){
-    e.preventDefault();
+    // e.preventDefault();
     const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
       if (
