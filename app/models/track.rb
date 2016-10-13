@@ -2,15 +2,19 @@
 #
 # Table name: tracks
 #
-#  id          :integer          not null, primary key
-#  title       :string           not null
-#  album       :string
-#  description :string           not null
-#  lyrics      :text             not null
-#  author_id   :integer          not null
-#  artist_id   :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                     :integer          not null, primary key
+#  title                  :string           not null
+#  album                  :string
+#  description            :string           not null
+#  lyrics                 :text             not null
+#  author_id              :integer          not null
+#  artist_id              :integer          not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  album_art_file_name    :string
+#  album_art_content_type :string
+#  album_art_file_size    :integer
+#  album_art_updated_at   :datetime
 #
 
 class Track < ActiveRecord::Base

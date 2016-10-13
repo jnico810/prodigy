@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: 'Comment'
 
+  has_many :votes,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: 'Vote'
+
 
   after_initialize :ensure_sessiontoken
 

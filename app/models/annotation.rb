@@ -22,4 +22,6 @@ class Annotation < ActiveRecord::Base
     primary_key: :id
 
   has_many :comments
+
+  has_many :votes
 end
