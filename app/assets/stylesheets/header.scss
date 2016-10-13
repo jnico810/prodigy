@@ -34,10 +34,23 @@
 
 }
 
+.header-logo:hover{
+  color: #ffffe8;
+  // text-shadow: none;
+  // background-color: black;
+}
+
 .header-list{
   float: right;
   display:block;
 }
+
+.header-list li:hover{
+  color: #ffff64;
+  background-color: black;
+}
+
+
 
 .header-list li {
   display:block;
