@@ -13,14 +13,18 @@ class Api::TracksController < ApplicationController
     if !artist
       artist = Artist.create(name: track_params[:artist])
     end
+    debugger
     @track = Track.new(
       title: track_params[:title],
       album: track_params[:album],
       description: track_params[:description],
       lyrics: track_params[:lyrics],
       author_id: current_user.id,
-      artist_id: artist.id,
-      album_art: track_params[:album_art])
+      artist_id: artist.id)
+
+    if !track_params[:album_art]
+        @track.album_art = track_params[:album_art]
+    end
     if @track.save
       render :show
     else
