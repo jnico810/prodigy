@@ -70,7 +70,6 @@ class AnnotationShow extends React.Component {
           <button className="comment-button" onClick= { this.handleCommentForm }>
             Submit
           </button>
-          <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/>
       </form>);
     }
     return(
@@ -78,6 +77,7 @@ class AnnotationShow extends React.Component {
       <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
       <p> {this.props.annotation.body}</p>
       { deleteButton }
+      <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/>
       { form }
 
       <div className="annotation-comments-section">

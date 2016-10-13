@@ -1,20 +1,33 @@
+.vote-section {
+  font-family: 'Roboto Condensed', sans-serif;
+  display: block;
+  cursor: pointer;
+  color:#9a9a9a;
+}
+
 .thumb-down-icon:hover {
   color: #ff1414
 }
 
 .material-icons {
   cursor: pointer;
-  display: inline-block;
-}
-
-.thumb-up-icon:hover {
-  color: #0ecb27;
+  // color:#9a9a9a;
+  // padding-top: 5px;
 }
 
 .upvote-section {
-  display: inline-block;
   cursor: pointer;
+  display: inline-block;
 }
+.upvote-section:hover {
+  color: #0ecb27;
+}
+
+.upvote-section span {
+  padding:0px 4px;
+  font-size:15px;
+}
+
 .upvote {
   color: #0ecb27;
 }

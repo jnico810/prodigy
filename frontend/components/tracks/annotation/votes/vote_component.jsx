@@ -68,6 +68,12 @@ class VoteComponent extends React.Component {
   }
 
   render(){
+    let score = this.props.annotation.score;
+    let scoreClass = '';
+    if (score > 0){
+      score = `+${this.props.annotation.score}`;
+      scoreClass = 'upvote';
+    }
     if (this.state.voted){
       let thumbup, thumbdown;
       if (this.state.value === 1){
@@ -77,11 +83,14 @@ class VoteComponent extends React.Component {
         thumbup = "material-icons thumb-up-icon";
         thumbdown = "material-icons thumb-down-icon downvote";
       }
+      if (this.props.annotation.score > 0){
+
+      }
       return(
         <div className="vote-section">
           <div className="upvote-section" onClick={this.handleUpdateVote.bind(null, 1)}>
             <i className= { thumbup } >thumb_up</i>
-            <span>Upvote {this.props.annotation.score} </span>
+            <span className = {scoreClass}>Upvote</span><span className = {scoreClass}>{score}</span>
           </div>
           <i className={ thumbdown } onClick={this.handleUpdateVote.bind(null, -1)}>thumb_down</i>
         </div>
@@ -91,7 +100,7 @@ class VoteComponent extends React.Component {
         <div className="vote-section">
           <div className="upvote-section" onClick={this.handleCreateVote.bind(null, 1)}>
             <i className= "material-icons thumb-up-icon">thumb_up</i>
-            <span>Upvote {this.props.annotation.score}</span>
+            <span>Upvote</span><span className = {scoreClass}>{score}</span>
           </div>
 
           <i className="material-icons thumb-down-icon" onClick={this.handleCreateVote.bind(null, -1)}>thumb_down</i>
