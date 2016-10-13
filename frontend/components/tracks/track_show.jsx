@@ -5,7 +5,7 @@ import AnnotationItem from './annotation/annotation_item';
 import AnnotationShowContainer from './annotation/annotation_show_container';
 
 class TrackShow extends React.Component{
-
+  
   constructor(props){
     super(props);
     this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
@@ -15,6 +15,7 @@ class TrackShow extends React.Component{
     this.closeShowForm = this.closeShowForm.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
   }
+
   handleMouseDown(e){
     if (this.state.annotating){
       return;
@@ -23,7 +24,6 @@ class TrackShow extends React.Component{
   }
 
   handleSelection(e){
-    // e.preventDefault();
     const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
       if (
@@ -100,7 +100,6 @@ class TrackShow extends React.Component{
     </span>);
     return lyricsDiv;
   }
-
 
   render(){
     let rightCol;

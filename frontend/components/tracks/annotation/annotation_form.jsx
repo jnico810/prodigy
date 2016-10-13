@@ -55,7 +55,7 @@ class AnnotationForm extends React.Component {
     } else{
         const button = (
         <div style = { style } className="annotation-container">
-          <button className="annotation-button" onClick= { this.handleAnnotation }>
+          <button className="annotation-button" onClick={ this.handleAnnotation }>
             Start the Genius Annotation
           </button>
         </div>);
