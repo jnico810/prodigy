@@ -16,6 +16,9 @@ class TrackShow extends React.Component{
     this.handleMouseDown = this.handleMouseDown.bind(this);
   }
   handleMouseDown(e){
+    if (this.state.annotating){
+      return;
+    }
     this.setState({startLoc:e.pageY});
   }
 
@@ -27,6 +30,11 @@ class TrackShow extends React.Component{
       document.getSelection().anchorNode !==
       document.getSelection().focusNode ||
       document.getSelection().anchorNode.parentElement.className === 'annotated-lyric'){
+        return;
+      }
+
+      if (this.state.annotating){
+        this.setState({annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null});
         return;
       }
 
