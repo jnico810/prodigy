@@ -34,6 +34,15 @@ class User < ActiveRecord::Base
   foreign_key: :author_id,
   class_name: 'Vote'
 
+  has_many :annotations,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'Annotation'
+
+  has_many :votes,
+    through: :annotations,
+    source: :votes
+
 
   after_initialize :ensure_sessiontoken
 
@@ -63,6 +72,10 @@ class User < ActiveRecord::Base
 
   def ensure_sessiontoken
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def score
+    self.annotations.length * 5
   end
 
 

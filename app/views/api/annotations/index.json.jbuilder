@@ -5,8 +5,11 @@ json.annotations @annotations.order('start_idx ASC') do |annotation|
   json.end_idx annotation.end_idx
   json.start_idx annotation.start_idx
   json.body annotation.body
+  json.score annotation.score
+  json.votes annotation.votes
   json.comments annotation.comments do |comment|
     json.author comment.author.username
     json.body comment.body
+    json.id comment.id
   end
 end

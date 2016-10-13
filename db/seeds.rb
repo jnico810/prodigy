@@ -15,6 +15,7 @@
 end
 john = User.create(username:'j', email:'j', score:100, password:'starwars')
 
+guest = User.create(username:'mozart', email:'mozart.com', score:10, password:'starwars')
 # 1000.times do |num|
 #   Artist.create!(name: "a#{num}")
 # end

@@ -10,16 +10,15 @@ const defaultState = {
 };
 
 const tracks = (state = defaultState, action) => {
+  window.merge = merge;
   switch (action.type){
     case RECEIVE_ALL_TRACKS:
       return merge({}, state, { tracks:action.tracks });
     case RECEIVE_TRACK:
-
       const newState = Object.assign({}, state, {currTrack:action.track });
-      
       return newState;
     case RECEIVE_ANNOTATIONS:
-      const newCurrentTrack = merge({}, state.currTrack, action.annotations);
+      const newCurrentTrack = Object.assign({}, state.currTrack, action.annotations);
       return Object.assign({}, state, {currTrack: newCurrentTrack} );
     case RECEIVE_TRACK_ERRORS:
       return merge({}, state, { errors: action.errors});

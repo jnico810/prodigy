@@ -16,6 +16,7 @@ class Header extends React.Component {
     this.handleLogOut = this.handleLogOut.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
     this.handleLogoClick = this.handleLogoClick.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   closeModal(){
@@ -39,20 +40,30 @@ class Header extends React.Component {
     e.currentTarget.value = "";
   }
 
+  handleGuestLogin(e){
+    e.preventDefault();
+    const user = {
+      username:'mozart',
+      password:'starwars'
+    };
+    this.props.login({user});
+  }
+
   render() {
     let rightOfHeader;
     if (this.props.currentUser){
       rightOfHeader = (
         <ul className="header-list cf">
-          <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}</strong>!</li>
-          <li><a className="header-logout" onClick={ this.handleLogOut }>Log out</a></li>
+          <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}! IQ:{ this.props.currentUser.score}</strong></li>
+          <li><a className="header-logout login" onClick={ this.handleLogOut }>Log out</a></li>
         </ul>);
     } else {
       rightOfHeader= (
         <div>
         <ul className="header-list cf">
-          <li><a onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
-          <li><a onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
+          <li><a className="login" onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
+          <li><a className="login" onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
+          <li><a className="login" onClick={ this.handleGuestLogin}>GUEST LOGIN </a></li>
         </ul>
         <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={ ModalStyle }>
           <SessionFormContainer
