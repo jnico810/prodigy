@@ -24,4 +24,13 @@ class Annotation < ActiveRecord::Base
   has_many :comments
 
   has_many :votes
+
+  def score
+    score = 0
+    self.votes.each do |vote|
+      score += vote.value
+    end
+    score
+
+  end
 end

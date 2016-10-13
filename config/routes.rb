@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     end
     resources :annotations, only: [:destroy]
     resources :comments, only: [:destroy, :create]
+    resources :votes, only: [:destroy, :create, :update]
   end
 end
