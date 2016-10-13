@@ -8,8 +8,8 @@ const annotationMiddleware = ({ getState, dispatch}) => next => action => {
   const error = error => console.log(error);
   switch (action.type){
     case UPDATE_VOTE:
-      success = (annotations) => {
-        dispatch(receiveAnnotations(annotations));
+      success = (track) => {
+        dispatch(receiveTrack(track));
         action.callback();
       };
       API.updateVote(action.vote, success, error);

@@ -11,6 +11,7 @@ class VoteComponent extends React.Component {
 
   handleUpdateVote(value, e){
 
+
     e.preventDefault();
     const vote = {
       value: value,
@@ -33,7 +34,6 @@ class VoteComponent extends React.Component {
 
   componentWillMount(){
     let voted = false;
-    // debugger
     this.props.annotation.votes.forEach((vote) => {
       if (vote.author_id === this.props.currentUser.id){
         this.setState({voted:true, value:vote.value, id:vote.id});
@@ -48,8 +48,8 @@ class VoteComponent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
+
     let voted = false;
-    // debugger
     nextProps.annotation.votes.forEach((vote) => {
       if (vote.author_id === this.props.currentUser.id){
         this.setState({voted:true, value:vote.value, id:vote.id});
@@ -58,7 +58,7 @@ class VoteComponent extends React.Component {
       }
     });
     if (!voted){
-      // debugger
+
       this.setState({voted:false, value:0, id:null});
     }
   }

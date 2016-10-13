@@ -14,7 +14,9 @@ const tracks = (state = defaultState, action) => {
     case RECEIVE_ALL_TRACKS:
       return merge({}, state, { tracks:action.tracks });
     case RECEIVE_TRACK:
+
       const newState = Object.assign({}, state, {currTrack:action.track });
+      
       return newState;
     case RECEIVE_ANNOTATIONS:
       const newCurrentTrack = merge({}, state.currTrack, action.annotations);
