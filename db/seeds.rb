@@ -26,6 +26,10 @@ radiohead = Artist.create!(name: "Radiohead")
 fleetwood = Artist.create!(name: "Fleetwood Mac")
 frank = Artist.create!(name: "Frank Ocean")
 kanye = Artist.create!(name: "Kanye West")
+ingrid = Artist.create!(name: "Ingrid Michaelson")
+dylan = Artist.create!(name: "Bob Dylan")
+beyonce = Artist.create!(name: "Beyoncé")
+lin = Artist.create!(name: "Lin-Manuel Miranda")
 
 Track.create!(  title: "Skinny Love",
   description:"Released as the first single from For Emma, Forever Ago, ‘Skinny Love’ is a song about a failed relationship and the regret that stems from it.",
@@ -330,11 +334,336 @@ I gotta get with it",
   album_art: File.open('app/assets/images/808s.jpg',
   album: "808's and Heartbreak"))
 
-# 100.times do |num|
-#   Track.create!(
-#   title: "t#{num}",
-#   description:"d#{num}",
-#   lyrics:"l#{num}",
-#   artist_id: num + 1,
-#   author_id: num + 1)
-# end
+
+      Track.create!(  title: "Hello No",
+        description:"Ingrid Michaelson and Greg Laswell divorced in February of 2015. Laswell released his album Everyone Thinks I Dodged A Bullet over a year later, featuring songs mired in regret and sadness – likely over their breakup.
+
+Meanwhile, Michaelson released an upbeat song soon after that essentially saying “good riddance.”
+
+This is that song.",
+        lyrics:
+        "[Verse 1]
+I should've known better
+I saw her wearing your sweater
+Nice glasses, fake red hair, just like me
+Stop crying, stop crawling
+Can't you see that I have stop falling
+We were good at faking forever
+I get it, whatever
+Am I gonna miss you?
+
+[Chorus]
+Hell no
+Baby watch me up and go
+Mama said that the boys like you never work any way
+(Boys like you)
+Girlsfriends say 'are you gonna be sad
+If you calls you up you're gonna take him back?' I say
+Hell no, oh, hell no
+I get it, whatever
+
+[Verse 2]
+Straight up, don't blame you
+You’re not the Cash and I’m not the June
+Never be the one to make you better
+Whatever
+
+[Chorus]
+Hell no
+Baby watch me up and go
+Mama said that the boys like you never work any way
+(Boys like you)
+Girlsfriends say 'are you gonna be sad
+If you calls you up you're gonna take him back?'
+Hell no, oh, hell no
+
+[Bridge]
+In my bed late at night
+Thinking of how you held me tight
+Will I be lonely when I wake?
+Did we make a big mistake?
+
+[Chorus]
+Hell no
+Baby watch me up and go
+I always know that a boy like you wouldn't work out any way
+'You gonna take him back?'
+Hell no
+Baby watch me up and go
+Mama said that the boys like you never work any way
+(Boys like you)
+Girlfriends say 'are you gonna be sad
+If you calls you up you're gonna take him back?' I say
+Hell no, oh, hell no
+
+[Outro]
+I get it
+Hell no
+(I'm not gonna miss you)
+Hell no
+Whatever
+Hell no
+You gonna take him back?
+Oh hell no",
+artist_id: ingrid.id,
+author_id: timbo.id,
+album_art: File.open('app/assets/images/ingrid.jpg',
+album: "It Doesn't Have to Make Sense"))
+
+
+Track.create!(  title: "Maggie's Farm",
+  description:"“Maggie’s Farm” appears on Dylan’s 1965 album, Bringing It All Back Home.",
+  lyrics:
+  "[Verse 1]
+I ain't gonna work on Maggie's farm no more
+No, I ain't gonna work on Maggie's farm no more
+Well, I wake up in the morning
+Fold my hands and pray for rain
+I got a head full of ideas
+That are driving me insane
+It's a shame the way she makes me scrub the floor
+I ain't gonna work on Maggie's farm no more
+
+[Verse 2]
+I ain't gonna work for Maggie's brother no more
+No, I ain't gonna work for Maggie's brother no more
+Well, he hands you a nickel
+He hands you a dime
+He asks you with a grin
+If you're having a good time
+Then he fines you every time you slam the door
+I ain't work for Maggie's brother more
+
+[Verse 3]
+I ain't gonna work for Maggie's pa no more
+No, I ain't gonna work for Maggie's pa no more
+Well, he puts his cigar
+Out in your face just for kicks
+His bedroom window
+It is made out of bricks
+The National Guard stands around his door
+Ah, I ain't gonna work for Maggie's pa no more
+
+[Verse 4]
+I ain't gonna work for Maggie's ma no more
+No, I ain't gonna work for Maggie's ma no more
+Well, when she talks to all the servants
+About man and God and law
+Everybody says
+She's the brains behind pa
+She's sixty-eight, but she says she's fifty-four
+I ain't gonna work for Maggie's ma no more
+
+[Verse 5]
+I ain't gonna work on Maggie's farm no more
+I ain't gonna work on Maggie's farm no more
+Well, I try my best
+To be just like I am
+But everybody wants you
+To be just like them
+They say sing while you slave and I just get bored
+I ain't gonna work on Maggie's farm no more",
+artist_id: dylan.id,
+author_id: timbo.id,
+album_art: File.open('app/assets/images/maggies_farm.jpg',
+album: "Bringing It All Back Home"))
+
+Track.create!(  title: "ALL NIGHT",
+  description:"“All Night” is a groovy midtempo love ballad. The song illustrates a wise love, one that has experienced deep pain and disappointment yet was able to come out the other side determined to keep going.
+
+This track serves as the unofficial ‘close’ to the album’s emotional journey, before Beyonce’s first single from Lemonade, “Formation.”",
+  lyrics:
+  "[Verse 1]
+Found the truth beneath your lies
+And true love never has to hide
+True love never has to hide
+I'll trade your broken wings for mine
+Trade your broken wings for mine
+I've seen your scars and kissed your crime
+Seen your scars and kissed your crime
+
+[Pre-Chorus]
+So many people that I know, they're just tryna touch ya
+Kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+Give you some time to prove that I can trust you again
+I'm gonna kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+
+[Chorus]
+All night long
+Sweet love all night long
+Sweet love all night long
+Sweet love all night long
+All I wanna, ain't no other
+We together, I remember
+Sweet love all night long
+
+[Verse 2]
+Our love was stronger than your pride
+Beyond your darkness, I'm your light
+If you get deep, you touch my mind
+If you get deep, you touch my mind
+Baptize your tears and dry your eyes
+Baptize your tears and dry your eyes
+
+[Pre-Chorus]
+So many people that I know, they're just tryna touch ya
+Kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+Give you some time to prove that I can trust you again
+I'm gonna kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+
+[Chorus]
+All night long
+Sweet love all night long
+Sweet love all night long
+Sweet love all night long
+All I wanna, ain't no other
+We together, I remember
+Sweet love all night long
+
+[Bridge]
+They say true love's the greatest weapon
+To win the war caused by pain, pain
+But every diamond has imperfections
+But my love's too pure to watch it chip away
+Oh nothing real can be threatened
+True love breathes salvation back into me
+With every tear came redemption
+And my torturer became my remedy
+
+[Pre-Chorus]
+So many people that I know, they're just tryna touch ya
+Kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+Give you some time to prove that I can trust you again
+I'm gonna kiss up and rub up and feel up
+Kiss up and rub up and feel up on you
+
+[Chorus]
+All night long
+Sweet love all night long
+Sweet love all night long
+Sweet love all night long
+All I wanna, ain't no other
+We together, I remember
+Sweet love all night long
+
+[Outro]
+How I missed you, my love",
+artist_id: beyonce.id,
+author_id: belieber.id,
+album_art: File.open('app/assets/images/lemonade.jpg',
+album: "LEMONADE"))
+
+
+Track.create!(  title: "You'll be Back",
+  description:"This song, framed as a letter from King George to the colonists, is a kind of extended double entendre. It addresses the grievances of the colonists and asserts George’s authority, but in form and wording it echos any number of other songs which have a similarly creepy “you want to leave me, but you can’t really” vibe.
+
+This track serves as the unofficial ‘close’ to the album’s emotional journey, before Beyonce’s first single from Lemonade, “Formation.”",
+  lyrics:
+  "[Verse 1: KING GEORGE]
+You say
+The price of my love’s not a price that you’re willing to pay
+You cry
+In your tea which you hurl in the sea when you see me go by
+Why so sad?
+Remember we made an arrangement when you went away
+Now you’re making me mad
+Remember, despite our estrangement, I’m your man
+You’ll be back, soon you’ll see
+You’ll remember you belong to me
+You’ll be back, time will tell
+You’ll remember that I served you well
+Oceans rise, empires fall
+We have seen each other through it all
+And when push comes to shove
+I will send a fully armed battalion to remind you of my love!
+
+[Chorus: KING GEORGE ]
+Da da da dat da dat da da da da ya da
+Da da dat dat da ya da!
+Da da da dat da dat da da da da ya da
+Da da dat dat da…
+
+[Verse 2: KING GEORGE]
+You say our love is draining and you can’t go on
+You’ll be the one complaining when I am gone...
+And no, don’t change the subject
+Cuz you’re my favorite subject
+My sweet, submissive subject
+My loyal, royal subject
+Forever and ever and ever and ever and ever…
+
+[Verse 3: KING GEORGE]
+You’ll be back like before
+I will fight the fight and win the war
+For your love, for your praise
+And I’ll love you till my dying days
+When you’re gone, I’ll go mad
+So don’t throw away this thing we had
+Cuz when push comes to shove
+I will kill your friends and family to remind you of my love
+
+[Chorus: KING GEORGE ]
+Da da da dat da dat da da da da ya da
+Da da dat dat da ya da!
+Da da da dat da dat da da da da ya da
+Da da dat—
+Everybody!
+
+[Chorus: FULL ENSEMBLE]
+Da da da dat da dat da da da da ya da
+Da da dat dat da ya da!
+Da da da dat da dat da da da da ya da da da da
+Dat dat da ya da!",
+artist_id: lin.id,
+author_id: johnny.id,
+album_art: File.open('app/assets/images/hamilton.jpg',
+album: "Hamilton (Original Broadway Cast Recording)"))
+
+
+elliott = Artist.create!(name: "Elliott Smith")
+
+
+Track.create!(title: "Between the Bars",
+  description:"Track #4 off of Elliott’s celebrated 1997 album; ‘Either/Or'.",
+  lyrics:
+  "[Verse 1]
+Drink up, baby, stay up all night
+With the things you could do, you won't but you might
+The potential you'll be, that you'll never see
+The promises you'll only make
+
+Drink up with me now and forget all about
+The pressure of days, do what I say
+And I'll make you okay and drive them away
+The images stuck in your head
+
+[Chorus]
+People you've been before that you
+Don't want around anymore
+That push and shove and won't bend to your will
+I'll keep them still
+
+[Verse 2]
+Drink up, baby, look at the stars
+I'll kiss you again, between the bars
+Where I'm seeing you there, with your hands in the air
+Waiting to finally be caught
+
+Drink up one more time and I'll make you mine
+Keep you apart, deep in my heart
+Separate from the rest, where I like you the best
+And keep the things you forgot
+
+People you've been before that you
+Don't want around anymore
+That push and shove and won't bend to your will
+I'll keep them still",
+artist_id: elliott.id,
+author_id: johnny.id,
+album_art: File.open('app/assets/images/either_or.jpg',
+album: "Either Or"))
