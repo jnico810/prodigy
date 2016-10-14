@@ -25,6 +25,7 @@ const Root = ({ store }) => {
   };
 
 
+  window.store = store;
   return (
     <Provider store={store}>
       <Router history= { hashHistory }>

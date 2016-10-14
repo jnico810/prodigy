@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :annotations, only: [:destroy]
     resources :comments, only: [:destroy, :create]
     resources :votes, only: [:destroy, :create, :update]
+
+    get 'search/:query' => 'search#filter', as: :search_filter
   end
 end

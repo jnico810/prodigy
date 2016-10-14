@@ -1,7 +1,7 @@
 export const searchTracks = (query, success, error) => {
+
   $.ajax({
-    method: "POST",
-    data: query,
+    method: "GET",
     url: `/api/search/${query}`,
     success,
     error

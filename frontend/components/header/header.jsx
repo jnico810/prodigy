@@ -10,13 +10,19 @@ class Header extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { modalOpen: false, formType:""};
+    this.state = { modalOpen: false, formType:"", query:'', inputClick: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
-    this.clearSearch = this.clearSearch.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleLogoClick = this.handleLogoClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
+  }
+
+  clearSearch (){
+    this.setState({query:'', inputClicked:false});
   }
 
   closeModal(){
@@ -24,6 +30,10 @@ class Header extends React.Component {
   }
   openModal(type){
     this.setState({ modalOpen: true, formType: type });
+  }
+
+  handleSearchClick(e){
+    // this.setState({inputClicked:true});
   }
 
   handleLogOut() {
@@ -35,9 +45,13 @@ class Header extends React.Component {
     hashHistory.push("/");
   }
 
-  clearSearch(e) {
+  handleSearch(e) {
     e.preventDefault();
-    e.currentTarget.value = "";
+    this.setState({query:e.currentTarget.value});
+    const query = e.currentTarget.value ;
+    if (query.length > 0){
+      this.props.requestSearch(query);
+    }
   }
 
   handleGuestLogin(e){
@@ -75,10 +89,34 @@ class Header extends React.Component {
         </div>
       );
     }
+    let results = [];
+    this.props.search.forEach((result) => {
+      const url = `/tracks/${result.id}`;
+      results.push(
+        <Link to={ url } onClick={this.clearSearch}>
+          <li>{result.title} <small>by {result.artist} </small></li>
+        </Link>
+    );
+    });
+    let searchUl = (<div className="empty-div"></div>);
+    let inputStyle = "header-search";
+    if (this.state.inputClicked){
+      inputStyle = "header-search-big";
+    }
+
+    if (results.length > 0 && this.state.query.length > 0){
+      searchUl = (<div className='search-results'>
+      <ul>
+        {results}
+      </ul>
+    </div>);
+    }
     return(
       <header>
         <div className="header cf">
-          <a className="header-left" href="https://github.com/jnico810">GITHUB </a>
+          <input onClick= {this.handleSearchClick} onChange= { this.handleSearch } className={inputStyle} value={this.state.query}type="text" placeholder="Search lyrics & more!">
+          </input>
+          {searchUl}
           <div className="header-logo-container">
             <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
           </div>
@@ -89,8 +127,8 @@ class Header extends React.Component {
     );
   }
 }
-// <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
 
+// <a className="header-left" href="https://github.com/jnico810">GITHUB </a>
 // <li><Link to="/signup">SIGN UP</Link></li>
 // <li><Link to="/login">LOGIN</Link></li>
 export default Header;
