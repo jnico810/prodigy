@@ -77,6 +77,10 @@ class TrackShow extends React.Component{
     }
   }
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+
   generateLyricsAnnotations() {
 
     let lyrics =(<span>{this.props.track.lyrics}</span>);
