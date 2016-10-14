@@ -128,6 +128,11 @@ class TrackShow extends React.Component{
           </span>
         </div>);
     }
+    let album = (<div className="empty-div"></div>);
+
+    if (this.props.track.album){
+      album = (<h4>Album <strong>{this.props.track.album}</strong></h4>);
+    }
 
     if (this.props.track.title){
       const header = (<header className="track-show-header">
@@ -136,7 +141,7 @@ class TrackShow extends React.Component{
         <div className="track-show-header-content">
           <h1>{this.props.track.title}</h1>
           <h2>{this.props.track.artist}</h2>
-          <h4>Album <strong>{this.props.track.album}</strong></h4>
+          {album}
           <h4>Added by <strong>{this.props.track.author}</strong></h4>
         </div>
         { !this.state.selectedAnnotation && !this.state.annotating ?
