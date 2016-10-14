@@ -19,6 +19,7 @@ charlieXoXo = User.create(username:'charlieXoXo', email:'charlieXoXo', score:10,
 musicMan = User.create(username:'musicMan', email:'musicMan', score:10, password:'starwars')
 belieber = User.create(username:'belieber', email:'belieber', score:10, password:'starwars')
 mozart = User.create(username:'mozart', email:'mozart', score:10, password:'starwars')
+ken = User.create(username:'kenny_bone', email:'kenny_bone', score:10, password:'starwars')
 
 
 bon_iver = Artist.create!(name: "Bon Iver")
