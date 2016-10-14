@@ -55,7 +55,7 @@ class Header extends React.Component {
       rightOfHeader = (
         <ul className="header-list cf">
           <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}! IQ:{ this.props.currentUser.score}</strong></li>
-          <li><a className="header-logout login" onClick={ this.handleLogOut }>Log out</a></li>
+          <li><a className="header-logout login" onClick={ this.handleLogOut }>LOG OUT</a></li>
         </ul>);
     } else {
       rightOfHeader= (
@@ -78,7 +78,7 @@ class Header extends React.Component {
     return(
       <header>
         <div className="header cf">
-          <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
+          <a className="header-left" href="https://github.com/jnico810">GITHUB </a>
           <div className="header-logo-container">
             <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
           </div>
@@ -89,6 +89,7 @@ class Header extends React.Component {
     );
   }
 }
+// <input onClick= { this.clearSearch } className="header-search" type="text" defaultValue="Search lyrics & more!"></input>
 
 // <li><Link to="/signup">SIGN UP</Link></li>
 // <li><Link to="/login">LOGIN</Link></li>

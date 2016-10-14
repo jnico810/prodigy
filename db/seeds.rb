@@ -6,19 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do |num|
-  User.create!(
-  username: "u#{num}",
-  password: 'starwars',
-  email: Faker::Internet.email,
-  score: Faker::Number.between(1, 10))
-end
-john = User.create(username:'j', email:'j', score:100, password:'starwars')
-
-guest = User.create(username:'mozart', email:'mozart.com', score:10, password:'starwars')
-# 1000.times do |num|
-#   Artist.create!(name: "a#{num}")
+# 5.times do |num|
+#   User.create!(
+#   username: "u#{num}",
+#   password: 'starwars',
+#   email: Faker::Internet.email,
+#   score: Faker::Number.between(1, 10))
 # end
+johnny = User.create(username:'johnny', email:'johnny', score:0, password:'starwars')
+timbo = User.create(username:'timbo', email:'timbo', score:10, password:'starwars')
+charlieXoXo = User.create(username:'charlieXoXo', email:'charlieXoXo', score:10, password:'starwars')
+musicMan = User.create(username:'musicMan', email:'musicMan', score:10, password:'starwars')
+belieber = User.create(username:'belieber', email:'belieber', score:10, password:'starwars')
+mozart = User.create(username:'mozart', email:'mozart', score:10, password:'starwars')
+
 
 bon_iver = Artist.create!(name: "Bon Iver")
 radiohead = Artist.create!(name: "Radiohead")
@@ -70,10 +71,12 @@ Who will love you?
 Who will fight?
 Who will fall far behind?",
   artist_id: bon_iver.id,
-  author_id: john.id)
+  author_id: johnny.id,
+  album: 'For Emma, Forever Ago',
+  album_art: File.open('app/assets/images/for_emma.jpg'))
 
 Track.create!(  title: "Full Stop",
-  description:"Released as the first single from For Emma, Forever Ago, ‘Skinny Love’ is a song about a failed relationship and the regret that stems from it.",
+  description:"Radiohead debuted this song in Chicago on their 2012 tour. It’s a soaring, ominous, driving Krautrock-type song.",
   lyrics:
   "[Verse 1]
 You really messed up everything
@@ -126,7 +129,9 @@ You really messed up
 You really messed up
 You really messed up this time",
   artist_id: radiohead.id,
-  author_id: john.id)
+  author_id: belieber.id,
+  album: 'A Moon Shaped Pool',
+  album_art: File.open('app/assets/images/moonshaped.jpg'))
 
 
 Track.create!(  title: "Dreams",
@@ -177,10 +182,12 @@ Say women they will come and they will go
 When the rain washes you clean, you'll know, you'll know
 You will know, you'll know",
   artist_id: fleetwood.id,
-  author_id: john.id)
+  author_id: mozart.id,
+  album: 'Rumours',
+  album_art: File.open('app/assets/images/rumours.jpg'))
 
 Track.create!(  title: "Seigfried",
-  description:"'Seigfried,' the fifteenth track on Frank Ocean’s Blonde, might be called a metaphysical break-up song. Based on the mention of “a speckled face”, the song may be about male model Willy Cartier, who’s rumored to have had a brief affair with Ocean.",
+  description:"The fifteenth track on Frank Ocean’s Blonde, might be called a metaphysical break-up song. Based on the mention of “a speckled face”, the song may be about male model Willy Cartier, who’s rumored to have had a brief affair with Ocean.",
   lyrics:"The markings on your surface
 Your speckled face
 Flawed crystals hang from your ears
@@ -256,7 +263,9 @@ I'd do anything for you, anything for you
 (In the dark)
 I'd do anything for you, anything for",
   artist_id: frank.id,
-  author_id: john.id)
+  author_id: musicMan.id,
+  album: 'Blond',
+  album_art: File.open('app/assets/images/blonde.jpg'))
 
 Track.create!(  title: "Welcome to Heartbreak",
   description:"The second track off Kanye West’s 4th studio album, 808s and Heartbreak. Features backing vocals from KiD CuDi and Jeff Bhasker. Produced by Kanye West, Jeff Bhasker, and Plain Pat.",
@@ -317,7 +326,9 @@ No, no, I can't stop
 I can't stop having these visions
 I gotta get with it",
   artist_id: kanye.id,
-  author_id: john.id)
+  author_id: johnny.id,
+  album_art: File.open('app/assets/images/808s.jpg',
+  album: "808's and Heartbreak"))
 
 # 100.times do |num|
 #   Track.create!(

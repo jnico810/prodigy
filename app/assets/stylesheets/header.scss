@@ -9,13 +9,27 @@
   font: 13px/1.7 helvetica, sans-serif;
 }
 
-.header-search {
+// .header-search {
+//   float: left;
+//   display: block;
+//   width: 200px;
+//   padding: 2px;
+//   margin: 11px;
+//   cursor:pointer;
+// }
+
+.header-left {
   float: left;
   display: block;
-  width: 200px;
-  padding: 2px;
-  margin: 11px;
+  padding: 9px;
+  font: 13px/1.7 helvetica, sans-serif;
   cursor:pointer;
+  margin-left: 10px;
+}
+
+.header-left:hover {
+  color: #ffff64;
+  background-color: black;
 }
 
 .header-logo-container {
