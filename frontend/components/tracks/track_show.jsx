@@ -153,9 +153,9 @@ class TrackShow extends React.Component{
       return(
         <section>
           { header }
-          <main className="track-show-wrapper">
+          <main className="track-show-wrapper" onMouseDown={this.handleMouseDown}>
             <section className="track-show-content cf">
-              <div className="track-show-lyrics" onMouseUp={this.handleSelection} onMouseDown={this.handleMouseDown}>
+              <div className="track-show-lyrics" onMouseUp={this.handleSelection}>
                 { this.generateLyricsAnnotations() }
               </div>
               { rightCol }
