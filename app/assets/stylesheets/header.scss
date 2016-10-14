@@ -15,10 +15,12 @@
 .header-search {
   float: left;
   display: block;
-  width: 200px;
-  padding: 2px;
-  margin: 11px;
+  font-size: 12px;
+  width: 220px;
+  padding: 5px;
+  margin: 7px;
   cursor:pointer;
+  border: 2px;
 }
 
 .header-search-big {
@@ -34,9 +36,9 @@
 }
 .search-results{
   position: absolute;
-  width: 195px;
+  width: 216px;
   padding: 2px;
-  margin: 30px 8px;
+  margin: 31px 4px;
 }
 
 .search-results ul {
@@ -44,8 +46,6 @@
   width: 100%;
   position: absolute;
   border-left:1px solid gray;
-  transition: height 1s
-
 }
 .search-results li {
   font-size: 15px;
