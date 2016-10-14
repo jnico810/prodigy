@@ -72,14 +72,15 @@ class AnnotationShow extends React.Component {
             Submit
           </button>
       </form>);
-
-      comments = (
-        <div className="annotation-comments-section">
-          <ul>
-            { commentList }
-          </ul>
-        </div>
-      );
+      if ( commentList.length > 0){
+        comments = (
+          <div className="annotation-comments-section">
+            <ul>
+              { commentList }
+            </ul>
+          </div>
+        );
+      }
     }
     return(
     <div style= { style } className="annotation-show-container">
