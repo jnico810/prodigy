@@ -5,7 +5,7 @@ import AnnotationItem from './annotation/annotation_item';
 import AnnotationShowContainer from './annotation/annotation_show_container';
 
 class TrackShow extends React.Component{
-  
+
   constructor(props){
     super(props);
     this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
@@ -136,6 +136,8 @@ class TrackShow extends React.Component{
         <div className="track-show-header-content">
           <h1>{this.props.track.title}</h1>
           <h2>{this.props.track.artist}</h2>
+          <h4>Album <strong>{this.props.track.album}</strong></h4>
+          <h4>Added by <strong>{this.props.track.author}</strong></h4>
         </div>
         { !this.state.selectedAnnotation && !this.state.annotating ?
           <img src={ this.props.track.album_art_url }

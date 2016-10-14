@@ -39,10 +39,10 @@ body {
   line-height: 1.1666666666;
   background-color: white;
   color: black;
-  font: 13px/1.7 helvetica, sans-serif;
+  font: 13px/1.7 'Roboto Condensed', sans-serif;
 }
 
-input
+input,
 {
 	margin:0;
 	border:0;
@@ -51,6 +51,7 @@ input
 	vertical-align:middle;
 	white-space:normal;
 	line-height:1;
+  font: 13px/1.7 'Roboto Condensed', sans-serif;
 	/* Browsers have different default form fonts */
 }
 

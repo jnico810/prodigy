@@ -331,11 +331,11 @@ I can't stop having these visions
 I gotta get with it",
   artist_id: kanye.id,
   author_id: johnny.id,
-  album_art: File.open('app/assets/images/808s.jpg',
-  album: "808's and Heartbreak"))
+  album_art: File.open('app/assets/images/808s.jpg'),
+  album: "808's and Heartbreak")
 
 
-      Track.create!(  title: "Hello No",
+      Track.create!(  title: "Hell No",
         description:"Ingrid Michaelson and Greg Laswell divorced in February of 2015. Laswell released his album Everyone Thinks I Dodged A Bullet over a year later, featuring songs mired in regret and sadness – likely over their breakup.
 
 Meanwhile, Michaelson released an upbeat song soon after that essentially saying “good riddance.”
@@ -407,8 +407,8 @@ You gonna take him back?
 Oh hell no",
 artist_id: ingrid.id,
 author_id: timbo.id,
-album_art: File.open('app/assets/images/ingrid.jpg',
-album: "It Doesn't Have to Make Sense"))
+album_art: File.open('app/assets/images/ingrid.jpg'),
+album: "It Doesn't Have to Make Sense")
 
 
 Track.create!(  title: "Maggie's Farm",
@@ -465,8 +465,8 @@ They say sing while you slave and I just get bored
 I ain't gonna work on Maggie's farm no more",
 artist_id: dylan.id,
 author_id: timbo.id,
-album_art: File.open('app/assets/images/maggies_farm.jpg',
-album: "Bringing It All Back Home"))
+album_art: File.open('app/assets/images/maggies_farm.jpg'),
+album: "Bringing It All Back Home")
 
 Track.create!(  title: "ALL NIGHT",
   description:"“All Night” is a groovy midtempo love ballad. The song illustrates a wise love, one that has experienced deep pain and disappointment yet was able to come out the other side determined to keep going.
@@ -555,8 +555,8 @@ Sweet love all night long
 How I missed you, my love",
 artist_id: beyonce.id,
 author_id: belieber.id,
-album_art: File.open('app/assets/images/lemonade.jpg',
-album: "LEMONADE"))
+album_art: File.open('app/assets/images/lemonade.jpg'),
+album: "LEMONADE")
 
 
 Track.create!(  title: "You'll be Back",
@@ -621,8 +621,8 @@ Da da da dat da dat da da da da ya da da da da
 Dat dat da ya da!",
 artist_id: lin.id,
 author_id: johnny.id,
-album_art: File.open('app/assets/images/hamilton.jpg',
-album: "Hamilton (Original Broadway Cast Recording)"))
+album_art: File.open('app/assets/images/hamilton.jpg'),
+album: "Hamilton (Original Broadway Cast Recording)")
 
 
 elliott = Artist.create!(name: "Elliott Smith")
@@ -665,5 +665,5 @@ That push and shove and won't bend to your will
 I'll keep them still",
 artist_id: elliott.id,
 author_id: johnny.id,
-album_art: File.open('app/assets/images/either_or.jpg',
-album: "Either Or"))
+album_art: File.open('app/assets/images/either_or.jpg'),
+album: "Either Or")

@@ -15,7 +15,7 @@
 .header-search {
   float: left;
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   width: 220px;
   padding: 5px;
   margin: 7px;
@@ -48,7 +48,7 @@
   border-left:1px solid gray;
 }
 .search-results li {
-  font-size: 15px;
+  font-size: 16px;
   z-index: 1000000000000;
   width: 100%;
   padding: 3px 5px;
@@ -59,7 +59,7 @@
 }
 
 .search-results small{
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .search-results ul:nth-last-child(1){

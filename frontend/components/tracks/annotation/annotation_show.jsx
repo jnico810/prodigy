@@ -84,7 +84,7 @@ class AnnotationShow extends React.Component {
     }
     return(
     <div style= { style } className="annotation-show-container">
-      <h3> Prodigy Annotation by {this.props.annotation.author}</h3>
+      <h3> Prodigy Annotation by <strong>{this.props.annotation.author}</strong></h3>
       <p> {this.props.annotation.body}</p>
       { deleteButton }
       {this.props.currentUser ? <VoteComponentContainer currentUser={this.props.currentUser} annotation={this.props.annotation}/> : <div></div>}
