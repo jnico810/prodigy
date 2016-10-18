@@ -42,7 +42,7 @@ class Header extends React.Component {
   }
 
   handleLogoClick() {
-    hashHistory.push("/");
+    hashHistory.replace("/");
   }
 
   handleSearch(e) {
@@ -118,7 +118,9 @@ class Header extends React.Component {
           </input>
           {searchUl}
           <div className="header-logo-container">
-            <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
+            <Link to="/">
+              <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
+            </Link>
           </div>
           { rightOfHeader }
         </div>

@@ -19,7 +19,7 @@ class VoteComponent extends React.Component {
       annotation_id: this.props.annotation.id,
       id: this.state.id
     };
-    this.props.updateVote({vote}, ()=>console.log('updated'));
+    this.props.updateVote({vote}, ()=>{});
   }
 
   handleCreateVote(value, e){
@@ -29,7 +29,7 @@ class VoteComponent extends React.Component {
       author_id: this.props.currentUser.id,
       annotation_id: this.props.annotation.id
     };
-    this.props.createVote({vote}, ()=>console.log('created'));
+    this.props.createVote({vote}, ()=>{});
   }
 
   componentWillMount(){

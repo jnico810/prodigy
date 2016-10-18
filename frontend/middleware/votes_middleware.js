@@ -5,7 +5,7 @@ import * as API from '../util/vote_api_util';
 
 const annotationMiddleware = ({ getState, dispatch}) => next => action => {
   let success;
-  const error = error => console.log(error);
+  const error = error => {};
   switch (action.type){
     case UPDATE_VOTE:
       success = (track) => {

@@ -3,7 +3,7 @@ import * as API from '../util/search_api_util';
 
 const searchMiddleware = ({ getState, dispatch}) => next => action => {
   let success;
-  const error = error => console.log(error);
+  const error = error =>{};
   switch (action.type){
     case REQUEST_SEARCH:
       success = (results) => {

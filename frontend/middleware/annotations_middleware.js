@@ -5,7 +5,7 @@ import * as API from '../util/annotation_api_util';
 
 const annotationMiddleware = ({ getState, dispatch}) => next => action => {
   let success;
-  const error = error => console.log(error);
+  const error = error => {};
   switch (action.type){
     case CREATE_ANNOTATION:
       success = (annotations) => {

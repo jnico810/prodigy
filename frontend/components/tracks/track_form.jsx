@@ -28,7 +28,7 @@ class TrackForm extends React.Component {
   }
 
   pushToHome(){
-    hashHistory.push("/");
+    hashHistory.replace("/");
   }
 
   handleUpdate(prop) {

@@ -4,7 +4,7 @@ import * as API from '../util/comment_api_util';
 
 const commentMiddleware = ({ getState, dispatch}) => next => action => {
   let success;
-  const error = error => console.log(error);
+  const error = error => {};
   switch (action.type){
     case CREATE_COMMENT:
       success = (track) => {

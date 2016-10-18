@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 
   componentDidUpdate() {
 		if (this.props.loggedIn){
-      // hashHistory.push("/");
+      hashHistory.replace("/");
     }
 	}
 

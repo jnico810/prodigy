@@ -13,7 +13,7 @@ const sessionMiddleware = ({ getState, dispatch}) => next => action => {
       return next(action);
     case LOGOUT:
       logout(() => {
-        hashHistory.push("/");
+        hashHistory.replace("/");
         next(action);
       });
       break;
