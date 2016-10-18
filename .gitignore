@@ -11,6 +11,7 @@
 !/log/.keep
 /tmp
 
+.byebug_history
 
 node_modules/
 bundle.js
