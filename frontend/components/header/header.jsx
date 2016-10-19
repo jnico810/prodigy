@@ -15,7 +15,6 @@ class Header extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleLogoClick = this.handleLogoClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
@@ -30,10 +29,6 @@ class Header extends React.Component {
   }
   openModal(type){
     this.setState({ modalOpen: true, formType: type });
-  }
-
-  handleSearchClick(e){
-    // this.setState({inputClicked:true});
   }
 
   handleLogOut() {
@@ -114,7 +109,7 @@ class Header extends React.Component {
     return(
       <header>
         <div className="header cf">
-          <input onClick= {this.handleSearchClick} onChange= { this.handleSearch } className={inputStyle} value={this.state.query}type="text" placeholder="Search lyrics & more!">
+          <input onChange= { this.handleSearch } className={inputStyle} value={this.state.query}type="text" placeholder="Search lyrics & more!">
           </input>
           {searchUl}
           <div className="header-logo-container">
@@ -130,7 +125,4 @@ class Header extends React.Component {
   }
 }
 
-// <a className="header-left" href="https://github.com/jnico810">GITHUB </a>
-// <li><Link to="/signup">SIGN UP</Link></li>
-// <li><Link to="/login">LOGIN</Link></li>
 export default Header;

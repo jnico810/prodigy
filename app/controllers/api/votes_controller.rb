@@ -7,7 +7,7 @@ class Api::VotesController < ApplicationController
     if @vote.save
       render 'api/tracks/show'
     else
-      render 'no'
+      render json: @vote.errors.full_messages, status: 422
     end
   end
 

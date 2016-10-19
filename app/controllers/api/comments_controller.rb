@@ -6,12 +6,8 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render 'api/tracks/show'
     else
-      render 'no'
+      render json: @comment.errors.full_messages, status: 422
     end
-  end
-
-  def destroy
-
   end
 
   def comment_params

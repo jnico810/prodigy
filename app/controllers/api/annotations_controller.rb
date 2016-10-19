@@ -20,7 +20,7 @@ class Api::AnnotationsController < ApplicationController
     if @annotation.save
       render :index
     else
-      render 'no'
+      render json: @annotation.errors.full_messages, status: 422
     end
   end
 
@@ -32,11 +32,7 @@ class Api::AnnotationsController < ApplicationController
   end
 
   private
-
   def annotation_params
     params.require(:annotation).permit(:track_id, :start_idx, :end_idx, :body)
   end
-
-
-
 end
