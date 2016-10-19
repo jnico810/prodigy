@@ -43,7 +43,6 @@ class User < ActiveRecord::Base
     through: :annotations,
     source: :votes
 
-
   after_initialize :ensure_sessiontoken
 
   def self.find_by_credentials(username, password)
@@ -77,6 +76,4 @@ class User < ActiveRecord::Base
   def score
     self.annotations.length * 5
   end
-
-
 end

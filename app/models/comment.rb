@@ -19,5 +19,4 @@ class Comment < ActiveRecord::Base
     primary_key: :id
 
   belongs_to :annotation
-
 end

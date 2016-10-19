@@ -18,5 +18,4 @@ class Vote < ActiveRecord::Base
     class_name: 'Class',
     foreign_key: :author_id,
     primary_key: :id
-
 end

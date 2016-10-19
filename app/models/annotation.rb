@@ -22,7 +22,6 @@ class Annotation < ActiveRecord::Base
     primary_key: :id
 
   has_many :comments
-
   has_many :votes
 
   def score
@@ -31,6 +30,5 @@ class Annotation < ActiveRecord::Base
       score += vote.value
     end
     score
-
   end
 end
