@@ -9,7 +9,6 @@ export const createVote = (vote, success, error) => {
 };
 
 export const updateVote = (vote, success, error) => {
-
   $.ajax({
     method: "PATCH",
     data: vote,

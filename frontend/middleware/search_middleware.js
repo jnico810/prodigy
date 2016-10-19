@@ -7,10 +7,8 @@ const searchMiddleware = ({ getState, dispatch}) => next => action => {
   switch (action.type){
     case REQUEST_SEARCH:
       success = (results) => {
-
         dispatch(receiveResults(results));
       };
-
       API.searchTracks(action.query, success, error);
       return next(action);
     default:

@@ -8,7 +8,6 @@ export const createComment = (comment, success, error) => {
   });
 };
 
-
 export const destroyComment = (id, success, error) => {
   $.ajax({
     method: "DELETE",

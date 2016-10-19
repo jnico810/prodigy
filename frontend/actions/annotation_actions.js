@@ -14,7 +14,6 @@ export const deleteAnnotation = (id, callback) => ({
   callback
 });
 
-
 export const receiveAnnotations = (annotations) => ({
   type: RECEIVE_ANNOTATIONS,
   annotations

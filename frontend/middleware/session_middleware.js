@@ -1,7 +1,6 @@
 import { LOGIN, LOGOUT, SIGNUP, receiveErrors,
 receiveCurrentUser } from '../actions/session_actions';
 import { hashHistory } from 'react-router';
-
 import { login, logout, signup } from '../util/session_api_util';
 
 const sessionMiddleware = ({ getState, dispatch}) => next => action => {
