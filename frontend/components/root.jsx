@@ -6,7 +6,7 @@ import Home from './home/home';
 import TrackFormContainer from './tracks/track_form_container'
 import TrackShowContainer from './tracks/track_show_container'
 import { requestAllTracks, requestTrack } from '../actions/track_actions'
-import { browserHistory } from 'react-router'
+
 const Root = ({ store }) => {
 
   const _redirectIfNotLogginIn = (nextState, replace) => {
@@ -28,7 +28,7 @@ const Root = ({ store }) => {
   window.store = store;
   return (
     <Provider store={store}>
-      <Router history= { browserHistory }>
+      <Router history= { hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ Home } onEnter= { _requestAllTracks }/>
           <Route path="/new_track" component={ TrackFormContainer } onEnter= {_redirectIfNotLogginIn}/>
