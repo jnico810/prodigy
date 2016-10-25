@@ -26,27 +26,29 @@ class TrackShow extends React.Component{
   handleSelection(e){
     const selection = document.getSelection().toString();
     if (selection.length > 0 && this.props.currentUser){
+      //Ensures that you cannot annotate over existing annotations
       if (
-      document.getSelection().anchorNode !==
-      document.getSelection().focusNode ||
-      document.getSelection().anchorNode.parentElement.className === 'annotated-lyric'){
+        document.getSelection().anchorNode !==
+        document.getSelection().focusNode ||
+        document.getSelection().anchorNode.parentElement.className === 'annotated-lyric'){
         return;
       }
-
+      //Cancels your annotation if you click again
       if (this.state.annotating){
         this.setState({annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null});
         return;
       }
-
       let startIdx = document.getSelection().anchorOffset;
       let endIdx = document.getSelection().focusOffset;
       let span = document.getSelection().anchorNode.parentElement;
 
+      //Allows users to highlight backwards
       if (startIdx > endIdx) {
         const temp = startIdx;
         startIdx = endIdx;
         endIdx = temp;
       }
+      //Accounts for the lengths of the previous elements, ensuring accurate index within entire lyrics
       while (span.previousSibling) {
         startIdx += span.previousSibling.innerText.length;
         endIdx += span.previousSibling.innerText.length;

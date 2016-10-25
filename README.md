@@ -34,6 +34,48 @@ Users can create annotations by choosing a track and highlighting text. The user
 
 ![new_annotation_2]
 
+#### Annotation Creation Algorithm
+
+ Using document.getSelection(), this algorithm extracts the lyrics that the user has highlighted. First, it checks whether or not the selection is valid by checking if the anchorNode (click-down node) is equal to the focusNode (click-up node) and also validates that the highlighted node is not already an annotated-lyric. Since each annotation is its own span, the algorithm then adds the innerHTML length of each previousSibling to generate an accurate index within the lyrics.
+
+```bash
+handleSelection(e){
+  const selection = document.getSelection().toString();
+  if (selection.length > 0 && this.props.currentUser){
+    //Ensures that you cannot annotate over existing annotations
+    if (
+      document.getSelection().anchorNode !==
+      document.getSelection().focusNode ||
+      document.getSelection().anchorNode.parentElement.className === 'annotated-lyric'){
+      return;
+    }
+    //Cancels your annotation if you click again
+    if (this.state.annotating){
+      this.setState({annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null});
+      return;
+    }Â
+    let startIdx = document.getSelection().anchorOffset;
+    let endIdx = document.getSelection().focusOffset;
+    let span = document.getSelection().anchorNode.parentElement;
+
+    //Allows users to highlight backwards
+    if (startIdx > endIdx) {
+      const temp = startIdx;
+      startIdx = endIdx;
+      endIdx = temp;
+    }
+    //Accounts for the lengths of the previous elements, ensuring accurate index within entire lyrics
+    while (span.previousSibling) {
+      startIdx += span.previousSibling.innerText.length;
+      endIdx += span.previousSibling.innerText.length;
+      span = span.previousSibling;
+    }
+    this.setState({annotating:true, annotationIndices:[startIdx, endIdx], endLoc: e.pageY});
+  } else {
+    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null});
+  }
+}```
+
 
 ### Viewing Annotations
 
