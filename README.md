@@ -131,7 +131,7 @@ Users can search for songs utilizing the search bar on the top right of the head
 
 [search]: ./docs/images/search.png
 
-I wrote a simple query that filters in the backend
+I wrote a simple query that filters
 
 def filter
   @results = Track.where("title ~* ?", params[:query])
