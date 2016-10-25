@@ -34,7 +34,7 @@ Clicking on or searching for a  track displays the track page, showcasing the ly
 
 To generate the annotated lyrics, I wrote an algorithm that iterates through an array of annotations that stores start and end indices. The algorithm creates spans from the lyrics, splicing appropriately to obtain a collection of stylized spans.
 
-```bash
+```
 generateLyricsAnnotations() {
 
   let lyricsDiv = [];
