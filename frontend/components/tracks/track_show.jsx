@@ -85,25 +85,23 @@ class TrackShow extends React.Component{
 
   generateLyricsAnnotations() {
 
-    let lyrics =(<span>{this.props.track.lyrics}</span>);
-
     let lyricsDiv = [];
     let startIdx = 0;
-    let endIdx = 0;
     this.props.track.annotations.forEach((annotation, idx) => {
-      lyricsDiv.push(<span key={idx}className="non-annotated-lyric">
+      lyricsDiv.push(<span key={idx} className="non-annotated-lyric">
         { this.props.track.lyrics.slice(startIdx, annotation.start_idx) }
       </span>);
       lyricsDiv.push(
-        <span key={idx + 1000}className="annotated-lyric" onClick={ this.handleAnnotationClick.bind(null, annotation) }>
+        <span key={idx + 1000} className="annotated-lyric" onClick={ this.handleAnnotationClick.bind(null, annotation) }>
           {this.props.track.lyrics.slice(annotation.start_idx, annotation.end_idx) }
         </span>);
       startIdx = annotation.end_idx;
     });
 
-    lyricsDiv.push(<span key={100000} className="non-annotated-lyric">
+    lyricsDiv.push(<span key={2000} className="non-annotated-lyric">
       { this.props.track.lyrics.slice(startIdx, this.props.track.lyrics.length) }
     </span>);
+
     return lyricsDiv;
   }
 

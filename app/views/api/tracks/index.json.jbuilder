@@ -1,3 +1,3 @@
-json.array! @tracks do |track|
+json.array! @tracks.includes(:artist, :author) do |track|
   json.partial! 'track', track: track
 end
