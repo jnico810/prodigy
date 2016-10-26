@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AudioPlayer from './audio_player.jsx';
 import AnnotationFormContainer from './annotation/annotation_form_container';
 import AnnotationItem from './annotation/annotation_item';
 import AnnotationShowContainer from './annotation/annotation_show_container';
@@ -83,6 +84,10 @@ class TrackShow extends React.Component{
     window.scrollTo(0,0);
   }
 
+  onReady(e){
+    event.target.pauseVideo();
+  }
+
   generateLyricsAnnotations() {
 
     let lyricsDiv = [];
@@ -125,7 +130,19 @@ class TrackShow extends React.Component{
             deleteCallback={this.closeShowForm}/>
         </div> );
     } else {
+
+      const youtubeConfig = {
+        playerVars: {
+          autohide:0,
+          autoplay:0,
+          controls:0,
+          modestbranding:1
+        }
+
+      };
+      // <AudioPlayer youtubeConfig={youtubeConfig} url='https://www.youtube.com/watch?v=d46Azg3Pm4c' playing={false} />,
       rightCol = (
+
         <div className="track-show-right-col">
           <span className="track-show-description">
             {this.props.track.description}
