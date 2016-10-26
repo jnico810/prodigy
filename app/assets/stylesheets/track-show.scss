@@ -15,8 +15,11 @@
 
 .track-show-header-content {
   position:absolute;
-  top: 40%;
-  left:17%;
+  left: 20px;
+  min-width: 350px;
+  top: - 200px;
+  // top: 40%;
+  // left:17%;
 }
 
 .track-show-header-content h1{
@@ -54,11 +57,13 @@
 
 .track-show-content {
   width:67%;
+  min-width: 700px;
   margin: auto;
   background-color: white;
   height:100%;
   padding: 20px 20px;
   min-height: 700px;
+  position: relative;
 
 }
 
@@ -73,26 +78,33 @@
 }
 
 .track-show-header-album {
-  width:340px;
-  height:340px;
+  width:80%;
+  min-height: 250px;
+  min-width: 250px;
   position:absolute;
-  left:55%;
-  top: 15%;
-  object-fit: cover;
+  left: 10%;
+  top: - 300px;
   display: block;
   border: 2px solid white;
 }
+
+.track-show-header-album img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.track-show-description {
+  font-family: 'Helvetica', sans-serif;
+  position: absolute;
+  display: block;
+  margin-top: 40px;
+}
+
 
 .track-show-right-col {
   width:45%;
   float:right;
   display:block;
   position: relative;
-}
-
-.track-show-description {
-  font-family: 'Helvetica', sans-serif;
-  margin-top: 80px;
-  display: block;
-  white-space: pre-wrap;
+  height: 100%;
 }

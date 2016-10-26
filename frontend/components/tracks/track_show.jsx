@@ -140,13 +140,22 @@ class TrackShow extends React.Component{
         }
 
       };
+
+      // { !this.state.selectedAnnotation && !this.state.annotating ?
+      //   <img src={ this.props.track.album_art_url }
+      //     className="track-show-header-album"/> : <p></p>}
       // <AudioPlayer youtubeConfig={youtubeConfig} url='https://www.youtube.com/watch?v=d46Azg3Pm4c' playing={false} />,
       rightCol = (
 
         <div className="track-show-right-col">
-          <span className="track-show-description">
-            {this.props.track.description}
-          </span>
+            <div className = "track-show-header-album">
+              <img src = { this.props.track.album_art_url }/>
+              <span className="track-show-description">
+                {this.props.track.description}
+              </span>
+            </div>
+
+
         </div>);
     }
     let album = (<div className="empty-div"></div>);
@@ -159,15 +168,7 @@ class TrackShow extends React.Component{
       const header = (<header className="track-show-header">
         <img src= { this.props.track.album_art_url }
           className="track-show-bg track-show-gradient"/>
-        <div className="track-show-header-content">
-          <h1>{this.props.track.title}</h1>
-          <h2>{this.props.track.artist}</h2>
-          {album}
-          <h4>Added by <strong>{this.props.track.author}</strong></h4>
-        </div>
-        { !this.state.selectedAnnotation && !this.state.annotating ?
-          <img src={ this.props.track.album_art_url }
-            className="track-show-header-album"/> : <p></p>}
+
       </header>);
 
 
@@ -177,7 +178,15 @@ class TrackShow extends React.Component{
           <main className="track-show-wrapper" onMouseDown={this.handleMouseDown}>
             <section className="track-show-content cf">
               <div className="track-show-lyrics" onMouseUp={this.handleSelection}>
+                <div className="track-show-header-content">
+                  <h1>{this.props.track.title}</h1>
+                  <h2>{this.props.track.artist}</h2>
+                  {album}
+                  <h4>Added by <strong>{this.props.track.author}</strong></h4>
+                </div>
+                <div>
                 { this.generateLyricsAnnotations() }
+                </div>
               </div>
               { rightCol }
             </section>
