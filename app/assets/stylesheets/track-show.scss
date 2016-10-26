@@ -78,33 +78,37 @@
 }
 
 .track-show-header-album {
-  width:80%;
-  min-height: 250px;
-  min-width: 250px;
+  width:100%;
   position:absolute;
   left: 10%;
   top: - 300px;
   display: block;
-  border: 2px solid white;
 }
 
 .track-show-header-album img{
-  width: 100%;
+  min-height: 250px;
+  min-width: 250px;
+  width: 80%;
+  border: 2px solid white;
   object-fit: cover;
+  margin-bottom: 35px;
 }
 
 .track-show-description {
+  width: 100%;
   font-family: 'Helvetica', sans-serif;
   position: absolute;
   display: block;
-  margin-top: 40px;
+  left: -10%;
+  // margin-top: 40px;
 }
+
 
 
 .track-show-right-col {
   width:45%;
   float:right;
+  // border: 1px solid black;
   display:block;
   position: relative;
-  height: 100%;
 }
