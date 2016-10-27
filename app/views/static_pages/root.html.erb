@@ -3,5 +3,9 @@
     window.currentUser = <%= render("api/users/user.json.jbuilder",
     user: current_user).html_safe %>
   <% end %>
+
+  window.prodigyAssets = {
+    playButtonImg: "<%=image_url('play_button.png') %>"
+  };
 </script>
 <main id="root"/>

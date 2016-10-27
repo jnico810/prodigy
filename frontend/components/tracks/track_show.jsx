@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
-import AudioPlayer from './audio_player.jsx';
+
 import AnnotationFormContainer from './annotation/annotation_form_container';
 import AnnotationItem from './annotation/annotation_item';
 import AnnotationShowContainer from './annotation/annotation_show_container';
+import AlbumArt from './track_album_art.jsx';
 
 class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
+    this.state = { annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
     this.handleSelection = this.handleSelection.bind(this);
     this.generateLyricsAnnotations = this.generateLyricsAnnotations.bind(this);
     this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
@@ -130,33 +131,11 @@ class TrackShow extends React.Component{
             deleteCallback={this.closeShowForm}/>
         </div> );
     } else {
-
-      const youtubeConfig = {
-        playerVars: {
-          autohide:0,
-          autoplay:0,
-          controls:0,
-          modestbranding:1
-        }
-
-      };
-
-      // { !this.state.selectedAnnotation && !this.state.annotating ?
-      //   <img src={ this.props.track.album_art_url }
-      //     className="track-show-header-album"/> : <p></p>}
-      // <AudioPlayer youtubeConfig={youtubeConfig} url='https://www.youtube.com/watch?v=d46Azg3Pm4c' playing={false} />,
-      rightCol = (
-
+        rightCol = (
         <div className="track-show-right-col">
-            <div className = "track-show-header-album">
-              <img src = { this.props.track.album_art_url }/>
-              <span className="track-show-description">
-                {this.props.track.description}
-              </span>
-            </div>
-
-
-        </div>);
+            <AlbumArt track={this.props.track}/>
+        </div>
+        );
     }
     let album = (<div className="empty-div"></div>);
 
@@ -165,11 +144,12 @@ class TrackShow extends React.Component{
     }
 
     if (this.props.track.title){
-      const header = (<header className="track-show-header">
-        <img src= { this.props.track.album_art_url }
-          className="track-show-bg track-show-gradient"/>
-
-      </header>);
+      const header = (
+        <header className="track-show-header">
+          <img
+            src= { this.props.track.album_art_url }
+            className="track-show-bg track-show-gradient"/>
+        </header>);
 
 
       return(

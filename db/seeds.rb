@@ -557,7 +557,8 @@ How I missed you, my love",
 artist_id: beyonce.id,
 author_id: belieber.id,
 album_art: File.open('app/assets/images/lemonade.jpg'),
-album: "LEMONADE")
+album: "LEMONADE",
+youtube_url: 'https://www.youtube.com/watch?v=8a47nc9B4jo')
 
 
 Track.create!(  title: "You'll be Back",
@@ -623,7 +624,8 @@ Dat dat da ya da!",
 artist_id: lin.id,
 author_id: johnny.id,
 album_art: File.open('app/assets/images/hamilton.jpg'),
-album: "Hamilton (Original Broadway Cast Recording)")
+album: "Hamilton (Original Broadway Cast Recording)",
+youtube_url:'https://www.youtube.com/watch?v=fdxLohjwhoQ')
 
 
 elliott = Artist.create!(name: "Elliott Smith")
