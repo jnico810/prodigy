@@ -8,33 +8,49 @@ class AudioPlayer extends React.Component{
     super(props);
     this.state={duration:0};
   }
+
+  updateDuration(duration){
+    this.setState({ duration:duration });
+    this.props.updateDuration(this.state.duration);
+
+  }
+
+  onReady(){
+    // debugger
+    this.props.updateCurrentTime(this.player.player.player.getCurrentTime.bind(this.player.player.player));
+    let newSecs = this.props.videoPercentage / 100;
+    if (this.player){
+      this.player.seekTo(newSecs);
+    }
+  }
+
+  updatePlayer(player){
+    this.player = player;
+  }
   render(){
     const {url, playing, config, seeking, videoPercentage} = this.props;
-    let player = (
+    let reactPlayer = (
       <ReactPlayer
       className='audio-player'
-      ref={player => {this.player = player;}}
+      ref={this.updatePlayer.bind(this)}
       url= {url}
       playing= {playing}
       width={'100%'}
-      height={'320px'}
+      height={'24vw'}
       youtubeConfig={config}
-      onDuration={duration => this.setState({ duration })}/>
+      onReady={this.onReady.bind(this)}
+      onDuration={this.updateDuration.bind(this)}/>
     );
-
+    let newSecs = this.props.videoPercentage / 100;
     if (seeking){
-      let newSecs = Math.floor(this.state.duration * videoPercentage / 100);
-      // debugger
-      this.player.seekTo(parseFloat(newSecs));
-
-      console.log(newSecs);
-    } else{
       if (this.player){
-        this.player.player.play();
+        // debuger
+        // console.log('seeking');
+        this.player.seekTo(newSecs);
       }
     }
     return (
-      player
+      reactPlayer
     );
   }
 }

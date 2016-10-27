@@ -1,18 +1,27 @@
 .slider{
-  width: 80%;
+  width: 70%;
   position: absolute;
   background-color: #7d8fe8;
-  height: 8px;
+  height: 2px;
   left: 15%;
-  bottom: 2px;
-  border: 1px solid lightgray;
+  bottom: -5px;
+  cursor: pointer
+  // border: 1px solid lightgray;
 }
 
 .handle {
   height: 20px;
-  width: 13px;
-  border: 1px solid white;
-  bottom: -6px;
-  background-color: lightgray;
+  width: 8px;
+  bottom: -10px;
+  background-color: #7d8fe8;
   cursor: pointer
+}
+
+.video-time{
+  position: absolute;
+
+  color: #7d8fe8;
+  font-size:17px;
+  bottom: 16px;
+  right: 20%;
 }

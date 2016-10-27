@@ -112,6 +112,8 @@ class TrackShow extends React.Component{
   }
 
   render(){
+    // debugger
+    console.log('render track show');
     let rightCol;
     if (this.state.annotating){
       rightCol = (
