@@ -1,12 +1,16 @@
 import React from 'react';
 import AudioPlayer from './audio_player.jsx';
+import ReactSlider from 'react-slider';
 
 class AlbumArt extends React.Component {
 
   constructor(props){
     super(props);
     this.handlePlayClick = this.handlePlayClick.bind(this);
-    this.state = {playing: false};
+    this.sliderChange = this.sliderChange.bind(this);
+    this.sliderMouseDown = this.sliderMouseDown.bind(this);
+    this.sliderMouseUp = this.sliderMouseUp.bind(this);
+    this.state = {playing: false, videoPercentage:0, seeking:false};
   }
 
 
@@ -20,6 +24,21 @@ class AlbumArt extends React.Component {
         this.setState({playing: true});
       }
     }
+  }
+
+  sliderChange(value){
+    this.setState({videoPercentage:value});
+    // console.log(this.state.videoPercentage);
+  }
+
+  sliderMouseDown(){
+    this.setState({seeking:true});
+    console.log('down');
+  }
+
+  sliderMouseUp(){
+    this.setState({seeking:false});
+    console.log('up');
   }
 
   render(){
@@ -38,8 +57,17 @@ class AlbumArt extends React.Component {
             <AudioPlayer className= "audio-player"
               url={this.props.track.youtube_url}
               playing={false}
-              config={youtubeConfig}/>
+              config={youtubeConfig}
+              seeking={this.state.seeking}
+              videoPercentage={this.state.videoPercentage}/>
             <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
+              <ReactSlider
+                onChange={this.sliderChange}
+                onAfterChange={this.sliderMouseUp}
+                onBeforeChange={this.sliderMouseDown}
+                withBars >
+                <div className="handle"></div>
+              </ReactSlider>
           </div>
           <span className="track-show-description">
             {this.props.track.description}
@@ -52,7 +80,14 @@ class AlbumArt extends React.Component {
           <div className = 'track-show-album-div'>
             <img src = { this.props.track.album_art_url }/>
             <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
-          </div>
+              <ReactSlider
+                onChange={this.sliderChange}
+                onAfterChange={this.sliderMouseUp}
+                onBeforeChange={this.sliderMouseDown}
+                withBars >
+                <div className="handle"></div>
+              </ReactSlider>
+        </div>
           <span className="track-show-description">
             {this.props.track.description}
           </span>
