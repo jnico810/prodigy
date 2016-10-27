@@ -11,12 +11,14 @@ class AlbumArt extends React.Component {
     this.sliderMouseDown = this.sliderMouseDown.bind(this);
     this.sliderMouseUp = this.sliderMouseUp.bind(this);
     this.state = {playing: false, videoPercentage:0, seeking:false, videoDuration:0, currentTime:'00:00', currentTimeFnc:()=>("00:00")};
+    window.art = this
   }
 
+  getSliderValue(){
+    return 20;
+  }
 
   handlePlayClick(e){
-    console.log('clicked');
-
     if (this.props.track.youtube_url){
       if (this.state.playing === true){
         this.setState({playing: false});
@@ -26,13 +28,15 @@ class AlbumArt extends React.Component {
     }
   }
 
+  updateSliderPosition(){
+
+  }
+
   updateDuration(time){
-    console.log('updatedur');
     this.setState({videoDuration:time});
   }
 
   updateCurrentTime(fnc){
-    console.log('update');
     this.setState({currentTimeFnc:fnc});
   }
 
@@ -51,37 +55,24 @@ class AlbumArt extends React.Component {
   }
 
   sliderChange(value){
-    console.log('change');
-    // this.setState({videoPercentage:value});
     this.setState({videoPercentage:value, currentTime:this.parseDuration(Math.floor(this.state.videoPercentage / 100 * this.state.videoDuration))});
-    // console.log(this.state.videoPercentage);
-  }
 
-  updateValue(){
-    // if (this.playing){
-    //   return this.state.currentTimeFnc() / this.videoDuration
-    // } else{
-    //
-    // }
   }
 
   sliderMouseDown(){
-
     this.setState({seeking:true});
-    console.log('down');
-  }
-
-  updateSliderPosition(){
-
   }
 
   sliderMouseUp(){
     this.setState({seeking:false});
-    console.log('up');
   }
 
   render(){
-    console.log('renderalbum');
+    let sliderKlass = '';
+    if (this.props.hidden && this.props.hidden.length > 0){
+      sliderKlass = 'anchored_play_bar';
+    }
+
     const youtubeConfig = {
       playerVars: {
         autohide:0,
@@ -91,19 +82,21 @@ class AlbumArt extends React.Component {
       }
     };
     if (this.state.playing){
-      // const currentTime = this.parseDuration(Math.floor(this.state.videoPercentage / 100 * this.state.videoDuration));
       return(
         <div className = "track-show-header-album">
-          <div className='track-show-album-div'>
-            <AudioPlayer className= "audio-player"
-              url={this.props.track.youtube_url}
-              playing={false}
-              config={youtubeConfig}
-              seeking={this.state.seeking}
-              videoPercentage={this.state.videoPercentage}
-              updateDuration={this.updateDuration.bind(this)}
-              updateCurrentTime={this.updateCurrentTime.bind(this)}/>
-            <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
+          <div className={`track-show-album-div`}>
+            <div className = {this.props.hidden}>
+              <AudioPlayer hidden={`audio-player`}
+                url={this.props.track.youtube_url}
+                playing={false}
+                config={youtubeConfig}
+                seeking={this.state.seeking}
+                videoPercentage={this.state.videoPercentage}
+                updateDuration={this.updateDuration.bind(this)}
+                updateCurrentTime={this.updateCurrentTime.bind(this)}/>
+            </div>
+            <div className={`controlls ${sliderKlass}`}>
+              <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
               <ReactSlider
                 onChange={this.sliderChange}
                 onAfterChange={this.sliderMouseUp}
@@ -112,8 +105,9 @@ class AlbumArt extends React.Component {
                 <div className="handle"></div>
               </ReactSlider>
               <p className='video-time'>{this.state.currentTime}</p>
+            </div>
           </div>
-          <span className="track-show-description">
+          <span className={`track-show-description ${this.props.hidden}`}>
             {this.props.track.description}
           </span>
         </div>
@@ -122,9 +116,10 @@ class AlbumArt extends React.Component {
       const currentTime = this.parseDuration(Math.floor(this.videoPercentage / 100 * this.state.videoDuration));
       return(
         <div className = "track-show-header-album">
-          <div className = 'track-show-album-div'>
-            <img src = { this.props.track.album_art_url }/>
-            <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
+          <div className = {`track-show-album-div`}>
+            <img src = { this.props.track.album_art_url } className={`${this.props.hidden}`}/>
+            <div className={`controlls ${sliderKlass}`}>
+              <img onClick={this.handlePlayClick} src = { window.prodigyAssets.playButtonImg} id='play-video-button'/>
               <ReactSlider
                 onChange={this.sliderChange}
                 onAfterChange={this.sliderMouseUp}
@@ -133,19 +128,20 @@ class AlbumArt extends React.Component {
                 <div className="handle"></div>
               </ReactSlider>
               <p className='video-time'>00:00</p>
+            </div>
         </div>
-          <span className="track-show-description">
+          <span className={`track-show-description ${this.props.hidden}`}>
             {this.props.track.description}
           </span>
         </div>
       );
     } else {
       return(
-        <div className = "track-show-header-album">
-          <div className = 'track-show-album-div'>
+        <div className = {`track-show-header-album ${this.props.hidden}`}>
+          <div className = {`track-show-album-div`}>
             <img src = { this.props.track.album_art_url }/>
           </div>
-          <span className="track-show-description">
+          <span className={`track-show-description ${this.props.hidden}`}>
             {this.props.track.description}
           </span>
         </div>

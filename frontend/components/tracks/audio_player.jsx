@@ -28,16 +28,17 @@ class AudioPlayer extends React.Component{
     this.player = player;
   }
   render(){
-    const {url, playing, config, seeking, videoPercentage} = this.props;
+    const {url, playing, config, seeking, videoPercentage, hidden} = this.props;
     let reactPlayer = (
       <ReactPlayer
-      className='audio-player'
+      className= {this.props.hidden}
       ref={this.updatePlayer.bind(this)}
       url= {url}
       playing= {playing}
       width={'100%'}
       height={'24vw'}
       youtubeConfig={config}
+      id='react-player'
       onReady={this.onReady.bind(this)}
       onDuration={this.updateDuration.bind(this)}/>
     );

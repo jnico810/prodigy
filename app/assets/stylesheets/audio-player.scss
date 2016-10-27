@@ -22,6 +22,21 @@
 
   color: #7d8fe8;
   font-size:17px;
-  bottom: 16px;
-  right: 20%;
+  bottom: -17px;
+  right: 0
+}
+
+.hidden_album_art{
+  display: none !important;
+  // visibility: hidden
+}
+
+
+.controlls{
+  position: relative;
+  right:0
+}
+
+.anchored_play_bar {
+  padding-top:250px;
 }

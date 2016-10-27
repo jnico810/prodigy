@@ -10,12 +10,13 @@ class TrackShow extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = { annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
+    this.state = { musicPlaying: false, annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null};
     this.handleSelection = this.handleSelection.bind(this);
     this.generateLyricsAnnotations = this.generateLyricsAnnotations.bind(this);
     this.handleAnnotationClick = this.handleAnnotationClick.bind(this);
     this.closeShowForm = this.closeShowForm.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handlePlayClick = this.handlePlayClick.bind(this);
   }
 
   handleMouseDown(e){
@@ -23,6 +24,10 @@ class TrackShow extends React.Component{
       return;
     }
     this.setState({startLoc:e.pageY});
+  }
+
+  handlePlayClick(){
+    this.setState({hidden:"hidden_album_art"});
   }
 
   handleSelection(e){
@@ -37,7 +42,7 @@ class TrackShow extends React.Component{
       }
       //Cancels your annotation if you click again
       if (this.state.annotating){
-        this.setState({annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null});
+        this.setState({annotating: false, annotationIndices:[], body:"", selectedAnnotation:null, location: null, startLoc: null, endLoc: null, hidden:""});
         return;
       }
       let startIdx = document.getSelection().anchorOffset;
@@ -56,18 +61,19 @@ class TrackShow extends React.Component{
         endIdx += span.previousSibling.innerText.length;
         span = span.previousSibling;
       }
-      this.setState({annotating:true, annotationIndices:[startIdx, endIdx], endLoc: e.pageY});
+      this.setState({annotating:true, annotationIndices:[startIdx, endIdx], endLoc: e.pageY,  hidden:"hidden_album_art"});
     } else {
-      this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null});
+      this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null, hidden:""});
     }
   }
 
   closeShowForm(e){
-    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null});
+    this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null, hidden:""});
   }
 
   handleAnnotationClick(annotation, e){
-    this.setState({selectedAnnotation:annotation, location: e.pageY});
+    // debugger
+    this.setState({selectedAnnotation:annotation, location: e.pageY, hidden:"hidden_album_art"});
   }
 
   componentWillReceiveProps(nextProps){
@@ -112,12 +118,11 @@ class TrackShow extends React.Component{
   }
 
   render(){
-    // debugger
-    console.log('render track show');
     let rightCol;
     if (this.state.annotating){
       rightCol = (
         <div className="track-show-right-col">
+          <AlbumArt track={this.props.track} hidden={this.state.hidden} handlePlayClick={this.handlePlayClick}/>
           <AnnotationFormContainer
             indices={this.state.annotationIndices}
             callback={ this.closeShowForm }
@@ -127,15 +132,17 @@ class TrackShow extends React.Component{
     else if (this.state.selectedAnnotation){
       rightCol = (
         <div className="track-show-right-col">
+          <AlbumArt track={this.props.track} hidden={this.state.hidden} handlePlayClick={this.handlePlayClick}/>
           <AnnotationShowContainer
             annotation={this.state.selectedAnnotation}
             location= {this.state.location}
             deleteCallback={this.closeShowForm}/>
         </div> );
-    } else {
+    } else
+        {
         rightCol = (
         <div className="track-show-right-col">
-            <AlbumArt track={this.props.track}/>
+            <AlbumArt track={this.props.track} hidden={this.state.hidden}/>
         </div>
         );
     }
