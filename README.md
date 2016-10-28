@@ -1,5 +1,7 @@
 # Prodigy
 
+[LIVE SITE](http://prodigy.herokuapp.com/)
+
 Prodigy is a single-page web app clone of Genius.com. Prodigy allows users to add tracks, annotate lyrics, and comment and vote on annotations. Prodigy is built with Ruby on Rails on the backend and React.js / Redux on the front end.
 
 ## Features & Implementation
