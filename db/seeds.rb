@@ -467,7 +467,8 @@ I ain't gonna work on Maggie's farm no more",
 artist_id: dylan.id,
 author_id: timbo.id,
 album_art: File.open('app/assets/images/maggies_farm.jpg'),
-album: "Bringing It All Back Home")
+album: "Bringing It All Back Home",
+youtube_url:'https://www.youtube.com/watch?v=iVRL8uBCdUk')
 
 Track.create!(  title: "Countdown",
   description:"In this well-polished R&B song about her love for Jay-Z, Queen Bey talks about how they both manage to have a perfect marriage while maintaining their superstardom. This catchy tune was called both the most experimental and one of the best tunes on her album 4, with additional praise for the creative sampling from Boyz II Men’s “Uhh Ahh.”",
