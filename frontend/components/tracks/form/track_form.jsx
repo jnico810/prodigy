@@ -9,7 +9,6 @@ class TrackForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    window.tracks= this;
   }
 
   handleSubmit(e){

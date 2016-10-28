@@ -10,22 +10,16 @@ import { requestAllTracks, requestTrack } from '../actions/track_actions'
 const Root = ({ store }) => {
 
   const _redirectIfNotLogginIn = (nextState, replace) => {
-
-  if (!store.getState().session.currentUser){
-    replace('/');
-  }
+    if (!store.getState().session.currentUser){
+      replace('/');
+    }
   };
-
   const _requestAllTracks = (nextState, replace) => {
     store.dispatch(requestAllTracks());
   };
-
   const _requestTrack = (nextState, replace) => {
     store.dispatch(requestTrack(nextState.params.track_id))
   };
-
-
-  window.store = store;
   return (
     <Provider store={store}>
       <Router history= { hashHistory }>

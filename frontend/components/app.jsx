@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderContainer from './header/header_container';
 
-
 const App = ({ children }) => {
   return (
     <main>
@@ -9,6 +8,4 @@ const App = ({ children }) => {
       { children }
     </main>);
 }
-
-
 export default App;

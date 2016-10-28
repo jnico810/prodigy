@@ -10,7 +10,6 @@ const defaultState = {
 };
 
 const tracks = (state = defaultState, action) => {
-  window.merge = merge;
   switch (action.type){
     case RECEIVE_ALL_TRACKS:
       return merge({}, state, { tracks:action.tracks });
