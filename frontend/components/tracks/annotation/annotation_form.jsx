@@ -40,7 +40,6 @@ class AnnotationForm extends React.Component {
       top: location,
       marginRight: '20px'
     };
-    window.location2 = this.props.location;
     if (this.state.showAnnotationForm){
       const form = (
         <div style = { style } className="annotation-container" onSubmit={ this.handleAnnotationSubmit }>

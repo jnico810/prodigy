@@ -3,8 +3,8 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Home from './home/home';
-import TrackFormContainer from './tracks/track_form_container'
-import TrackShowContainer from './tracks/track_show_container'
+import TrackFormContainer from './tracks/form/track_form_container'
+import TrackShowContainer from './tracks/show/track_show_container'
 import { requestAllTracks, requestTrack } from '../actions/track_actions'
 
 const Root = ({ store }) => {
