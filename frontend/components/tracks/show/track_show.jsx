@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import AnnotationFormContainer from './annotation/annotation_form_container';
-import AnnotationItem from './annotation/annotation_item';
-import AnnotationShowContainer from './annotation/annotation_show_container';
-import AlbumArt from './track_album_art.jsx';
+import AnnotationFormContainer from '../annotation/annotation_form_container';
+import AnnotationItem from '../annotation/annotation_item';
+import AnnotationShowContainer from '../annotation/annotation_show_container';
+import AlbumArt from '../album_art/track_album_art.jsx';
 
 class TrackShow extends React.Component{
 
