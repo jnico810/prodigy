@@ -46,7 +46,6 @@ class TrackForm extends React.Component {
 
   receiveErrorsYoutubeUrl(error){
     this.youtubeError = true;
-    console.log(error);
     this.handleSubmit();
   }
 
@@ -54,7 +53,6 @@ class TrackForm extends React.Component {
     const artistArr = this.state.artist.split((' '));
     const titleArr = this.state.title.split(' ');
     const querry =  `${artistArr.join('')}+${titleArr.join('')}+-COVER+-Cover+-cover`;
-    debugger;
     return querry;
   }
 
