@@ -59,7 +59,6 @@ class TrackForm extends React.Component {
       });
       errors = <ul className= "track-form-errors"> { errorLi } </ul>;
     }
-
     return(
       <div className= "track-form-content-wrapper" >
         <div className= "track-form-content" >

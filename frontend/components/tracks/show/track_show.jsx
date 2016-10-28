@@ -72,7 +72,6 @@ class TrackShow extends React.Component{
   }
 
   handleAnnotationClick(annotation, e){
-    // debugger
     this.setState({selectedAnnotation:annotation, location: e.pageY, hidden:"hidden_album_art"});
   }
 

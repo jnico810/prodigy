@@ -12,7 +12,6 @@ class AnnotationShow extends React.Component {
 
   handleCommentForm(e){
     e.preventDefault();
-
     if (this.state.body.length > 0){
       const comment = {
         body: this.state.body,
@@ -33,6 +32,7 @@ class AnnotationShow extends React.Component {
     e.preventDefault();
     this.setState({body:e.currentTarget.value});
   }
+
   render(){
     const location = this.props.location - 400;
     let style =
@@ -52,7 +52,6 @@ class AnnotationShow extends React.Component {
     }
 
     let commentList = [];
-
     this.props.annotation.comments.forEach((comment)=> {
       commentList.push(
         <li key={comment.id}>
@@ -61,7 +60,6 @@ class AnnotationShow extends React.Component {
         </li>);
 
     });
-
     let form;
     let comments = (<div className="empty-comments"></div>);
 
@@ -94,6 +92,5 @@ class AnnotationShow extends React.Component {
   );
   }
 }
-
 
 export default AnnotationShow;

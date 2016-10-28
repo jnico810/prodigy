@@ -4,5 +4,4 @@ import TrackIndex from './track_index';
 const mapStateToProps = ({ tracks }) => ({
   tracks
 });
-
 export default connect(mapStateToProps)(TrackIndex);

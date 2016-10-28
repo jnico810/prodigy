@@ -39,7 +39,6 @@ class AlbumArt extends React.Component {
   }
 
   parseDuration(time){
-
     let minutes = Math.floor(time / 60);
     let seconds = Math.floor(time - (minutes * 60));
 
@@ -71,9 +70,7 @@ class AlbumArt extends React.Component {
     if (this.props.hidden && this.props.hidden.length > 0){
       sliderKlass = 'anchored_play_bar';
     }
-
     let playButtonSrc = window.prodigyAssets.playButtonImg;
-
 
     const youtubeConfig = {
       playerVars: {

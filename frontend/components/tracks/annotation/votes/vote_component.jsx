@@ -10,8 +10,6 @@ class VoteComponent extends React.Component {
   }
 
   handleUpdateVote(value, e){
-
-
     e.preventDefault();
     const vote = {
       value: value,
@@ -46,11 +44,9 @@ class VoteComponent extends React.Component {
     if (!voted){
       this.setState({voted:false, value:0, id:null});
     }
-
   }
 
   componentWillReceiveProps(nextProps){
-
     let voted = false;
     if (nextProps.annotation.votes) {
       nextProps.annotation.votes.forEach((vote) => {
@@ -83,9 +79,6 @@ class VoteComponent extends React.Component {
         thumbup = "material-icons thumb-up-icon";
         thumbdown = "material-icons thumb-down-icon downvote";
       }
-      if (this.props.annotation.score > 0){
-
-      }
       return(
         <div className="vote-section">
           <div className="upvote-section" onClick={this.handleUpdateVote.bind(null, 1)}>
@@ -102,13 +95,11 @@ class VoteComponent extends React.Component {
             <i className= "material-icons thumb-up-icon">thumb_up</i>
             <span>Upvote</span><span className = {scoreClass}>{score}</span>
           </div>
-
           <i className="material-icons thumb-down-icon" onClick={this.handleCreateVote.bind(null, -1)}>thumb_down</i>
         </div>);
 
     }
   }
 }
-
 
 export default VoteComponent;

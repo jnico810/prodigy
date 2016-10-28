@@ -27,10 +27,9 @@ class AnnotationForm extends React.Component {
       body: this.state.body
     };
     this.props.createAnnotation({ annotation }, this.props.callback);
-
   }
-  render(){
 
+  render(){
     const location = this.props.location - 400;
 
     let style =
