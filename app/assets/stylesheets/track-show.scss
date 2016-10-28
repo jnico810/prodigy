@@ -94,8 +94,10 @@
 
 .track-show-album-div img {
   border: 2px solid white;
-  // height: 100%; /* new height (400 * (1/0.8) ) */
-  width: 100%; /* new width (100 * (1/0.8) )*/
+  height: 24vw;
+  min-height: 250px;
+  width: 100%;
+
 }
 
 .audio-player {
@@ -127,8 +129,10 @@
   position: absolute;
   border:none;
   width:15%;
-  margin-top: -8%;
-  margin-left: -4%;
+  height: inherit;
+  margin-top: -6%;
+  margin-left: -2%;
+  min-height: inherit;
 }
 
 #play-video-button:hover{

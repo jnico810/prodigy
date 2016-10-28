@@ -12,11 +12,9 @@ class AudioPlayer extends React.Component{
   updateDuration(duration){
     this.setState({ duration:duration });
     this.props.updateDuration(this.state.duration);
-
   }
 
   onReady(){
-    // debugger
     this.props.updateCurrentTime(this.player.player.player.getCurrentTime.bind(this.player.player.player));
     let newSecs = this.props.videoPercentage / 100;
     if (this.player){
@@ -45,8 +43,6 @@ class AudioPlayer extends React.Component{
     let newSecs = this.props.videoPercentage / 100;
     if (seeking){
       if (this.player){
-        // debuger
-        // console.log('seeking');
         this.player.seekTo(newSecs);
       }
     }

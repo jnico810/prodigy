@@ -469,96 +469,118 @@ author_id: timbo.id,
 album_art: File.open('app/assets/images/maggies_farm.jpg'),
 album: "Bringing It All Back Home")
 
-Track.create!(  title: "ALL NIGHT",
-  description:"“All Night” is a groovy midtempo love ballad. The song illustrates a wise love, one that has experienced deep pain and disappointment yet was able to come out the other side determined to keep going.
-
-This track serves as the unofficial ‘close’ to the album’s emotional journey, before Beyonce’s first single from Lemonade, “Formation.”",
+Track.create!(  title: "Countdown",
+  description:"In this well-polished R&B song about her love for Jay-Z, Queen Bey talks about how they both manage to have a perfect marriage while maintaining their superstardom. This catchy tune was called both the most experimental and one of the best tunes on her album 4, with additional praise for the creative sampling from Boyz II Men’s “Uhh Ahh.”",
   lyrics:
-  "[Verse 1]
-Found the truth beneath your lies
-And true love never has to hide
-True love never has to hide
-I'll trade your broken wings for mine
-Trade your broken wings for mine
-I've seen your scars and kissed your crime
-Seen your scars and kissed your crime
-
-[Pre-Chorus]
-So many people that I know, they're just tryna touch ya
-Kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
-Give you some time to prove that I can trust you again
-I'm gonna kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
+  "[Intro]
+Boy!
 
 [Chorus]
-All night long
-Sweet love all night long
-Sweet love all night long
-Sweet love all night long
-All I wanna, ain't no other
-We together, I remember
-Sweet love all night long
+Oh, killing me softly and I'm still falling
+Still the one I need, I will always be with you
+Oh, you got me all gone, don't ever let me go
+Say it real loud if you fly
+If you leave me you're out of your mind
+[Hook]
+My baby is a 10
+We dressing to the 9
+He pick me up, we 8
+Make me feel so lucky 7
+He kiss me in his 6
+We be making love in 5
+Still the one I do this 4
+I'm trying to make us 3
+From that 2
+He still the 1
+
+[Verse 1]
+There's ups and downs in this love
+Got a lot to learn in this love
+Through the good and the bad, still got love
+Dedicated to the one of love, hey
+Still love the way he talk, still love the way I sing
+Still love the way he rock them black diamonds in that chain
+Still all up on each other, ain't a damn thing change
+My girls can't tell me nothing, I'm gone in the brain
+I'm all up under him like it's cold, winter time
+All up in the kitchen in my heels, dinner time
+Do whatever that it takes, he got a winner's mind
+Give it all to him, meet him at the finish line
+
+[Refrain]
+Me and my boo in my boo's coupe riding
+All up in that black with his chick right beside him
+Ladies, if you love your man, show him you the fliest
+Grind up on it, girl, show him how you ride it
+Me and my boo in my boo's coupe riding
+All up in that black with his chick right beside him
+Ladies, if you love your man, show him you the fliest
+Grind up on it, girl, show him how you ride it
+
+[Chorus]
+Oh, killing me softly and I'm still falling
+Still the one I need, I will always be with you
+Oh, you got me all gone, don't ever let me go
+Say it real loud if you fly
+If you leave me you're out of your mind
+
+[Hook]
+My baby is a 10
+We dressing to the 9
+He pick me up, we 8
+Make me feel so lucky 7
+He kiss me in his 6
+We be making love in 5
+Still the one I do this 4
+I'm trying to make us 3
+From that 2
+He still the 1
 
 [Verse 2]
-Our love was stronger than your pride
-Beyond your darkness, I'm your light
-If you get deep, you touch my mind
-If you get deep, you touch my mind
-Baptize your tears and dry your eyes
-Baptize your tears and dry your eyes
+Yup, I put it on him, it ain't nothing that I can't do
+Yup, I buy my own, if he deserve it, buy his shit too
+All up in the store, shorty, tricking if I want to
+All up in the store, shorty, fly as we want to
+Ooh ooh ooh ooh
+Damn I think I love that boy, do anything for that boy
+Ooh ooh ooh ooh
+Now I'll never be the same, you and me until the end
 
-[Pre-Chorus]
-So many people that I know, they're just tryna touch ya
-Kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
-Give you some time to prove that I can trust you again
-I'm gonna kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
+[Refrain]
+Me and my boo in my boo's coupe riding
+All up in that black with his chick right beside him
+Ladies, if you love your man, show him you the fliest
+Grind up on it, girl, show him how you ride it
 
-[Chorus]
-All night long
-Sweet love all night long
-Sweet love all night long
-Sweet love all night long
-All I wanna, ain't no other
-We together, I remember
-Sweet love all night long
-
-[Bridge]
-They say true love's the greatest weapon
-To win the war caused by pain, pain
-But every diamond has imperfections
-But my love's too pure to watch it chip away
-Oh nothing real can be threatened
-True love breathes salvation back into me
-With every tear came redemption
-And my torturer became my remedy
-
-[Pre-Chorus]
-So many people that I know, they're just tryna touch ya
-Kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
-Give you some time to prove that I can trust you again
-I'm gonna kiss up and rub up and feel up
-Kiss up and rub up and feel up on you
+[Refrain 2]
+Me and my boo in the coupe lip locking
+All up in the back because the chicks keep flocking
+All that gossip in 10 years, stop it
+London speed it up, Houston rock it
 
 [Chorus]
-All night long
-Sweet love all night long
-Sweet love all night long
-Sweet love all night long
-All I wanna, ain't no other
-We together, I remember
-Sweet love all night long
+Oh, killing me softly and I'm still falling
+Still the one I need, I will always be with you
+Oh, you got me all gone, don't ever let me go
+Say it real loud if you fly
+If you leave me you're out of your mind
 
-[Outro]
-How I missed you, my love",
+[Hook]
+My baby is a 10
+We dressing to the 9
+He pick me up, we 8
+Make me feel so lucky 7
+He kiss me in his 6
+We be making love in 5
+Still the one I do this 4
+I'm trying to make us 3
+From that 2
+He still the 1",
 artist_id: beyonce.id,
 author_id: belieber.id,
-album_art: File.open('app/assets/images/lemonade.jpg'),
-album: "LEMONADE",
-youtube_url: 'https://www.youtube.com/watch?v=8a47nc9B4jo')
+album_art: File.open('app/assets/images/beyonce.jpg'),
+album: "4",
+youtube_url: 'https://www.youtube.com/watch?v=2XY3AvVgDns')
 
 
 Track.create!(  title: "You'll be Back",
@@ -669,4 +691,5 @@ I'll keep them still",
 artist_id: elliott.id,
 author_id: johnny.id,
 album_art: File.open('app/assets/images/either_or.jpg'),
-album: "Either Or")
+album: "Either Or",
+youtube_url: 'https://www.youtube.com/watch?v=hPD-a1FjUtU')
