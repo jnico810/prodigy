@@ -46,13 +46,16 @@ class TrackForm extends React.Component {
 
   receiveErrorsYoutubeUrl(error){
     this.youtubeError = true;
+    console.log(error);
     this.handleSubmit();
   }
 
   createQuerry(){
-    const artistArr = this.state.artist.split(' ');
+    const artistArr = this.state.artist.split((' '));
     const titleArr = this.state.title.split(' ');
-    return `${artistArr.join('+')}+${titleArr.join('+')}`;
+    const querry =  `${artistArr.join('')}+${titleArr.join('')}+-COVER+-Cover+-cover`;
+    debugger;
+    return querry;
   }
 
   pushToHome(){
@@ -98,7 +101,7 @@ class TrackForm extends React.Component {
             <label>BY*</label>
             <input type="text" onChange={ this.handleUpdate("artist") }/>
             <div className = "album-art-wrapper">
-              <label>ALBUM ARTWORK</label>
+              <label className='album-art-label'>ALBUM ARTWORK</label>
               <img className="album-art-preview" src={this.state.imageUrl}/>
               <div className="album-art-file-wrapper">
                 <input type="file" onChange={ this.updateFile}/>
@@ -112,7 +115,7 @@ class TrackForm extends React.Component {
             <input type="text" onChange={ this.handleUpdate("description") }/>
             <label>ALBUM TITLE</label>
             <input type="text" onChange={ this.handleUpdate("album") }/>
-            <label>YOUTUBE URL</label>
+            <label>YOUTUBE URL (If you do not include url, the most relevant youtube link will be used!)</label>
             <input type="text" onChange={ this.handleUpdate("youtube_url") }/>
             <input type='submit' />
           </form>

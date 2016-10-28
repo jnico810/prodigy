@@ -26,7 +26,8 @@ const tracksMiddleware = ({ getState, dispatch}) => next => action => {
       success = (result) => {
         action.success(result);
       };
-      const youtube_error = error => console.log(error.responseJSON);
+
+      const youtube_error = error => action.error(error);
       YOUTUBE_API.requestYoutubeUrl(action.querry, success, youtube_error);
       return next(action);
     default:

@@ -63,6 +63,10 @@ class AlbumArt extends React.Component {
     this.setState({seeking:false});
   }
 
+  componentWillUnmount(){
+    clearInterval(this.timeInterval);
+  }
+
 
 
   render(){
