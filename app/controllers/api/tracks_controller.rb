@@ -20,7 +20,8 @@ class Api::TracksController < ApplicationController
       lyrics: track_params[:lyrics],
       author_id: current_user.id,
       artist_id: artist.id,
-      album_art: track_params[:album_art])
+      album_art: track_params[:album_art],
+      youtube_url: track_params[:youtube_url])
     if @track.save
       render :show
     else
@@ -31,6 +32,6 @@ class Api::TracksController < ApplicationController
 
   def track_params
     params.require(:track).permit(
-    :title, :description, :lyrics, :artist, :artist_id, :author_id, :album, :album_art)
+    :title, :description, :lyrics, :artist, :artist_id, :author_id, :album, :album_art, :youtube_url)
   end
 end

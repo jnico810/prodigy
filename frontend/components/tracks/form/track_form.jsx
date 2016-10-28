@@ -5,7 +5,7 @@ class TrackForm extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {artist: '', title: '', lyrics: '', description: '', album: '', imageFile:null, imageUrl:null};
+    this.state = {artist: '', title: '', lyrics: '', description: '', album: '', imageFile:null, imageUrl:null, youtube_url:''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.updateFile = this.updateFile.bind(this);
@@ -20,6 +20,7 @@ class TrackForm extends React.Component {
     formData.append("track[lyrics]", this.state.lyrics);
     formData.append("track[description]", this.state.description);
     formData.append("track[album]", this.state.album);
+    formData.append("track[youtube_url]", this.state.youtube_url);
     if (this.state.imageFile){
       formData.append("track[album_art]", this.state.imageFile);
     }
@@ -83,6 +84,8 @@ class TrackForm extends React.Component {
             <input type="text" onChange={ this.handleUpdate("description") }/>
             <label>ALBUM TITLE</label>
             <input type="text" onChange={ this.handleUpdate("album") }/>
+            <label>YOUTUBE URL</label>
+            <input type="text" onChange={ this.handleUpdate("youtube_url") }/>
             <input type='submit' />
           </form>
         </div>
