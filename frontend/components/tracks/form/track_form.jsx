@@ -9,22 +9,50 @@ class TrackForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.youtubeError = false;
   }
 
   handleSubmit(e){
-    e.preventDefault();
-    const track = this.state;
-    var formData = new FormData();
-    formData.append("track[artist]", this.state.artist);
-    formData.append("track[title]", this.state.title);
-    formData.append("track[lyrics]", this.state.lyrics);
-    formData.append("track[description]", this.state.description);
-    formData.append("track[album]", this.state.album);
-    formData.append("track[youtube_url]", this.state.youtube_url);
-    if (this.state.imageFile){
-      formData.append("track[album_art]", this.state.imageFile);
+    if (e){
+      e.preventDefault();
     }
-    this.props.createTrack(formData, this.pushToHome);
+    const track = this.state;
+    if (!this.youtubeError && this.state.youtube_url === ''){
+      this.props.requestYoutubeUrl(this.createQuerry(),this.receiveYoutubeUrl.bind(this), this.receiveErrorsYoutubeUrl.bind(this));
+    } else {
+      var formData = new FormData();
+      formData.append("track[artist]", this.state.artist);
+      formData.append("track[title]", this.state.title);
+      formData.append("track[lyrics]", this.state.lyrics);
+      formData.append("track[description]", this.state.description);
+      formData.append("track[album]", this.state.album);
+      formData.append("track[youtube_url]", this.state.youtube_url);
+      if (this.state.imageFile){
+        formData.append("track[album_art]", this.state.imageFile);
+      }
+      this.props.createTrack(formData, this.pushToHome);
+    }
+  }
+
+  receiveYoutubeUrl(result){
+    if (result.items && result.items[0]){
+      this.setState({youtube_url:`https://www.youtube.com/watch?v=${result.items[0].id.videoId}`});
+      this.handleSubmit();
+    } else{
+      this.youtubeError = true;
+      this.handleSubmit();
+    }
+  }
+
+  receiveErrorsYoutubeUrl(error){
+    this.youtubeError = true;
+    this.handleSubmit();
+  }
+
+  createQuerry(){
+    const artistArr = this.state.artist.split(' ');
+    const titleArr = this.state.title.split(' ');
+    return `${artistArr.join('+')}+${titleArr.join('+')}`;
   }
 
   pushToHome(){

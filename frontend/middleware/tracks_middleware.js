@@ -1,6 +1,7 @@
-import { REQUEST_ALL_TRACKS, REQUEST_TRACK, CREATE_TRACK,
-receiveAllTracks, receiveTrack, receiveTrackErrors } from '../actions/track_actions';
+import { REQUEST_ALL_TRACKS, REQUEST_TRACK, CREATE_TRACK, REQUEST_YOUTUBE_URL,
+  receiveAllTracks, receiveTrack, receiveTrackErrors, requestYoutubeUrl } from '../actions/track_actions';
 import * as API from '../util/track_api_util';
+import * as YOUTUBE_API from '../util/youtube_api_util';
 
 const tracksMiddleware = ({ getState, dispatch}) => next => action => {
   let success;
@@ -20,6 +21,13 @@ const tracksMiddleware = ({ getState, dispatch}) => next => action => {
         action.callback();
       };
       API.createTrack(action.track, success, error);
+      return next(action);
+    case REQUEST_YOUTUBE_URL:
+      success = (result) => {
+        action.success(result);
+      };
+      const youtube_error = error => console.log(error.responseJSON);
+      YOUTUBE_API.requestYoutubeUrl(action.querry, success, youtube_error);
       return next(action);
     default:
       return next(action);

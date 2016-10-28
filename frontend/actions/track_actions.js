@@ -4,6 +4,8 @@ export const REQUEST_ALL_TRACKS = 'REQUEST_ALL_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const REQUEST_TRACK = 'REQUEST_TRACK';
 export const CREATE_TRACK = 'CREATE_TRACK';
+export const REQUEST_YOUTUBE_URL = 'REQUEST_YOUTUBE_URL';
+export const RECEIVE_YOUTUBE_URL = 'RECEIVE_YOUTUBE_URL';
 
 export const requestAllTracks = () => ({
   type: REQUEST_ALL_TRACKS
@@ -33,4 +35,11 @@ export const createTrack = (track, callback) => ({
 export const receiveTrackErrors = (errors) => ({
   type: RECEIVE_TRACK_ERRORS,
   errors
+});
+
+export const requestYoutubeUrl = (querry, success, error) => ({
+  type: REQUEST_YOUTUBE_URL,
+  success,
+  error,
+  querry
 });
