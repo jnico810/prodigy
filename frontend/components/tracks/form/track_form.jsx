@@ -52,7 +52,7 @@ class TrackForm extends React.Component {
   createQuerry(){
     const artistArr = this.state.artist.split((' '));
     const titleArr = this.state.title.split(' ');
-    const querry =  `${artistArr.join('')}+${titleArr.join('')}+-COVER+-Cover+-cover`;
+    const querry =  `${artistArr.join('+')}+${titleArr.join('+')}+-COVER+-Cover+-cover`;
     return querry;
   }
 
