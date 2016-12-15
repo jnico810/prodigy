@@ -40,6 +40,10 @@ class Header extends React.Component {
     hashHistory.replace("/");
   }
 
+  handleUserClick(){
+    hashHistory.replace("/users/")
+  }
+
   handleSearch(e) {
     e.preventDefault();
     this.setState({query:e.currentTarget.value});
@@ -61,10 +65,12 @@ class Header extends React.Component {
   render() {
     let rightOfHeader;
     if (this.props.currentUser){
+      console.log(this.props.currentUser);
       rightOfHeader = (
         <ul className="header-list cf">
-          <li className="header-welcome">Welcome <strong>{this.props.currentUser.username}! IQ:{ this.props.currentUser.score}</strong></li>
-          <li><a className="header-logout login" onClick={ this.handleLogOut }>LOG OUT</a></li>
+          <li className="header-welcome">Welcome <Link to={"/users/" + this.props.currentUser.id}> <strong>{this.props.currentUser.username}! </strong> </Link> <strong> IQ:{ this.props.currentUser.score}</strong>
+
+          </li>
         </ul>);
     } else {
       rightOfHeader= (
@@ -126,3 +132,8 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+
+// <Link to={"/users/" + this.props.currentUser.id}>
+//   <strong>{this.props.currentUser.username}! IQ:{ this.props.currentUser.score}</strong>
+// </Link>
