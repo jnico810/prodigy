@@ -68,16 +68,15 @@ class Header extends React.Component {
       console.log(this.props.currentUser);
       rightOfHeader = (
         <ul className="header-list cf">
-          <li className="header-welcome">Welcome <Link to={"/users/" + this.props.currentUser.id}> <strong>{this.props.currentUser.username}! </strong> </Link> <strong> IQ:{ this.props.currentUser.score}</strong>
-
-          </li>
+          <li id="header-welcome">Welcome <Link to={"/users/" + this.props.currentUser.id}> <strong>{this.props.currentUser.username}! </strong> </Link> <strong> IQ:{ this.props.currentUser.score}</strong></li>
+          <li><a className="logout" onClick={ this.handleLogOut}>LOGOUT </a></li>
         </ul>);
     } else {
       rightOfHeader= (
         <div>
         <ul className="header-list cf">
-          <li><a className="login" onClick={ this.openModal.bind(this, "/signup") }>SIGN UP</a></li>
-          <li><a className="login" onClick={ this.openModal.bind(this, "/login") }>LOGIN </a></li>
+          <li><a className="login" onClick={ this.openModal.bind(this, "/signup") }>SIGN UP </a></li>
+          <li><a className="login" onClick={ this.openModal.bind(this, "/login") }>LOGIN  </a></li>
           <li><a className="login" onClick={ this.handleGuestLogin}>GUEST LOGIN </a></li>
         </ul>
         <Modal isOpen={this.state.modalOpen} onRequestClose={this.closeModal} style={ ModalStyle }>

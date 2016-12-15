@@ -4,13 +4,14 @@
 }
 
 .header-list a {
-  // display:block;
-  // padding: 9px;
+  display: block;
+  padding: 9px;
   font: 13px/1.7 helvetica, sans-serif;
 }
 .empty-div {
   display: none;
 }
+
 
 .header-search {
   float: left;
@@ -125,14 +126,14 @@
   float:left;
 }
 
-.header-welcome {
-  display:block;
-  padding: 9px;
+#header-welcome a{
+  display:inline-block;;
+  padding: 9px 0;
   font: 13px/1.7 helvetica, sans-serif;
 }
 
 
-.header-welcome strong {
+#header-welcome strong {
   font-weight: bold;
 }
 

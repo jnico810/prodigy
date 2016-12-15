@@ -5,7 +5,7 @@ import App from './app';
 import Home from './home/home';
 import TrackFormContainer from './tracks/form/track_form_container'
 import TrackShowContainer from './tracks/show/track_show_container'
-import UserShow from './user_page/user_show'
+import UserShowContainer from './user_page/user_show_container.js'
 import { requestAllTracks, requestTrack } from '../actions/track_actions'
 
 const Root = ({ store }) => {
@@ -28,7 +28,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ Home } onEnter= { _requestAllTracks }/>
           <Route path="/new_track" component={ TrackFormContainer } onEnter= {_redirectIfNotLogginIn}/>
           <Route path="/tracks/:track_id" component={ TrackShowContainer } onEnter= {_requestTrack}/>
-          <Route path="/users/:user_id" component={ UserShow }/>
+          <Route path="/users/:user_id" component={ UserShowContainer }/>
         </Route>
     </Router>
   </Provider>
