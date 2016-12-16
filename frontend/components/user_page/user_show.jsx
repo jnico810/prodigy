@@ -25,15 +25,19 @@ class UserShow extends React.Component{
         <main className="user-show-wrapper">
           <section className="user-show-content cf">
             <div className="user-show-left">
-              <div className="user-show-header-content">
-                <img
-                  src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
-                  className="user-show-header-pic"/>
-              </div>
-              <div className="user-show-left-column">
-                <h1>
-                  @{this.props.user.username }
-                </h1>
+              <div className="user-show-header-content-wrapper">
+                <div className="user-show-header-content">
+                  <img
+                    src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
+                    className="user-show-header-pic"/>
+                  <h1>@{this.props.user.username }</h1>
+                  <h2>STATS</h2>
+                  <div className="user-stats">
+                    <p>Annotations: {this.props.user.annotations.length}</p>
+                    <p>Tracks: {this.props.user.tracks.length}</p>
+                    <p>IQ: {this.props.user.score}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
