@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router'
 
 
 class UserShow extends React.Component{
@@ -9,8 +9,6 @@ class UserShow extends React.Component{
   }
 
   render(){
-
-    console.log(this.props.user);
     const header = (
       <header className="user-show-header">
         <img
@@ -18,7 +16,21 @@ class UserShow extends React.Component{
           className="user-show-bg user-show-gradient"/>
       </header>);
 
+    let annotationList = [];
+    if (this.props.user.annotations.length > 0){
+      this.props.user.annotations.forEach((annotation)=>{
+        annotationList.push(
+          <li className="user-annotation-item" key={annotation.id}>
+              <Link to={"/tracks/" + annotation.trackId}>{ annotation.trackTitle }:</Link>
+              <div className="user-annotation-item-div">
+                <p>"{annotation.annotationText}" means {annotation.body}</p>
+              </div>
+          </li>
+        );
+      });
+    }
 
+    console.log(annotationList);
     return(
       <div>
         { header }
@@ -39,6 +51,13 @@ class UserShow extends React.Component{
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="user-show-right">
+              <h1>Recent Annotations:</h1>
+              <ul>
+                {annotationList}
+              </ul>
+
             </div>
           </section>
         </main>

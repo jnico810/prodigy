@@ -46,8 +46,8 @@
 
 .user-show-header-pic {
   border: 2px solid white;
-  height: 24vw;
-  min-height: 250px;
+  height: 27vw;
+  min-height: 290px;
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
@@ -60,15 +60,10 @@
   text-align: center;
 }
 
-.user-show-content h2 {
+.user-show-left h2 {
   font-size: 20px;
   color: gray;
   text-align: center;
-}
-.user-show-content p {
-  font-size: 20px;
-  text-align: center;
-  color: black;
 }
 
 .user-stats{
@@ -81,7 +76,41 @@
   position: relative;
   float: left;
 }
+
+.user-show-left p{
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
 .user-show-left-column {
   text-align: center;
   // padding-top: 5vw;
+}
+
+
+.user-show-right{
+  float: right;
+  width: 50%;
+  position: relative;
+}
+
+.user-show-right a {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-show-right a:hover {
+  color: gray;
+}
+
+.user-show-right h2 {
+  font-size: 20px;
+  color: gray;
+}
+
+.user-show-right p{
+  font-size: 16px;
+  text-align: left;
+  color: black;
+  padding-left: 10px;
 }
