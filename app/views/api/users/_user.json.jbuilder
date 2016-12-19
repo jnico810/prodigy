@@ -3,9 +3,11 @@ json.extract! user, :username, :id, :score
 json.tracks user.tracks
 
 annotationTexts = []
-
+p user
+p user.annotations
 user.annotations[0..4].each do |annotation|
-  if annotation
+  p annotation
+  if annotation != nil
     text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx]
     annotationTexts.push({
       "trackId": annotation.track.id,
