@@ -5,6 +5,7 @@ json.tracks user.tracks
 annotationTexts = []
 
 user.annotations[0..4].each do |annotation|
+  debugger
   text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx]
   annotationTexts.push({
     "trackId": annotation.track.id,
