@@ -4,9 +4,6 @@ json.tracks user.tracks
 
 annotationTexts = []
 
-log
-
-
 user.annotations[0..4].each do |annotation|
   puts annotation
   text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx]
