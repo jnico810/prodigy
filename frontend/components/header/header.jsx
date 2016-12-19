@@ -15,7 +15,6 @@ class Header extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleLogoClick = this.handleLogoClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
   }
@@ -36,12 +35,8 @@ class Header extends React.Component {
     this.setState({ modalOpen: false, formType: "" });
   }
 
-  handleLogoClick() {
-    hashHistory.replace("/");
-  }
-
   handleUserClick(){
-    hashHistory.replace("/users/")
+    hashHistory.replace("/users/");
   }
 
   handleSearch(e) {
@@ -65,10 +60,9 @@ class Header extends React.Component {
   render() {
     let rightOfHeader;
     if (this.props.currentUser){
-      console.log(this.props.currentUser);
       rightOfHeader = (
         <ul className="header-list cf">
-          <li id="header-welcome">Welcome <Link to={"/users/" + this.props.currentUser.id}> <strong>{this.props.currentUser.username}! </strong> </Link> <strong> IQ:{ this.props.currentUser.score}</strong></li>
+          <li id="header-welcome">Welcome <Link to={"/users/" + this.props.currentUser.id}> <strong>{this.props.currentUser.username}! </strong> </Link> IQ:{ this.props.currentUser.score}</li>
           <li><a className="logout" onClick={ this.handleLogOut}>LOGOUT </a></li>
         </ul>);
     } else {
@@ -93,7 +87,7 @@ class Header extends React.Component {
     this.props.search.forEach((result) => {
       const url = `/tracks/${result.id}`;
       results.push(
-        <Link to={ url } onClick={this.clearSearch}>
+        <Link to={ url } onClick={this.clearSearch} key={result.id}>
           <li>{result.title} <small>by {result.artist} </small></li>
         </Link>
     );
@@ -119,7 +113,9 @@ class Header extends React.Component {
           {searchUl}
           <div className="header-logo-container">
             <Link to="/">
-              <a className="header-logo" onClick = { this.handleLogoClick }>PRODIGY</a>
+              <div className="header-logo">
+                PRODIGY
+              </div>
             </Link>
           </div>
           { rightOfHeader }
@@ -129,7 +125,6 @@ class Header extends React.Component {
     );
   }
 }
-
 export default Header;
 
 

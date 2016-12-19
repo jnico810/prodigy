@@ -103,7 +103,7 @@
   color: gray;
 }
 
-.user-show-right h2 {
+.user-show-right h1 {
   font-size: 20px;
   color: gray;
 }
@@ -113,4 +113,9 @@
   text-align: left;
   color: black;
   padding-left: 10px;
+}
+
+.user-show-right ul {
+  background-color: white;
+  padding: 10px;
 }

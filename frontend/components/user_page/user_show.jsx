@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 
 class UserShow extends React.Component{
@@ -29,8 +29,6 @@ class UserShow extends React.Component{
         );
       });
     }
-
-    console.log(annotationList);
     return(
       <div>
         { header }
