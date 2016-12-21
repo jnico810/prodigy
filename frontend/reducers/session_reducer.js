@@ -1,4 +1,4 @@
-import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER, LOGOUT } from '../actions/session_actions';
+import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER, LOGOUT, UPDATE_SCORE } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -12,6 +12,8 @@ const session = (state = defaultState, action) => {
       return merge({}, state, {currentUser: action.currentUser});
     case RECEIVE_ERRORS:
       return merge({}, state, {errors: action.errors});
+    case UPDATE_SCORE:
+      return merge({}, state, {currentUser: {score: action.score}});
     case LOGOUT:
       return defaultState;
     default:

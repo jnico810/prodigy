@@ -6,6 +6,7 @@ const mapStateToProps = ({ tracks, session}) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  receiveCurrentUser: (annotation, callback) => dispatch(receiveCurrentUser(annotation, callback))
 });
 
 export default connect(mapStateToProps)(TrackShow);

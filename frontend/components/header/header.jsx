@@ -126,8 +126,3 @@ class Header extends React.Component {
   }
 }
 export default Header;
-
-
-// <Link to={"/users/" + this.props.currentUser.id}>
-//   <strong>{this.props.currentUser.username}! IQ:{ this.props.currentUser.score}</strong>
-// </Link>

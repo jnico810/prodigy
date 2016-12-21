@@ -69,6 +69,7 @@ class TrackShow extends React.Component{
 
   closeShowForm(e){
     this.setState({annotating:false, annotationIndices:[], selectedAnnotation:null, startLoc: null, endLoc: null, hidden:""});
+  
   }
 
   handleAnnotationClick(annotation, e){
