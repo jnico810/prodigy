@@ -11,9 +11,9 @@ class Api::SessionsController < ApplicationController
   end
 
   def show
-    @user = currentUser
+    @user = current_user
     if @user
-      login(@user)
+      # debugger
       render 'api/users/show'
     else
       render json: ["ERRORR"], status: 422

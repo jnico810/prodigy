@@ -26,7 +26,13 @@ class AnnotationForm extends React.Component {
       track_id:this.props.track.id,
       body: this.state.body
     };
-    this.props.createAnnotation({ annotation }, this.props.callback);
+    this.props.createAnnotation({ annotation }, this.callback.bind(this));
+  }
+
+  callback(){
+    this.props.callback();
+    this.props.getUser();
+    console.log('ok');
   }
 
   render(){
