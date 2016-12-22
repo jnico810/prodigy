@@ -1,6 +1,7 @@
 json.extract! user, :username, :id, :score
 # json.annotations user.annotations
 json.tracks user.tracks
+json.user_picture asset_path(user.user_picture.url)
 
 annotationTexts = []
 

@@ -11,8 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    debugger
-    @user = User.find(user_params(:id))
+    @user = User.find(user_params[:id])
     if @user.update(user_picture: user_params[:user_picture])
       render :show
     else

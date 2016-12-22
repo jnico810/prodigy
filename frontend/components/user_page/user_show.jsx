@@ -35,7 +35,7 @@ class UserShow extends React.Component{
     const header = (
       <header className="user-show-header">
         <img
-          src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
+          src= { this.props.user.user_picture }
           className="user-show-bg user-show-gradient"/>
       </header>);
 
@@ -62,7 +62,7 @@ class UserShow extends React.Component{
                 <div className="user-show-header-content">
                   <div className="user-show-img-wrapper">
                     <img
-                      src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
+                      src= { this.props.user.user_picture }
                       className="user-show-header-pic"/>
 
                     <div className="user-file-wrapper">
