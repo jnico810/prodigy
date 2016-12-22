@@ -32,7 +32,6 @@ class AnnotationForm extends React.Component {
   callback(){
     this.props.callback();
     this.props.getUser();
-    console.log('ok');
   }
 
   render(){

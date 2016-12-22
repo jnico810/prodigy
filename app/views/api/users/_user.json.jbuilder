@@ -4,9 +4,7 @@ json.tracks user.tracks
 
 annotationTexts = []
 
-user.annotations[0..4].each do |annotation|
-  p annotation
-  p annotation.track
+user.annotations.order(created_at: :desc).limit(5).each do |annotation|
   if annotation != nil
     text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx]
     annotationTexts.push({

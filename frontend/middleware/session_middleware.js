@@ -17,7 +17,6 @@ const sessionMiddleware = ({ getState, dispatch}) => next => action => {
       });
       break;
     case GET_USER:
-      // debugger
       getUser(success, error);
       return next(action);
     case SIGNUP:
