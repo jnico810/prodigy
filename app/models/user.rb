@@ -23,7 +23,10 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
-  has_attached_file :user_picture, default_url: "default_user_picture.png"
+  has_attached_file :user_picture,
+    default_url: "default_user_picture.png",
+    styles: { original: '400x400>', thumb: '100x100>'},
+    processors: [:thumbnail, :compression]
   validates_attachment_content_type :user_picture, content_type: /\Aimage\/.*\Z/
 
   has_many :tracks,

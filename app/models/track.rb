@@ -22,7 +22,10 @@ class Track < ActiveRecord::Base
 
   validates :title, :description, :lyrics, :artist_id, :author_id, presence: true
 
-  has_attached_file :album_art, default_url: "dark_side.jpg"
+  has_attached_file :album_art,
+  default_url: "dark_side.jpg",
+  styles: { original: '400x400>', thumb: '100x100>'},
+  processors: [:thumbnail, :compression]
   validates_attachment_content_type :album_art, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,

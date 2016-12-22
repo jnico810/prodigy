@@ -102,12 +102,16 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    os (0.9.6)
     paperclip (5.0.0.beta1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-compression (0.3.16)
+      os (~> 0.9.6)
+      paperclip (>= 4.3.6)
     pg (0.19.0)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -200,6 +204,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (= 5.0.0.beta1)
+  paperclip-compression
   pg
   pry-rails
   rails (= 4.2.7.1)

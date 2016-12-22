@@ -37,8 +37,10 @@ module Prodigy
         :secret_access_key => ENV["s3_secret_access_key"],
         :s3_region => ENV["s3_region"]
       },
-      :s3_protocol => :https
+      :s3_protocol => :https,
+      :compression => { :png => '-optimize', :jpeg => '-optimize' }
     }
+
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
