@@ -9,6 +9,7 @@ class Api::TracksController < ApplicationController
   end
 
   def create
+    debugger
     artist = Artist.find_by(name: track_params[:artist])
     if !artist
       artist = Artist.create(name: track_params[:artist])

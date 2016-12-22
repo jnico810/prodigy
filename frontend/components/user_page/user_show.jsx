@@ -6,6 +6,29 @@ class UserShow extends React.Component{
 
   constructor(props){
     super(props);
+    this.state = { imageFile:null, imageUrl:null };
+    this.updateFile = this.updateFile.bind(this);
+  }
+
+  updateFile(e){
+    const file =e.currentTarget.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({ imageUrl: reader.result, imageFile: file});
+      var formData = new FormData();
+      formData.append("user[user_picture]", this.state.imageFile);
+      formData.append("user[id]", this.props.user.id);
+      this.props.updateUserPicture(formData, this.callback.bind(this));
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: null, imageFile: null });
+    }
+  }
+
+  callback(){
+    console.log("UPDATED USER PROFILE PICTURE");
   }
 
   render(){
@@ -37,9 +60,17 @@ class UserShow extends React.Component{
             <div className="user-show-left">
               <div className="user-show-header-content-wrapper">
                 <div className="user-show-header-content">
-                  <img
-                    src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
-                    className="user-show-header-pic"/>
+                  <div className="user-show-img-wrapper">
+                    <img
+                      src= { "https://static.pexels.com/photos/27411/pexels-photo-27411.jpg" }
+                      className="user-show-header-pic"/>
+
+                    <div className="user-file-wrapper">
+                      <input type="file" name="file" id="file" className="inputfile" onChange={ this.updateFile}/>
+                      <label htmlFor="file">Update profile picture</label>
+                    </div>
+                  </div>
+
                   <h1>@{this.props.user.username }</h1>
                   <h2>STATS</h2>
                   <div className="user-stats">

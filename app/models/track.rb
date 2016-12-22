@@ -15,6 +15,7 @@
 #  album_art_content_type :string
 #  album_art_file_size    :integer
 #  album_art_updated_at   :datetime
+#  youtube_url            :string
 #
 
 class Track < ActiveRecord::Base

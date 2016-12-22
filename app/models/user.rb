@@ -2,14 +2,18 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  email           :string
-#  password_digest :string           not null
-#  score           :integer          default(0), not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                        :integer          not null, primary key
+#  username                  :string           not null
+#  email                     :string
+#  password_digest           :string           not null
+#  score                     :integer          default(0), not null
+#  session_token             :string           not null
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  user_picture_file_name    :string
+#  user_picture_content_type :string
+#  user_picture_file_size    :integer
+#  user_picture_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -18,6 +22,9 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
+
+  has_attached_file :user_picture, default_url: "dark_side.jpg"
+  validates_attachment_content_type :user_picture, content_type: /\Aimage\/.*\Z/
 
   has_many :tracks,
     primary_key: :id,

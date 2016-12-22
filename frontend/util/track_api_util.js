@@ -17,6 +17,7 @@ export const requestTrack = (track_id, success, error) => {
 };
 
 export const createTrack = (track, success, error) => {
+  debugger
   $.ajax({
     method: "POST",
     data: track,

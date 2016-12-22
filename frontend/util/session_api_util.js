@@ -36,3 +36,15 @@ export const getUser = (success, error) => {
     error
   });
 };
+
+export const updateUserPicture = (user, success, error) => {
+  $.ajax({
+    method: "PATCH",
+    url: `/api/users/${user.get("user[id]")}`,
+    data: user,
+    processData: false,
+    contentType: false,
+    success,
+    error
+  });
+};
