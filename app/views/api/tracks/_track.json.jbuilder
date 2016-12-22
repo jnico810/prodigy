@@ -1,5 +1,6 @@
 json.extract! track, :title, :description
 json.author track.author.username
+json.author_id track.author.id
 json.artist track.artist.name
 json.album track.album
 json.youtube_url track.youtube_url
