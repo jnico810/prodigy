@@ -26,3 +26,13 @@ export const logout = (success, error) => {
     error
   });
 };
+
+
+export const getUser = (success, error) => {
+  $.ajax({
+    method: "GET",
+    url: "/api/session",
+    success,
+    error
+  });
+};
