@@ -7,7 +7,7 @@ annotationTexts = []
 
 user.annotations.order(created_at: :desc).limit(5).each do |annotation|
   if annotation != nil
-    text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx]
+    text = annotation.track.lyrics[annotation.start_idx, annotation.end_idx - annotation.start_idx]
     annotationTexts.push({
       "trackId": annotation.track.id,
       "trackTitle": annotation.track.title,
