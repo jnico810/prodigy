@@ -38,7 +38,7 @@ module Prodigy
         :s3_region => ENV["s3_region"]
       },
       :s3_protocol => :https,
-      :compression => { :png => '-optimize', :jpeg => '-optimize' }
+      :compression => { :png => '-o 5 -quiet', :jpeg => '-copy none -optimize'}
     }
 
 

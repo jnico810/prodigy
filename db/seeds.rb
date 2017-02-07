@@ -336,7 +336,7 @@ I gotta get with it",
   album: "808's and Heartbreak")
 
 
-      Track.create!(  title: "Hell No",
+Track.create!(  title: "Hell No",
         description:"Ingrid Michaelson and Greg Laswell divorced in February of 2015. Laswell released his album Everyone Thinks I Dodged A Bullet over a year later, featuring songs mired in regret and sadness – likely over their breakup.
 
 Meanwhile, Michaelson released an upbeat song soon after that essentially saying “good riddance.”
@@ -582,7 +582,6 @@ author_id: belieber.id,
 album_art: File.open('app/assets/images/beyonce.jpg'),
 album: "4",
 youtube_url: 'https://www.youtube.com/watch?v=2XY3AvVgDns')
-
 
 Track.create!(  title: "You'll be Back",
   description:"This song, framed as a letter from King George to the colonists, is a kind of extended double entendre. It addresses the grievances of the colonists and asserts George’s authority, but in form and wording it echos any number of other songs which have a similarly creepy “you want to leave me, but you can’t really” vibe.
